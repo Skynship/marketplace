@@ -125,6 +125,7 @@ const ProductIntro = ({
           </Box>
 
           <Box sx={{'marginBottom': '20px'}}>
+            <H3 mb={1}>Description:</H3>
             { description }
           </Box>
 

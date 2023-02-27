@@ -5,10 +5,8 @@ import Logo from 'components/primitives/Logo';
 import Image from "components/BazaarImage";
 import { FlexBox } from "components/flex-box";
 import { Paragraph } from "components/Typography";
-import Google from "components/icons/Google";
 import Twitter from "components/icons/Twitter";
-import Youtube from "components/icons/Youtube";
-import Facebook from "components/icons/Facebook";
+import TikTok from "components/icons/TikTok";
 import Instagram from "components/icons/Instagram";
 
 // styled component
@@ -95,19 +93,15 @@ const DropFooter = () => {
 const aboutLinks = ["Terms & Conditions", "Privacy Policy"];
 const customerCareLinks = ["Help Center", "How to Buy", "Track Your Order", "Corporate & Bulk Purchasing", "Returns & Refunds"];
 const iconList = [{
-  icon: Facebook,
-  url: "https://www.facebook.com/UILibOfficial"
-}, {
-  icon: Twitter,
-  url: "https://twitter.com/uilibofficial"
-}, {
-  icon: Youtube,
-  url: "https://www.youtube.com/channel/UCsIyD-TSO1wQFz-n2Y4i3Rg"
-}, {
-  icon: Google,
-  url: "https://www.google.com/search?q=ui-lib.com"
-}, {
+  icon: TikTok,
+  url: "https://www.tiktok.com/@skynship"
+},
+// {
+//   icon: Twitter,
+//   url: "https://twitter.com/skynship"
+// },
+{
   icon: Instagram,
-  url: "https://www.instagram.com/uilibofficial/"
+  url: "https://www.instagram.com/skyn.ship/"
 }];
 export default DropFooter;

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Box, Container, Grid, IconButton, styled } from "@mui/material";
-import AppStore from "components/AppStore";
+// import AppStore from "components/AppStore";
+import { useRouter } from "next/router";
 import Logo from 'components/primitives/Logo';
 import Image from "components/BazaarImage";
 import { FlexBox } from "components/flex-box";
@@ -10,7 +11,7 @@ import TikTok from "components/icons/TikTok";
 import Instagram from "components/icons/Instagram";
 
 // styled component
-const StyledLink = styled("a")(({
+const StyledLink = styled("span")(({
   theme
 }) => ({
   display: "block",
@@ -23,7 +24,11 @@ const StyledLink = styled("a")(({
     color: theme.palette.grey[700]
   }
 }));
+
 const DropFooter = () => {
+  const router = useRouter();
+  const { basePath } = router;
+
   return <footer>
       <Box bgcolor="#fffff9">
         <Container sx={{
@@ -46,8 +51,8 @@ const DropFooter = () => {
                   </Box>
 
                   <Box sx={{'textAlign': 'center'}}>
-                    {aboutLinks.map((item, ind) => <Link href="/" key={ind} passHref>
-                        <StyledLink>{item}</StyledLink>
+                    {aboutLinks.map((item, ind) => <Link href={`${basePath}${item.url}`} key={ind}>
+                        <StyledLink>{item.title}</StyledLink>
                       </Link>)}
                   </Box>
                 </Grid>
@@ -71,14 +76,14 @@ const DropFooter = () => {
                   <FlexBox className="flex" mx={-0.625}>
                     {iconList.map((item, ind) => <a href={item.url} target="_blank" rel="noreferrer noopenner" key={ind}>
                         <IconButton sx={{
-                      margin: 0.5,
-                      fontSize: 12,
-                      padding: "10px",
-                      backgroundColor: "rgba(0,0,0,0.2)"
-                    }}>
+                          margin: 0.5,
+                          fontSize: 12,
+                          padding: "10px",
+                          backgroundColor: "rgba(0,0,0,0.2)"
+                        }}>
                           <item.icon fontSize="inherit" sx={{
-                        color: "black"
-                      }} />
+                            color: "black"
+                          }} />
                         </IconButton>
                       </a>)}
                   </FlexBox>
@@ -90,8 +95,15 @@ const DropFooter = () => {
       </Box>
     </footer>;
 };
-const aboutLinks = ["Terms & Conditions", "Privacy Policy"];
-const customerCareLinks = ["Help Center", "How to Buy", "Track Your Order", "Corporate & Bulk Purchasing", "Returns & Refunds"];
+const aboutLinks = [
+  {
+    title: 'Terms & Conditions',
+    url: 'legal/terms_and_conditions.html'
+  }, {
+    title: "Privacy Policy",
+    url: 'legal/privacy_policy.html'
+  }
+];
 const iconList = [{
   icon: TikTok,
   url: "https://www.tiktok.com/@skynship"

@@ -26,8 +26,8 @@ const StyledLink = styled("span")(({
 }));
 
 const DropFooter = () => {
-  const router = useRouter();
-  const { basePath } = router;
+  const isDev = process.env.HOST === 'dev';
+  let hostname = isDev ? 'http://localhost:3000/' : 'https://skynship.com/';
 
   return <footer>
       <Box bgcolor="#fffff9">
@@ -51,9 +51,9 @@ const DropFooter = () => {
                   </Box>
 
                   <Box sx={{'textAlign': 'center'}}>
-                    {aboutLinks.map((item, ind) => <Link href={`${basePath}${item.url}`} key={ind}>
+                    {aboutLinks.map((item, ind) => <a href={`${hostname}${item.url}`} key={ind}>
                         <StyledLink>{item.title}</StyledLink>
-                      </Link>)}
+                      </a>)}
                   </Box>
                 </Grid>
 

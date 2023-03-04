@@ -19,7 +19,8 @@ import SearchInput from "components/search-box/SearchInput";
 const ShopLayout2 = ({
   children,
   showTopbar = true,
-  showNavbar = true
+  showNavbar = true,
+  showSearchbar = true
 }) => {
   const [isFixed, setIsFixed] = useState(false);
   const toggleIsFixed = useCallback(fixed => setIsFixed(fixed), []);
@@ -29,7 +30,7 @@ const ShopLayout2 = ({
 
       {/* HEADER */}
       <Sticky fixedOn={0} onSticky={toggleIsFixed} scrollDistance={70}>
-        <Header isFixed={isFixed} searchInput={<SearchInput />} />
+        <Header isFixed={isFixed} searchInput={showSearchbar ? <SearchInput /> : null} />
       </Sticky>
 
       <Box zIndex={4} position="relative" className="section-after-sticky">

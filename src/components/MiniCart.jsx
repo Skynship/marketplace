@@ -35,8 +35,8 @@ const MiniCart = ({
   const getTotalPrice = () => {
     return cartList.reduce((accum, item) => accum + item.price * item.qty, 0);
   };
-  return <Box width="100%" maxWidth={380}>
-      <Box overflow="auto" height={`calc(100vh - ${!!cartList.length ? "80px - 3.25rem" : "0px"})`}>
+  return <Box width="100%" minWidth={380}>
+      <Box overflow="auto" height={`calc(100vh - ${!!cartList.length ? "80px - 0.75rem" : "0px"})`}>
         <FlexBetween mx={3} height={74}>
           <FlexBox gap={1} alignItems="center" color="secondary.main">
             <CartBag color="inherit" />
@@ -63,10 +63,10 @@ const MiniCart = ({
         {cartList.map(item => <FlexBox py={2} px={2.5} key={item.id} alignItems="center" borderBottom={`1px solid ${palette.divider}`}>
             <FlexBox alignItems="center" flexDirection="column">
               <Button color="primary" variant="outlined" onClick={handleCartAmountChange(item.qty + 1, item)} sx={{
-            height: "32px",
-            width: "32px",
-            borderRadius: "300px"
-          }}>
+                height: "32px",
+                width: "32px",
+                borderRadius: "300px"
+              }}>
                 <Add fontSize="small" />
               </Button>
 
@@ -75,10 +75,10 @@ const MiniCart = ({
               </Box>
 
               <Button color="primary" variant="outlined" disabled={item.qty === 1} onClick={handleCartAmountChange(item.qty - 1, item)} sx={{
-            height: "32px",
-            width: "32px",
-            borderRadius: "300px"
-          }}>
+                height: "32px",
+                width: "32px",
+                borderRadius: "300px"
+              }}>
                 <Remove fontSize="small" />
               </Button>
             </FlexBox>
@@ -86,18 +86,18 @@ const MiniCart = ({
             <Link href={`/product/${item.id}`}>
               <a>
                 <Avatar alt={item.name} src={item.imgUrl} sx={{
-              mx: 2,
-              width: 76,
-              height: 76
-            }} />
+                  mx: 2,
+                  width: 76,
+                  height: 76
+                }} />
               </a>
             </Link>
 
             <Box flex="1" sx={{
-          whiteSpace: "nowrap",
-          overflow: "hidden",
-          textOverflow: "ellipsis"
-        }}>
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis"
+            }}>
               <Link href={`/product/${item.slug}`}>
                 <a>
                   <H5 ellipsis fontSize="14px" className="title">
@@ -116,30 +116,30 @@ const MiniCart = ({
             </Box>
 
             <IconButton size="small" onClick={handleCartAmountChange(0, item)} sx={{
-          marginLeft: 2.5
-        }}>
+              marginLeft: 2.5
+            }}>
               <Close fontSize="small" />
             </IconButton>
           </FlexBox>)}
       </Box>
 
       {cartList.length > 0 && <Box p={2.5}>
-          <Link href="/checkout-alternative" passHref>
+          <Link href="/checkout" passHref>
             <Button fullWidth color="primary" variant="contained" sx={{
-          mb: "0.75rem",
-          height: "40px"
-        }} onClick={toggleSidenav}>
+              mb: "0.75rem",
+              height: "40px"
+            }} onClick={toggleSidenav}>
               Checkout Now ({currency(getTotalPrice())})
             </Button>
           </Link>
 
-          <Link href="/cart" passHref>
+          {/*<Link href="/cart" passHref>
             <Button fullWidth color="primary" variant="outlined" sx={{
           height: 40
         }} onClick={toggleSidenav}>
               View Cart
             </Button>
-          </Link>
+          </Link>*/}
         </Box>}
     </Box>;
 };

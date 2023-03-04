@@ -33,20 +33,20 @@ const CheckoutSummary = () => {
       </FlexBetween>
 
       <Divider sx={{
-      mb: "1rem"
-    }} />
+        mb: "1rem"
+      }} />
 
       <Typography fontSize="25px" fontWeight="600" lineHeight="1" textAlign="right" mb={3}>
         {currency(2610)}
       </Typography>
 
-      <TextField placeholder="Voucher" variant="outlined" size="small" fullWidth />
+      {/*<TextField placeholder="Voucher" variant="outlined" size="small" fullWidth />
       <Button variant="outlined" color="primary" fullWidth sx={{
-      mt: "1rem",
-      mb: "30px"
-    }}>
+        mt: "1rem",
+        mb: "30px"
+      }}>
         Apply Voucher
-      </Button>
+      </Button>*/}
     </Card1>;
 };
 export default CheckoutSummary;

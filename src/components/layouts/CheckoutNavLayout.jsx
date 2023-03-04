@@ -26,16 +26,14 @@ const CheckoutNavLayout = ({
   const handleStepChange = step => {
     switch (step) {
       case 0:
-        router.push("/cart");
-        break;
-      case 1:
         router.push("/checkout");
         break;
-      case 2:
+      case 1:
         router.push("/payment");
         break;
-      case 3:
+      case 2:
         router.push("/orders");
+        break;
         break;
       default:
         break;
@@ -43,14 +41,11 @@ const CheckoutNavLayout = ({
   };
   useEffect(() => {
     switch (pathname) {
-      case "/cart":
+      case "/checkout":
         setSelectedStep(1);
         break;
-      case "/checkout":
-        setSelectedStep(2);
-        break;
       case "/payment":
-        setSelectedStep(3);
+        setSelectedStep(2);
         break;
       default:
         break;
@@ -76,9 +71,6 @@ const CheckoutNavLayout = ({
     </ShopLayout1>;
 };
 const stepperList = [{
-  title: "Cart",
-  disabled: false
-}, {
   title: "Details",
   disabled: false
 }, {

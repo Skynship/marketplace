@@ -47,6 +47,7 @@ const StyledContainer = styled(Container)({
 
 const Header = ({
   isFixed,
+  isCartShown = true,
   className,
   searchInput
 }) => {
@@ -71,11 +72,15 @@ const Header = ({
         <Login />
       </Dialog>
 
-      <Drawer open={sidenavOpen} anchor="right" onClose={toggleSidenav} sx={{
-        zIndex: 9999
-      }}>
-        <MiniCart toggleSidenav={toggleSidenav} />
-      </Drawer>
+      {
+        isCartShown ? (
+          <Drawer open={sidenavOpen} anchor="right" onClose={toggleSidenav} sx={{
+            zIndex: 9999
+          }}>
+            <MiniCart toggleSidenav={toggleSidenav} />
+          </Drawer>
+        ) : null
+      }
     </Fragment>;
 
   // FOR SMALLER DEVICE
@@ -107,11 +112,15 @@ const Header = ({
                 <Icon.User sx={ICON_STYLE} />
               </Box>
 
-              <Box component={IconButton} onClick={toggleSidenav}>
-                <Badge badgeContent={state.cart.length} color="primary">
-                  <Icon.CartBag sx={ICON_STYLE} />
-                </Badge>
-              </Box>
+              {
+                isCartShown ? (
+                  <Box component={IconButton} onClick={toggleSidenav}>
+                    <Badge badgeContent={state.cart.length} color="primary">
+                      <Icon.CartBag sx={ICON_STYLE} />
+                    </Badge>
+                  </Box>
+                ) : null
+              }
             </FlexBox>
           </FlexBetween>
 
@@ -172,11 +181,15 @@ const Header = ({
             <PersonOutline />
           </Box>*/}
 
-          <Badge badgeContent={state.cart.length} color="primary">
-            <Box p={1.25} bgcolor="grey.200" component={IconButton} onClick={toggleSidenav}>
-              <ShoppingBagOutlined />
-            </Box>
-          </Badge>
+          {
+            isCartShown ? (
+              <Badge badgeContent={state.cart.length} color="primary">
+                <Box p={1.25} bgcolor="grey.200" component={IconButton} onClick={toggleSidenav}>
+                  <ShoppingBagOutlined />
+                </Box>
+              </Badge>
+            ) : null
+          }
         </FlexBox>
 
         {/* LOGIN FORM DIALOG AND CART SIDE BAR  */}

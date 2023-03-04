@@ -26,14 +26,15 @@ const ShopLayout1 = ({
   children,
   topbarBgColor,
   showTopbar = true,
-  showNavbar = true
+  showNavbar = true,
+  isCartShown = true
 }) => {
   const [isFixed, setIsFixed] = useState(false);
   const toggleIsFixed = useCallback(fixed => setIsFixed(fixed), []);
   return <Fragment>
       {/* HEADER */}
       <Sticky fixedOn={0} onSticky={toggleIsFixed} scrollDistance={300}>
-        <Header isFixed={isFixed} />
+        <Header isFixed={isFixed} isCartShown={isCartShown} />
       </Sticky>
 
       <div className="section-after-sticky">

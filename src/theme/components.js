@@ -55,7 +55,8 @@ export const components = {
   MuiCard: {
     styleOverrides: {
       root: {
-        borderRadius: "8px"
+        borderRadius: "25px",
+        backgroundColor: '#fffff9'
       }
     }
   },
@@ -82,6 +83,33 @@ export const components = {
       }
     }
   },
+  MuiAutocomplete: {
+      styleOverrides: {
+        // Name of the slot
+        inputRoot: {
+          borderRadius: "20px",
+          fontWeight: 600
+        }
+      }
+  },
+  MuiOutlinedInput: {
+      styleOverrides: {
+        // Name of the slot
+        notchedOutline: {
+          border: "1px solid grey.900",
+          fontWeight: 600
+        }
+      }
+  },
+  MuiOutlinedInput: {
+    styleOverrides: {
+      root: {
+        borderRadius: "20px",
+        fontWeight: 600,
+        color: 'grey.900'
+      }
+    }
+  },
   MuiTextField: {
     defaultProps: {
       size: "small",
@@ -93,11 +121,14 @@ export const components = {
       }) => ({
         ...(ownerState.color === "info" && {
           "& .MuiOutlinedInput-root": {
-            borderRadius: "8px",
-            fontWeight: 600
+            borderRadius: "20px",
+            fontWeight: 600,
+            color: 'grey.900'
           },
           "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: grey[300]
+            borderRadius: "20px",
+            borderColor: 'grey.900',
+            color: 'grey.900'
           }
         })
       })
@@ -110,14 +141,25 @@ export const components = {
       }) => ({
         minWidth: 0,
         minHeight: 0,
-        fontWeight: 600,
+        fontWeight: 800,
+        fontSize: '15px',
         textTransform: "capitalize",
+        ...(ownerState.color === "primary" && ownerState.variant === 'contained' && {
+          borderRadius: '25px',
+          padding: '12px 20px'
+        }),
+        ...(ownerState.color === "primary" && ownerState.variant === "outlined" && {
+          borderRadius: '25px',
+          padding: '10px 20px',
+          border: '1.5px solid #FF2F17',
+          backgroundColor: '#fffff9'
+        }),
         ...(ownerState.color === "info" && {
-          borderRadius: "8px"
+          borderRadius: "20px"
         }),
         ...(ownerState.color === "dark" && {
           color: "#fff",
-          borderRadius: 0,
+          borderRadius: '20px',
           transition: "all 0.3s",
           ":hover": {
             backgroundColor: "#343434"
@@ -125,7 +167,7 @@ export const components = {
         }),
         ...(ownerState.color === "dark" && ownerState.variant === "outlined" && {
           color: dark.main,
-          borderRadius: "3px",
+          borderRadius: "20px",
           transition: "all 0.3s",
           ":hover": {
             backgroundColor: dark.main,

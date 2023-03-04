@@ -103,9 +103,9 @@ const CheckoutForm2 = () => {
       handleSubmit,
       setFieldValue
     }) => <form onSubmit={handleSubmit}>
-          <Card1 sx={{
-        mb: 3
-      }}>
+          {/*<Card1 sx={{
+            mb: 3
+          }}>
             <Heading number={1} title="Delivery Date and Time" />
 
             <Box mb={3.5}>
@@ -126,13 +126,13 @@ const CheckoutForm2 = () => {
                 </Grid>
               </Grid>
             </Box>
-          </Card1>
+          </Card1>*/}
 
           <Card1 sx={{
-        mb: 3
-      }}>
+            mb: 3
+          }}>
             <FlexBetween>
-              <Heading number={2} title="Delivery Address" />
+              <Heading number={1} title="Delivery Address" />
 
               <NewAddressForm setNewAddress={setNewAddress} />
             </FlexBetween>
@@ -140,7 +140,7 @@ const CheckoutForm2 = () => {
             <Typography mb={1.5}>Delivery Address</Typography>
             <Grid container spacing={3}>
               {addressData.map((item, ind) => <Grid item md={4} sm={6} xs={12} key={ind}>
-                  <Card sx={{
+              <Card sx={{
               padding: 2,
               boxShadow: "none",
               cursor: "pointer",
@@ -149,17 +149,17 @@ const CheckoutForm2 = () => {
               backgroundColor: "grey.100",
               borderColor: item.street1 === values.address ? "primary.main" : "transparent"
             }} onClick={handleFieldValueChange(item.street1, "address", setFieldValue)}>
-                    <FlexBox justifyContent="flex-end" sx={{
+              <FlexBox justifyContent="flex-end" sx={{
                 position: "absolute",
                 top: 5,
                 right: 5
               }}>
-                      {selected && <EditAddressForm selected={selected} addressData={addressData} openEditForm={openEditForm} setOpenEditForm={setOpenEditForm} setAddressData={setAddressData} />}
+                  {selected && <EditAddressForm selected={selected} addressData={addressData} openEditForm={openEditForm} setOpenEditForm={setOpenEditForm} setAddressData={setAddressData} />}
 
-                      <IconButton size="small" sx={{
-                  mr: 1
-                }} onClick={() => editHandler(item.name)}>
-                        <ModeEditOutline sx={{
+                  <IconButton size="small" sx={{
+                    mr: 1
+                  }} onClick={() => editHandler(item.name)}>
+                      <ModeEditOutline sx={{
                     fontSize: 20
                   }} />
                       </IconButton>
@@ -180,9 +180,9 @@ const CheckoutForm2 = () => {
           </Card1>
 
           <Card1 sx={{
-        mb: 3
-      }}>
-            <Heading number={3} title="Payment Details" />
+            mb: 3
+          }}>
+            <Heading number={2} title="Payment Details" />
 
             <Box mb={3.5}>
               <Typography mb={1.5}>Enter Card Information</Typography>
@@ -201,8 +201,8 @@ const CheckoutForm2 = () => {
                         </MenuItem>)}
                     </TextField>
                     <TextField select fullWidth type="number" name="cardYear" onChange={handleChange} label="Expire Card Year" value={values.cardYear} error={!!touched.cardYear && !!errors.cardYear} helperText={touched.cardYear && errors.cardYear} sx={{
-                  mx: 3
-                }}>
+                      mx: 3
+                    }}>
                       {years.map(item => <MenuItem value={item} key={item}>
                           {item}
                         </MenuItem>)}
@@ -243,10 +243,10 @@ const CheckoutForm2 = () => {
             </Box>
 
             <Button sx={{
-          color: "primary.main",
-          mt: 3,
-          lineHeight: 1
-        }} onClick={toggleHasVoucher}>
+              color: "primary.main",
+              mt: 3,
+              lineHeight: 1
+            }} onClick={toggleHasVoucher}>
               I have a voucher
             </Button>
 
@@ -258,8 +258,8 @@ const CheckoutForm2 = () => {
               </FlexBox>}
 
             <Button fullWidth type="submit" color="primary" variant="contained" sx={{
-          mt: 3
-        }}>
+              mt: 3
+            }}>
               Place Order
             </Button>
           </Card1>

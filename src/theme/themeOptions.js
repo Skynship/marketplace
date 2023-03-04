@@ -68,6 +68,7 @@ const themeOptions = (publicRuntimeConfig, pathname) => {
     publicRuntimeConfig.theme = themeName;
     themeOptions = themesOptions[publicRuntimeConfig.theme];
   };
+  
   switch (pathname) {
     case "/":
     case "/grocery1":
@@ -80,12 +81,6 @@ const themeOptions = (publicRuntimeConfig, pathname) => {
       break;
     case "/furniture-shop":
       updateTheme(THEMES.FURNITURE);
-      break;
-    case "/healthbeauty-shop":
-      updateTheme(THEMES.HEALTH);
-      break;
-    case "/gift-shop":
-      updateTheme(THEMES.GIFT);
       break;
     default:
       themeOptions = themesOptions[publicRuntimeConfig.theme];

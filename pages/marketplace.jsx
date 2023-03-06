@@ -12,9 +12,13 @@ export default class Marketplace extends React.PureComponent {
             <Box sx={{
                 'display': 'flex',
                 'flexDirection': 'column',
-                'height': '100%'
+                'height': '100%',
+                'minHeight': '100vh'
             }}>
                 <ShopLayout1 isCartShown={false} sxSectionAfterSticky={{
+                    'display': 'flex',
+                    'alignItems': 'center',
+                    'justifyContent': 'center',
                     'flexGrow': '1'
                 }}>
                     <Box sx={{

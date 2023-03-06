@@ -104,7 +104,7 @@ export const components = {
   MuiOutlinedInput: {
     styleOverrides: {
       root: {
-        borderRadius: "20px",
+        borderRadius: "60px",
         fontWeight: 600,
         color: 'grey.900'
       }
@@ -112,7 +112,8 @@ export const components = {
   },
   MuiTextField: {
     defaultProps: {
-      size: "small",
+      size: "medium",
+      borderRadius: "50px",
       variant: "outlined"
     },
     styleOverrides: {

@@ -1,9 +1,11 @@
 // Dependencies
 import React from 'react';
 import { Box } from "@mui/material";
-import { H1, H2 } from "components/Typography";
+import { H1, H2, H3 } from "components/Typography";
+import * as yup from "yup";
 
 import Faq from 'components/primitives/Faq';
+import SubscribeForm from "components/primitives/SubscribeForm";
 import ShopLayout1 from "components/layouts/ShopLayout1";
 
 // Configs
@@ -19,7 +21,7 @@ export default class Marketplace extends React.PureComponent {
             }}>
                 <ShopLayout1 isCartShown={false} sxSectionAfterSticky={{
                     'flexGrow': '1',
-                    'padding': ['24px 20px', '24px 0px 40px 0px']
+                    'padding': ['24px 20px', '24px 20px', '24px 0px 40px 0px']
                 }}>
                     <Box sx={{
                         'height': '90vh',
@@ -53,7 +55,7 @@ export default class Marketplace extends React.PureComponent {
                                         'width': ['60%', '45%'],
                                         'height': '150px',
                                         'zIndex': '-1',
-                                        'top': '-60px',
+                                        'top': '-80px',
                                         'left': ['30%', '10%']
                                     }} />
                                 </H1>
@@ -62,10 +64,14 @@ export default class Marketplace extends React.PureComponent {
                                 	'fontWeight': '500',
                                 	'fontSize': ['18px', '20px', '25px'],
                                 	'marginTop': '20px',
-                                	'textAlign': 'center'
+									'marginBottom': ['60px', '80px'],
+									'textAlign': 'center'
                                 }}>
                                 	Skynship is a discovery platform for optimal skin health and self acceptance
                                 </H2>
+								<Box sx={{'width': ['100%', '100%', '43%']}}>
+									<SubscribeForm />
+								</Box>
                             </Box>
                         </Box>
                     </Box>
@@ -77,3 +83,8 @@ export default class Marketplace extends React.PureComponent {
         );
     }
 }
+
+// uncomment these fields below for from validation
+const checkoutSchema = yup.object().shape({
+  shipping_email: yup.string().email("invalid email").required("required")
+});

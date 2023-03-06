@@ -22,14 +22,15 @@ import Header from "components/header/Header";
 const ShopLayout1 = ({
   children,
   sxSectionAfterSticky={},
-  isCartShown = true
+  isCartShown = true,
+  rightChildren = []
 }) => {
   const [isFixed, setIsFixed] = useState(false);
   const toggleIsFixed = useCallback(fixed => setIsFixed(fixed), []);
   return <Fragment>
       {/* HEADER */}
       <Sticky fixedOn={0} onSticky={toggleIsFixed} scrollDistance={300}>
-        <Header isFixed={isFixed} isCartShown={isCartShown} />
+        <Header isFixed={isFixed} isCartShown={isCartShown} rightChildren={rightChildren} />
       </Sticky>
 
       <Box className="section-after-sticky" sx={sxSectionAfterSticky}>

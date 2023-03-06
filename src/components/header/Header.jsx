@@ -49,7 +49,8 @@ const Header = ({
   isFixed,
   isCartShown = true,
   className,
-  searchInput
+  searchInput,
+  rightChildren = []
 }) => {
   const theme = useTheme();
   const {
@@ -190,6 +191,7 @@ const Header = ({
               </Badge>
             ) : null
           }
+          { rightChildren }
         </FlexBox>
 
         {/* LOGIN FORM DIALOG AND CART SIDE BAR  */}

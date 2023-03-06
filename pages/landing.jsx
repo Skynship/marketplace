@@ -1,6 +1,7 @@
 // Dependencies
 import React from 'react';
-import { Box } from "@mui/material";
+import Link from "next/link";
+import { Box, Button } from "@mui/material";
 import { H1, H2, H3 } from "components/Typography";
 import * as yup from "yup";
 
@@ -13,6 +14,14 @@ import { FAQ_ITEMS } from '../src/configs/faq';
 
 export default class Marketplace extends React.PureComponent {
     render() {
+		const rightNavItem = (
+			<Link href="/marketplace" passHref>
+				<Button type="button" variant="outlined" color="primary">
+			      Marketplace
+			    </Button>
+		    </Link>
+		);
+
         return (
             <Box sx={{
                 'display': 'flex',
@@ -22,7 +31,7 @@ export default class Marketplace extends React.PureComponent {
                 <ShopLayout1 isCartShown={false} sxSectionAfterSticky={{
                     'flexGrow': '1',
                     'padding': ['24px 20px', '24px 20px', '24px 0px 40px 0px']
-                }}>
+                }} rightChildren={rightNavItem}>
                     <Box sx={{
                         'height': '90vh',
                         'display': 'flex',

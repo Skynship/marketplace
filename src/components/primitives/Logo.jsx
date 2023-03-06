@@ -11,7 +11,7 @@ export default class Logo extends React.PureComponent {
       <Link href="/">
         <Box component="span" sx={{
           color: 'primary.900',
-          fontSize: '24px',
+          fontSize: ['20px', '22px', '24px'],
           fontWeight: 900,
           cursor: 'pointer'
         }}>

@@ -32,12 +32,12 @@ const DropFooter = () => {
   return <footer>
       <Box bgcolor="#fffff9">
         <Container sx={{
-        p: "1rem",
-        color: "black"
-      }}>
-          <Box py={10} overflow="hidden" sx={{ 'justifyContent': 'space-between' }}>
-            <Grid container spacing={3}>
-              <Grid item lg={4} md={6} sm={6} xs={12}>
+          p: "1rem",
+          color: "black"
+        }}>
+          <Box overflow="hidden" sx={{ 'justifyContent': 'space-between' }}>
+            <Grid  spacing={3}>
+              <Grid sx={{'padding': '30px 0px'}} item lg={4} md={8} sm={8} xs={12}>
                 <Link href="/">
                   <Logo />
                 </Link>
@@ -45,8 +45,8 @@ const DropFooter = () => {
               </Grid>
 
               <Box sx={{ 'display': 'flex', 'justifyContent': 'space-evenly', 'flexGrow': 1 }}>
-                <Grid item lg={4} md={8} sm={8} xs={14} sx={{ 'display': 'flex', 'flexDirection': 'column', 'alignItems': 'center' }}>
-                  <Box fontSize="18px" fontWeight="600" mb={1.5} lineHeight="1" color="black">
+                <Grid item lg={4} md={8} sm={8} xs={14} sx={{ 'display': 'flex', 'flexDirection': 'column', 'alignItems': ['start', 'center'], 'marginRight': '30px' }}>
+                  <Box sx={{'whiteSpace': 'nowrap'}} fontSize="18px" fontWeight="600" mb={1.5} lineHeight="1" color="black">
                     About Us
                   </Box>
 

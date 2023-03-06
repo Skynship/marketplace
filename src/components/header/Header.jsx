@@ -93,9 +93,9 @@ const Header = ({
         <StyledContainer>
           <FlexBetween width="100%">
             {/* LEFT CONTENT - NAVIGATION ICON BUTTON */}
-            <Box flex={1}>
+            {/*<Box flex={1}>
               <MobileMenu />
-            </Box>
+            </Box>*/}
 
             {/* MIDDLE CONTENT - LOGO */}
             <Link href="/">
@@ -104,13 +104,13 @@ const Header = ({
 
             {/* RIGHT CONTENT - LOGIN, CART, SEARCH BUTTON */}
             <FlexBox justifyContent="end" flex={1}>
-              <Box component={IconButton} onClick={toggleSearchBar}>
+              {/*<Box component={IconButton} onClick={toggleSearchBar}>
                 <Icon.Search sx={ICON_STYLE} />
               </Box>
 
               <Box component={IconButton} onClick={toggleDialog}>
                 <Icon.User sx={ICON_STYLE} />
-              </Box>
+              </Box>*/}
 
               {
                 isCartShown ? (

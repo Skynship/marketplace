@@ -1,4 +1,8 @@
 import { Fragment } from "react";
+
+// Configs
+import strings from '../src/configs/strings';
+
 import Head from "next/head";
 import Router from "next/router";
 import nProgress from "nprogress";
@@ -9,9 +13,11 @@ import OpenGraphTags from "utils/OpenGraphTags";
 import { AppProvider } from "contexts/AppContext";
 import SettingsProvider from "contexts/SettingContext";
 import SnackbarProvider from "components/SnackbarProvider";
+import { IntlProvider } from 'react-intl';
 import nextI18NextConfig from "../next-i18next.config";
 import "nprogress/nprogress.css";
 import "simplebar/dist/simplebar.min.css";
+import '../src/styles/globals.css';
 import "../src/__server__";
 //Binding events.
 Router.events.on("routeChangeStart", () => nProgress.start());
@@ -40,9 +46,11 @@ const App = ({
       <SettingsProvider>
         <AppProvider>
           <MuiTheme>
-            <SnackbarProvider>
-              <RTL>{getLayout(<AnyComponent {...pageProps} />)}</RTL>
-            </SnackbarProvider>
+            <IntlProvider messages={strings} locale="en">
+              <SnackbarProvider>
+                <RTL>{getLayout(<AnyComponent {...pageProps} />)}</RTL>
+              </SnackbarProvider>
+            </IntlProvider>
           </MuiTheme>
         </AppProvider>
       </SettingsProvider>

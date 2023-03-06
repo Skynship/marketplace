@@ -1,11 +1,8 @@
 import { Fragment, useCallback, useState } from "react";
+import { Box } from "@mui/material";
 import Sticky from "components/Sticky";
-import Topbar from "components/Topbar";
 import { DropFooter } from "components/footer";
 import Header from "components/header/Header";
-import Navbar from "components/navbar/Navbar";
-import { MobileNavigationBar } from "components/mobile-navigation";
-import SearchInputWithCategory from "components/search-box/SearchInputWithCategory";
 
 /**
  *  Used in:
@@ -24,9 +21,7 @@ import SearchInputWithCategory from "components/search-box/SearchInputWithCatego
 
 const ShopLayout1 = ({
   children,
-  topbarBgColor,
-  showTopbar = true,
-  showNavbar = true,
+  sxSectionAfterSticky={},
   isCartShown = true
 }) => {
   const [isFixed, setIsFixed] = useState(false);
@@ -37,10 +32,10 @@ const ShopLayout1 = ({
         <Header isFixed={isFixed} isCartShown={isCartShown} />
       </Sticky>
 
-      <div className="section-after-sticky">
+      <Box className="section-after-sticky" sx={sxSectionAfterSticky}>
         {/* BODY CONTENT */}
         {children}
-      </div>
+      </Box>
 
       {/* FOOTER */}
       <DropFooter />

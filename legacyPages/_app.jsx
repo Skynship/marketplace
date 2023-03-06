@@ -30,11 +30,11 @@ const App = ({
   return <Fragment>
       <Head>
         <meta charSet="utf-8" />
-        <meta name="description" content="Skynship drop, marketplace curated by estheticians. Online store selling products made by estheticians" />
+        <meta name="description" content="React Next.js ecommerce template. Build SEO friendly Online store, delivery app and Multivendor store" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <OpenGraphTags />
-        <title>Skyndrop marketplace curated by estheticians</title>
+        <title>Bazaar - Next.js Ecommerce Template</title>
       </Head>
 
       <SettingsProvider>

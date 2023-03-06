@@ -5,7 +5,7 @@ import ProductList from "pages-sections/skyndrop/ProductList";
 import api from "utils/__api__/fashion-shop";
 // =======================================================
 
-const Skyndrop = props => {
+const FashionShop1 = props => {
   return (
     <DropLayout showTopbar={false} showNavbar={false}>
       <SEO title="Skynship drop, marketplace curated by estheticians" />
@@ -32,4 +32,4 @@ export const getStaticProps = async () => {
     }
   };
 };
-export default Skyndrop;
+export default FashionShop1;

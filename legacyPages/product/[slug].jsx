@@ -13,6 +13,8 @@ import api from "utils/__api__/products";
 
 const ProductDetails = props => {
   const {
+    frequentlyBought,
+    relatedProducts,
     product
   } = props;
   const router = useRouter();

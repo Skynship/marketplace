@@ -48,12 +48,12 @@ const SubscribeForm = () => {
 			    	name="subscription_email"
 			    	label="Email Address"
 			    	onChange={handleChange}
-			    	value={values.shipping_email}
+			    	value={isSubscribed ? "" : values.shipping_email}
 			    	error={!!touched.shipping_email && !!errors.shipping_email}
 			    	helperText={touched.shipping_email && errors.shipping_email}
 			    />
-					<Tooltip open={isSubscriptionAttempted} arrow title={!isSubscribed ? "Thanks for subscribing!" : "Something unexpected happened, please try again"} placement="bottom">
-				    <Button type="submit" onClick={handleFormSubmit} variant="contained" color="primary" fullWidth sx={{'marginLeft': ['0px', '25px'], 'marginTop': ['20px', '0px']}}>
+					<Tooltip open={isSubscriptionAttempted} arrow title={isSubscribed ? "Thanks for subscribing!" : "Something unexpected happened, please try again"} placement="bottom">
+				    <Button type="submit" onClick={handleFormSubmit} variant="contained" color="primary" disabled={isSubscribed} fullWidth sx={{'marginLeft': ['0px', '25px'], 'marginTop': ['20px', '0px']}}>
 				      Subscribe
 				    </Button>
         		</Tooltip>

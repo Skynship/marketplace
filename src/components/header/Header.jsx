@@ -149,6 +149,7 @@ const Header = ({
 
           {/* LOGIN FORM DIALOG AND CART SIDE BAR  */}
           {DIALOG_DRAWER}
+          { rightChildren }
         </StyledContainer>
       </HeaderWrapper>;
   }

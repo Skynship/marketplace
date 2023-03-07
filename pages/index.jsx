@@ -16,7 +16,7 @@ export default class Marketplace extends React.PureComponent {
     render() {
 		const rightNavItem = (
 			<Link href="/marketplace" passHref>
-				<Button type="button" variant="outlined" color="primary">
+				<Button type="button" variant="outlined" color="primary" sx={{'padding': ['7px 25px', '10px 25px']}}>
 			      Marketplace
 			    </Button>
 		    </Link>

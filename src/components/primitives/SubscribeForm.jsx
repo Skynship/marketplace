@@ -11,7 +11,7 @@ const SubscribeForm = () => {
 	const handleFormSubmit = async values => {
 		// 3. Send a request to our API with the user's email address.
 		const res = await fetch('/api/subscribeNewsletter', {
-		    body: JSON.stringify({ email: values.subscription_email }),
+		    body: JSON.stringify({ email: values.landing_subscription_email }),
 		    headers: { 'Content-Type': 'application/json' },
 		    method: 'POST'
 		});
@@ -29,7 +29,7 @@ const SubscribeForm = () => {
 		setIsSubscribed(true);
 	};
 
-	return <Formik initialValues={{ "subscription_email": "" }} validationSchema={subscribeSchema} onSubmit={handleFormSubmit}>
+	return <Formik initialValues={{ "landing_subscription_email": "" }} validationSchema={subscribeSchema} onSubmit={handleFormSubmit}>
 		{({
 		  values,
 		  errors,
@@ -45,7 +45,7 @@ const SubscribeForm = () => {
       		<Box sx={{'display': 'flex', 'flexDirection': ['column', 'row']}}>
 				<TextField fullWidth type="email"
 			    	onBlur={handleBlur}
-			    	name="subscription_email"
+					name="landing_subscription_email"
 			    	label="Email Address"
 			    	onChange={handleChange}
 			    	value={isSubscribed ? "" : values.shipping_email}
@@ -64,7 +64,7 @@ const SubscribeForm = () => {
 
 // uncomment these fields below for from validation
 const subscribeSchema = yup.object().shape({
-  subscription_email: yup.string().email("invalid email").required("required")
+  landing_subscription_email: yup.string().email("invalid email").required("required")
 });
 
 export default SubscribeForm;

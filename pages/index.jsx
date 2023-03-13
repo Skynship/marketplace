@@ -29,15 +29,18 @@ export default class Marketplace extends React.PureComponent {
                 'height': '100%'
             }}>
                 <ShopLayout1 isCartShown={false} sxSectionAfterSticky={{
-                    'flexGrow': '1',
-                    'padding': ['24px 20px', '24px 20px', '24px 0px 40px 0px']
+                    'flexGrow': '1'
                 }} rightChildren={rightNavItem}>
                     <Box sx={{
-                        'height': '90vh',
+                        'height': '95vh',
                         'display': 'flex',
-                        'backgroundColor': '#f5f6f1'
+                        'backgroundColor': '#f5f6f1',
+                        'backgroundRepeat': 'no-repeat',
+                        'filter': 'contrast(100%)',
+                        'backgroundSize': 'cover',
+                        'backgroundImage': 'url(https://res.cloudinary.com/bytesizedpieces/image/upload/v1678522403/Skynship/output-onlinepngtools_splwxo.png)'
                     }}>
-                        <Box sx={{'display': 'flex', 'flexDirection': 'column', 'flexGrow': 1}}>
+                        <Box sx={{'display': 'flex', 'flexDirection': 'column', 'flexGrow': 1, 'padding': '24px 20px'}}>
                             <Box sx={{
                                 'color': '#1B263E',
                                 'fontWeight': '700',
@@ -45,46 +48,48 @@ export default class Marketplace extends React.PureComponent {
                                 'flexDirection': 'column',
                                 'justifyContent': 'center',
                                 'alignItems': 'center',
-                                'flexGrow': 1,
-                                'marginTop': '18px'
+                                'flexGrow': 1
                             }}>
                                 <H1 sx={{
+                                    'color': '#FF2F17',
+                                    'cursor': 'default',
+                                    'fontSize': ['70px', '100px', '180px'],
+                                    'fontWeight': '900'
+
+                                }}>
+                                    Skynship
+                                </H1>
+                                <H2 sx={{
                                 	'position': 'relative',
                                 	'textAlign': 'center',
                                 	'zIndex': '1',
-                                	'fontSize': ['30px', '40px', '50px']
+                                    'fontSize': ['30px', '50px', '60px'],
+                                    'color': '#1B263E',
+                                    'width': ['100%', '80%'],
+                                    'cursor': 'default',
+                                    'fontWeight': '600'
                                 }}>
-                               		<Box component='span'>
-	                                    We’re on a mission to change our <br />
-	                                    <Box component='span' sx={{ 'color': '#FF2F17' }}> relationship with our skin.</Box>
-                                    </Box>
-                                    <Box sx={{
-                                        'position': 'absolute',
-                                        'backgroundColor': '#FF2F17',
-                                        'width': ['60%', '45%'],
-                                        'height': '150px',
-                                        'zIndex': '-1',
-                                        'top': '-80px',
-                                        'left': ['30%', '10%']
-                                    }} />
-                                </H1>
-                                <H2 sx={{
-                                	'color': '#595959',
-                                	'fontWeight': '500',
-                                	'fontSize': ['18px', '20px', '25px'],
-                                	'marginTop': '20px',
-									'marginBottom': ['60px', '80px'],
-									'textAlign': 'center'
-                                }}>
-                                	Skynship is a discovery platform for optimal skin health and self acceptance
+                                    Skin health begins with knowledge
                                 </H2>
+                                <H3 sx={{
+                                    'color': '#1B263E',
+                                    'fontWeight': ['700', '600', '600'],
+                                    'fontSize': ['20px', '25px'],
+                                    'marginTop': '20px',
+                                    'marginBottom': ['60px', '80px'],
+                                    'textAlign': 'center',
+                                    'width': ['100%', '50%', '40%', '30%'],
+                                    'cursor': 'default'
+                                }}>
+                                    We are a mindful skin platform on a mission to help you understand your outer shell, and optimize your care regimen.
+                                </H3>
 								<Box sx={{'width': ['100%', '100%', '43%']}}>
 									<SubscribeForm />
 								</Box>
                             </Box>
                         </Box>
                     </Box>
-                    <Box sx={{'paddingBottom': '50px' }}>
+                    <Box sx={{'paddingBottom': '50px', 'padding': '24px 20px' }}>
                     	<Faq labelId="FAQ" items={FAQ_ITEMS} />
                     </Box>
                 </ShopLayout1>

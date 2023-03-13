@@ -41,7 +41,16 @@ export const components = {
   MuiInputLabel: {
     styleOverrides: {
       root: {
-        zIndex: 0
+        zIndex: 0,
+        color: '#1B263E',
+        fontWeight: 600,
+        fontSize: '15px'
+      },
+      shrink: {
+        fontSize: '22px',
+        fontWeight: '700',
+        top: '-15px',
+        zIndex: 1
       }
     }
   },
@@ -93,16 +102,13 @@ export const components = {
       }
   },
   MuiOutlinedInput: {
-      styleOverrides: {
-        // Name of the slot
-        notchedOutline: {
-          border: "1px solid grey.900",
-          fontWeight: 600
-        }
-      }
-  },
-  MuiOutlinedInput: {
     styleOverrides: {
+      // Name of the slot
+      notchedOutline: {
+        border: "1px solid grey.900",
+        fontWeight: 600,
+        zIndex: 0
+      },
       root: {
         borderRadius: "60px",
         fontWeight: 600,
@@ -120,6 +126,14 @@ export const components = {
       root: ({
         ownerState
       }) => ({
+        ...(ownerState.name === "landing_subscription_email" && {
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderRadius: "25px",
+            fontWeight: 600,
+            border: '2px solid #1B263E',
+            color: '#1B263E'
+          }
+        }),
         ...(ownerState.color === "info" && {
           "& .MuiOutlinedInput-root": {
             borderRadius: "20px",

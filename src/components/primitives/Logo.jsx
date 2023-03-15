@@ -15,12 +15,7 @@ export default class Logo extends React.PureComponent {
           fontWeight: 900,
           cursor: 'pointer'
         }}>
-          Skyn
-            <Box component="span" sx={{
-              color: isLightTheme ? '#fff' : '#000'
-            }}>
-              ship
-            </Box>
+          Skynship
         </Box>
       </Link>
     );

@@ -21,6 +21,7 @@ import Header from "components/header/Header";
 
 const ShopLayout1 = ({
   children,
+  isLogoShown = true,
   sxSectionAfterSticky={},
   isCartShown = true,
   rightChildren = []
@@ -30,7 +31,7 @@ const ShopLayout1 = ({
   return <Fragment>
       {/* HEADER */}
       <Sticky fixedOn={0} onSticky={toggleIsFixed} scrollDistance={300}>
-        <Header isFixed={isFixed} isCartShown={isCartShown} rightChildren={rightChildren} />
+        <Header isLogoShown={isLogoShown} isFixed={isFixed} isCartShown={isCartShown} rightChildren={rightChildren} />
       </Sticky>
 
       <Box className="section-after-sticky" sx={sxSectionAfterSticky}>

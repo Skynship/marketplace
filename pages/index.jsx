@@ -17,7 +17,7 @@ export default class Marketplace extends React.PureComponent {
 		const rightNavItem = (
 			<Link href="/marketplace" passHref>
 				<Button type="button" variant="outlined" color="primary" sx={{'padding': ['7px 25px', '10px 25px']}}>
-			      Marketplace
+			      Shop
 			    </Button>
 		    </Link>
 		);
@@ -28,17 +28,17 @@ export default class Marketplace extends React.PureComponent {
                 'flexDirection': 'column',
                 'height': '100%'
             }}>
-                <ShopLayout1 isCartShown={false} sxSectionAfterSticky={{
+                <ShopLayout1 isLogoShown={false} isCartShown={false} sxSectionAfterSticky={{
                     'flexGrow': '1'
                 }} rightChildren={rightNavItem}>
                     <Box sx={{
-                        'height': '95vh',
+                        'height': '100vh',
                         'display': 'flex',
                         'backgroundColor': '#f5f6f1',
                         'backgroundRepeat': 'no-repeat',
                         'filter': 'contrast(100%)',
                         'backgroundSize': 'cover',
-                        'backgroundImage': 'url(https://res.cloudinary.com/bytesizedpieces/image/upload/v1678522403/Skynship/output-onlinepngtools_splwxo.png)'
+                        'backgroundImage': 'url(https://res.cloudinary.com/bytesizedpieces/image/upload/v1678836417/Skynship/DTS_Skin_Deep_Daniel_Faro%CC%80_4260_rv34om.jpg)'
                     }}>
                         <Box sx={{'display': 'flex', 'flexDirection': 'column', 'flexGrow': 1, 'padding': '24px 20px'}}>
                             <Box sx={{
@@ -53,7 +53,7 @@ export default class Marketplace extends React.PureComponent {
                                 <H1 sx={{
                                     'color': '#FF2F17',
                                     'cursor': 'default',
-                                    'fontSize': ['70px', '100px', '180px'],
+                                    'fontSize': ['70px', '140px', '240px'],
                                     'fontWeight': '900'
 
                                 }}>
@@ -63,7 +63,7 @@ export default class Marketplace extends React.PureComponent {
                                 	'position': 'relative',
                                 	'textAlign': 'center',
                                 	'zIndex': '1',
-                                    'fontSize': ['30px', '50px', '60px'],
+                                    'fontSize': ['30px', '35px', '40px'],
                                     'color': '#1B263E',
                                     'width': ['100%', '80%'],
                                     'cursor': 'default',
@@ -81,7 +81,8 @@ export default class Marketplace extends React.PureComponent {
                                     'width': ['100%', '50%', '40%', '30%'],
                                     'cursor': 'default'
                                 }}>
-                                    We are a mindful skin platform on a mission to help you understand your outer shell, and optimize your care regimen.
+                                    We are a mindful skin platform on a mission to help you understand your outer shell,<br></br>
+                                    <span> and optimize your care regimen.</span>
                                 </H3>
 								<Box sx={{'width': ['100%', '100%', '43%']}}>
 									<SubscribeForm />

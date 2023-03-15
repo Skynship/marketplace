@@ -16,7 +16,7 @@ export default class Marketplace extends React.PureComponent {
     render() {
 		const rightNavItem = (
 			<Link href="/marketplace" passHref>
-				<Button type="button" variant="outlined" color="primary" sx={{'padding': ['7px 25px', '10px 25px']}}>
+				<Button type="button" variant="outlined" color="primary" sx={{'padding': ['7px 25px', '10px 25px'], 'backgroundColor': 'transparent !important'}}>
 			      Shop
 			    </Button>
 		    </Link>
@@ -63,26 +63,27 @@ export default class Marketplace extends React.PureComponent {
                                 	'position': 'relative',
                                 	'textAlign': 'center',
                                 	'zIndex': '1',
-                                    'fontSize': ['30px', '35px', '40px'],
+                                    'fontSize': ['22px', '35px', '40px'],
                                     'color': '#1B263E',
                                     'width': ['100%', '80%'],
                                     'cursor': 'default',
-                                    'fontWeight': '600'
+                                    'fontWeight': '600',
+                                    'marginBottom': ['60px', '0px']
                                 }}>
                                     Skin health begins with knowledge
                                 </H2>
                                 <H3 sx={{
                                     'color': '#1B263E',
+                                    'display': ['none', 'block', 'block'],
                                     'fontWeight': ['700', '600', '600'],
-                                    'fontSize': ['20px', '25px'],
+                                    'fontSize': ['18px', '25px'],
                                     'marginTop': '20px',
                                     'marginBottom': ['60px', '80px'],
                                     'textAlign': 'center',
                                     'width': ['100%', '50%', '40%', '30%'],
                                     'cursor': 'default'
                                 }}>
-                                    We are a mindful skin platform on a mission to help you understand your outer shell,<br></br>
-                                    <span> and optimize your care regimen.</span>
+                                    We are a mindful skin platform on a mission to help you understand your outer shell, and optimize your care regimen.
                                 </H3>
 								<Box sx={{'width': ['100%', '100%', '43%']}}>
 									<SubscribeForm />

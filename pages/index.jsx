@@ -53,7 +53,7 @@ export default class Marketplace extends React.PureComponent {
                                 <H1 sx={{
                                     'color': '#FF2F17',
                                     'cursor': 'default',
-                                    'fontSize': ['6.5rem', '8rem', '12rem'],
+                                    'fontSize': ['4.5rem', '8rem', '12rem'],
                                     'fontWeight': '900'
 
                                 }}>

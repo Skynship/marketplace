@@ -22,18 +22,19 @@ const Footer = () => {
         <FlexBox className="flex">
           {iconList.map((item, ind) => <a href={item.url} target="_blank" rel="noreferrer noopenner" key={ind}>
               <item.icon color="inherit" sx={{
-            mx: "0.5rem",
-            fontSize: "1.25rem",
-            transition: "0.2s ease-in-out",
-            "&:hover": {
-              color: "primary.main"
-            }
-          }} />
+                mx: "0.5rem",
+                fontSize: "1.25rem",
+                transition: "0.2s ease-in-out",
+                "&:hover": {
+                  color: "primary.main"
+                }
+              }} />
             </a>)}
         </FlexBox>
       </FlexBox>
     </Container>;
 };
+
 const iconList = [{
   icon: Facebook,
   url: "https://www.facebook.com/UILibOfficial"
@@ -47,4 +48,5 @@ const iconList = [{
   icon: Instagram,
   url: "https://www.instagram.com/uilibofficial/"
 }];
+
 export default Footer;

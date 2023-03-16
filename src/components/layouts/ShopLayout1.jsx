@@ -1,11 +1,8 @@
 import { Fragment, useCallback, useState } from "react";
+import { Box } from "@mui/material";
 import Sticky from "components/Sticky";
-import Topbar from "components/Topbar";
 import { DropFooter } from "components/footer";
 import Header from "components/header/Header";
-import Navbar from "components/navbar/Navbar";
-import { MobileNavigationBar } from "components/mobile-navigation";
-import SearchInputWithCategory from "components/search-box/SearchInputWithCategory";
 
 /**
  *  Used in:
@@ -24,23 +21,30 @@ import SearchInputWithCategory from "components/search-box/SearchInputWithCatego
 
 const ShopLayout1 = ({
   children,
-  topbarBgColor,
-  showTopbar = true,
-  showNavbar = true,
-  isCartShown = true
+  isLogoShown = true,
+  sxSectionAfterSticky={},
+  isCartShown = true,
+  rightChildren = [],
+  isHeaderFixed = true
 }) => {
   const [isFixed, setIsFixed] = useState(false);
   const toggleIsFixed = useCallback(fixed => setIsFixed(fixed), []);
   return <Fragment>
       {/* HEADER */}
-      <Sticky fixedOn={0} onSticky={toggleIsFixed} scrollDistance={300}>
-        <Header isFixed={isFixed} isCartShown={isCartShown} />
-      </Sticky>
+      {
+        isHeaderFixed ? (
+          <Sticky fixedOn={0} onSticky={toggleIsFixed} scrollDistance={300}>
+            <Header isLogoShown={isLogoShown} isFixed={isFixed} isCartShown={isCartShown} rightChildren={rightChildren} />
+          </Sticky>
+        ) : (
+          <Header isLogoShown={isLogoShown} isCartShown={isCartShown} rightChildren={rightChildren} />
+        )
+      }
 
-      <div className="section-after-sticky">
+      <Box className="section-after-sticky" sx={sxSectionAfterSticky}>
         {/* BODY CONTENT */}
         {children}
-      </div>
+      </Box>
 
       {/* FOOTER */}
       <DropFooter />

@@ -25,10 +25,11 @@ export const HeaderWrapper = styled(Box)(({
   theme
 }) => ({
   zIndex: 3,
-  position: "relative",
+  position: "absolute",
+  width: "100%",
   height: layoutConstant.headerHeight,
   transition: "height 250ms ease-in-out",
-  background: theme.palette.background.cream,
+  background: 'transparent',
   [theme.breakpoints.down("sm")]: {
     height: layoutConstant.mobileHeaderHeight
   }
@@ -47,9 +48,11 @@ const StyledContainer = styled(Container)({
 
 const Header = ({
   isFixed,
+  isLogoShown = true,
   isCartShown = true,
   className,
-  searchInput
+  searchInput,
+  rightChildren = []
 }) => {
   const theme = useTheme();
   const {
@@ -57,12 +60,12 @@ const Header = ({
   } = useAppContext();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sidenavOpen, setSidenavOpen] = useState(false);
-  const [searchBarOpen, setSearchBarOpen] = useState(false);
+  // const [searchBarOpen, setSearchBarOpen] = useState(false);
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const downMd = useMediaQuery(theme.breakpoints.down(1150));
   const toggleDialog = () => setDialogOpen(!dialogOpen);
   const toggleSidenav = () => setSidenavOpen(!sidenavOpen);
-  const toggleSearchBar = () => setSearchBarOpen(!searchBarOpen);
+  // const toggleSearchBar = () => setSearchBarOpen(!searchBarOpen);
 
   // LOGIN AND MINICART DRAWER
   const DIALOG_DRAWER = <Fragment>
@@ -89,28 +92,33 @@ const Header = ({
       color: "#fff",
       fontSize: 20
     };
+
     return <HeaderWrapper className={clsx(className)}>
         <StyledContainer>
           <FlexBetween width="100%">
             {/* LEFT CONTENT - NAVIGATION ICON BUTTON */}
-            <Box flex={1}>
+            {/*<Box flex={1}>
               <MobileMenu />
-            </Box>
+            </Box>*/}
 
             {/* MIDDLE CONTENT - LOGO */}
-            <Link href="/">
-              <Logo />
-            </Link>
+            {
+              isLogoShown ? (
+                <Link href="/">
+                  <Logo />
+                </Link>
+              ) : null
+            }
 
             {/* RIGHT CONTENT - LOGIN, CART, SEARCH BUTTON */}
             <FlexBox justifyContent="end" flex={1}>
-              <Box component={IconButton} onClick={toggleSearchBar}>
+              {/*<Box component={IconButton} onClick={toggleSearchBar}>
                 <Icon.Search sx={ICON_STYLE} />
               </Box>
 
               <Box component={IconButton} onClick={toggleDialog}>
                 <Icon.User sx={ICON_STYLE} />
-              </Box>
+              </Box>*/}
 
               {
                 isCartShown ? (
@@ -123,52 +131,23 @@ const Header = ({
               }
             </FlexBox>
           </FlexBetween>
-
-          {/* SEARCH FORM DRAWER */}
-          <Drawer open={searchBarOpen} anchor="top" onClose={toggleSearchBar} sx={{
-          zIndex: 9999
-        }}>
-            <Box sx={{
-            width: "auto",
-            padding: 2,
-            height: "100vh"
-          }}>
-              <FlexBetween mb={1}>
-                <Paragraph>Search to Bazaar</Paragraph>
-
-                <IconButton onClick={toggleSearchBar}>
-                  <Clear />
-                </IconButton>
-              </FlexBetween>
-
-              {/* CATEGORY BASED SEARCH FORM */}
-              {searchInput}
-            </Box>
-          </Drawer>
-
-          {/* LOGIN FORM DIALOG AND CART SIDE BAR  */}
-          {DIALOG_DRAWER}
+          { rightChildren }
         </StyledContainer>
       </HeaderWrapper>;
   }
+
   return <HeaderWrapper className={clsx(className)}>
       <StyledContainer>
         {/* LEFT CONTENT - LOGO AND CATEGORY */}
-        <FlexBox mr={2} minWidth="170px" alignItems="center">
-          <Link href="/">
-            <Logo />
-          </Link>
-
-          {/* SHOW DROP DOWN CATEGORY BUTTON WHEN HEADER FIXED */}
-          {isFixed && <CategoryMenu>
-              <FlexBox color="grey.600" alignItems="center" ml={2}>
-                <Button color="inherit">
-                  <Category fontSize="small" color="inherit" />
-                  <KeyboardArrowDown fontSize="small" color="inherit" />
-                </Button>
-              </FlexBox>
-            </CategoryMenu>}
-        </FlexBox>
+        {
+          isLogoShown ? (
+            <FlexBox mr={2} minWidth="170px" alignItems="center">
+              <Link href="/">
+                <Logo />
+              </Link>
+            </FlexBox>
+          ) : null
+        }
 
         {/* SEARCH FORM */}
         <FlexBox justifyContent="center" flex="1 1 0">
@@ -190,6 +169,7 @@ const Header = ({
               </Badge>
             ) : null
           }
+          { rightChildren }
         </FlexBox>
 
         {/* LOGIN FORM DIALOG AND CART SIDE BAR  */}

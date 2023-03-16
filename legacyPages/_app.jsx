@@ -1,8 +1,4 @@
 import { Fragment } from "react";
-
-// Configs
-import strings from '../src/configs/strings';
-
 import Head from "next/head";
 import Router from "next/router";
 import nProgress from "nprogress";
@@ -13,11 +9,9 @@ import OpenGraphTags from "utils/OpenGraphTags";
 import { AppProvider } from "contexts/AppContext";
 import SettingsProvider from "contexts/SettingContext";
 import SnackbarProvider from "components/SnackbarProvider";
-import { IntlProvider } from 'react-intl';
 import nextI18NextConfig from "../next-i18next.config";
 import "nprogress/nprogress.css";
 import "simplebar/dist/simplebar.min.css";
-import '../src/styles/globals.css';
 import "../src/__server__";
 //Binding events.
 Router.events.on("routeChangeStart", () => nProgress.start());
@@ -36,21 +30,19 @@ const App = ({
   return <Fragment>
       <Head>
         <meta charSet="utf-8" />
-        <meta name="description" content="Skynship drop, marketplace curated by estheticians. Online store selling products made by estheticians" />
+        <meta name="description" content="React Next.js ecommerce template. Build SEO friendly Online store, delivery app and Multivendor store" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <OpenGraphTags />
-        <title>Skyndrop marketplace curated by estheticians</title>
+        <title>Bazaar - Next.js Ecommerce Template</title>
       </Head>
 
       <SettingsProvider>
         <AppProvider>
           <MuiTheme>
-            <IntlProvider messages={strings} locale="en">
-              <SnackbarProvider>
-                <RTL>{getLayout(<AnyComponent {...pageProps} />)}</RTL>
-              </SnackbarProvider>
-            </IntlProvider>
+            <SnackbarProvider>
+              <RTL>{getLayout(<AnyComponent {...pageProps} />)}</RTL>
+            </SnackbarProvider>
           </MuiTheme>
         </AppProvider>
       </SettingsProvider>

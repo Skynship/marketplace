@@ -1,2 +1,2 @@
-import DropFooter from './DropFooter';
+import DropFooter from './dropFooter';
 export { DropFooter };

@@ -1,0 +1,22 @@
+export default {
+    'SKYNSHIP': 'Skynship',
+    'SKYNSHIP_SPLIT_PART_ONE': 'Skyn{ship}',
+    'SKYNSHIP_SPLIT_PART_TWO': 'ship',
+    'SUBMIT': 'Submit',
+    'SUBSCRIBE': 'Subscribe',
+    'SUBSCRIBE_TO_X': 'Subscribe to the {highlightText} newsletter!',
+    'NEWSLETTER_TITLE': 'Join our newsletter to read delightful {highlightText} every Monday!',
+    'NEWSLETTER_TOPICS': 'Keep in touch with Skynship to get the latest and greatest on any upcoming releases, drops, skin care events and tips!',
+    'COPYWRITE': '© 2022-Skynship. All Rights Reserved.',
+    'WOOHOO': 'WOOHOO!',
+    'WOOHOO_THANKS': '{highlightJoy} Thanks for joining the {highlightText} newsletter!',
+    'WOOHOO_SUBTITLE': 'Now you get access to some premium {highlightText}, and you\'ll be the first to know when a new post comes out!',
+    'SOMETHING_HAPPENED_NEWSLETTER': '{highlightText} Something happened, maybe you already subscribed!',
+    'UH_OH': 'Uh oh!',
+    'THANKS_FOR_YOUR_SUBMISSION': 'Thanks for your submission!',
+    'FAQ': 'Frequently Asked Questions',
+    'DAYS': 'Days',
+    'HOURS': 'Hours',
+    'MINUTES': 'Mins',
+    'SECONDS': 'Secs'
+};

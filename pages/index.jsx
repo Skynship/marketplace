@@ -28,11 +28,11 @@ export default class Marketplace extends React.PureComponent {
                 'flexDirection': 'column',
                 'height': '100%'
             }}>
-                <ShopLayout1 isLogoShown={false} isCartShown={false} sxSectionAfterSticky={{
+                <ShopLayout1 isHeaderFixed={false} isLogoShown={false} isCartShown={false} sxSectionAfterSticky={{
                     'flexGrow': '1'
                 }} rightChildren={rightNavItem}>
                     <Box sx={{
-                        'height': '100vh',
+                        'minHeight': '100vh',
                         'display': 'flex',
                         'backgroundColor': '#f5f6f1',
                         'backgroundRepeat': 'no-repeat',
@@ -53,7 +53,7 @@ export default class Marketplace extends React.PureComponent {
                                 <H1 sx={{
                                     'color': '#FF2F17',
                                     'cursor': 'default',
-                                    'fontSize': ['70px', '140px', '240px'],
+                                    'fontSize': ['6.5rem', '8rem', '12rem'],
                                     'fontWeight': '900'
 
                                 }}>

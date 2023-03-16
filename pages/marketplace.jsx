@@ -19,7 +19,8 @@ export default class Marketplace extends React.PureComponent {
                     'display': 'flex',
                     'alignItems': 'center',
                     'justifyContent': 'center',
-                    'flexGrow': '1'
+                    'flexGrow': '1',
+                    'minHeight': '100vh'
                 }}>
                     <Box sx={{
                         'height': '100%',

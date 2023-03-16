@@ -39,7 +39,7 @@ const DropFooter = () => {
             <Grid  spacing={3}>
               <Grid sx={{'padding': '30px 0px'}} item lg={4} md={8} sm={8} xs={12}>
                 <Link href="/">
-                  <Logo />
+                  <Logo isDark />
                 </Link>
                 {/*<AppStore />*/}
               </Grid>

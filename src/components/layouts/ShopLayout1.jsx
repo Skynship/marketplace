@@ -24,15 +24,22 @@ const ShopLayout1 = ({
   isLogoShown = true,
   sxSectionAfterSticky={},
   isCartShown = true,
-  rightChildren = []
+  rightChildren = [],
+  isHeaderFixed = true
 }) => {
   const [isFixed, setIsFixed] = useState(false);
   const toggleIsFixed = useCallback(fixed => setIsFixed(fixed), []);
   return <Fragment>
       {/* HEADER */}
-      <Sticky fixedOn={0} onSticky={toggleIsFixed} scrollDistance={300}>
-        <Header isLogoShown={isLogoShown} isFixed={isFixed} isCartShown={isCartShown} rightChildren={rightChildren} />
-      </Sticky>
+      {
+        isHeaderFixed ? (
+          <Sticky fixedOn={0} onSticky={toggleIsFixed} scrollDistance={300}>
+            <Header isLogoShown={isLogoShown} isFixed={isFixed} isCartShown={isCartShown} rightChildren={rightChildren} />
+          </Sticky>
+        ) : (
+          <Header isLogoShown={isLogoShown} isCartShown={isCartShown} rightChildren={rightChildren} />
+        )
+      }
 
       <Box className="section-after-sticky" sx={sxSectionAfterSticky}>
         {/* BODY CONTENT */}

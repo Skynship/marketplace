@@ -1,3 +1,39 @@
 html, body, #__next {
 	min-height: 100vh;
 }
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Bold.ttf'); /* IE9 Compat Modes */
+  src: url('/fonts/Canela-Bold.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/Canela-Bold.ttf') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/Canela-Bold.ttf') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/Canela-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/proximanovaexcn-medium.otf'); /* IE9 Compat Modes */
+  src: url('/fonts/proximanovaexcn-medium.otf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/proximanovaexcn-medium.otf') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/proximanovaexcn-medium.otf') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/proximanovaexcn-medium.otf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/proximanovaexcn-bold.otf'); /* IE9 Compat Modes */
+  src: url('/fonts/proximanovaexcn-bold.otf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/proximanovaexcn-bold.otf') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/proximanovaexcn-bold.otf') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/proximanovaexcn-bold.otf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/fonts/proximanovaexcn-regular.otf'); /* IE9 Compat Modes */
+  src: url('/fonts/proximanovaexcn-regular.otf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/proximanovaexcn-regular.otf') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/proximanovaexcn-regular.otf') format('woff'), /* Pretty Modern Browsers */
+       url('/fonts/proximanovaexcn-regular.otf') format('truetype'), /* Safari, Android, iOS */
+}

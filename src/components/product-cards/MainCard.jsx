@@ -25,11 +25,9 @@ const MainCard = ({
   hideFavoriteIcon,
   hidePrice
 }) => {
-  return <Box>
+  return <Box sx={{ 'display': 'flex', 'alignItems': 'center', 'flexDirection': 'column' }}>
       <Link href={`/product/${slug}`}>
-        <a>
-          <BazaarImage src={imgUrl} width="100%" height="auto" alt={title} mx="auto" />
-        </a>
+        <Box component="img" src={imgUrl} sx={{'width': ['200px', '100%'], 'mx': 'auto'}} height="auto" alt={title} mx="auto" />
       </Link>
 
       <FlexBetween sx={{ 'width': '100%' }}>

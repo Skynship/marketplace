@@ -12,8 +12,7 @@ const ProductList = ({ products }) => {
     return (
       <Grid key={idx} item md={3} xs={12} sx={{
         'marginTop': isEven ? `${STAGGER_PX}px` : '0px',
-        'padding': ['20px 0px', '0px, 0px, 20px, 0px'],
-        'paddingRight': '16px',
+        'padding': ['20px 0px', '0px 16px 20px 16px'],
         '&:hover': {
           'color': 'white !important',
           'backgroundColor': '#FF2F17',

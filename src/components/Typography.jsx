@@ -25,7 +25,7 @@ export const H1 = ({
 }) => {
   return <StyledBox textTransformStyle={textTransform} ellipsis={ellipsis ? 1 : undefined} className={clsx({
     [className || ""]: true
-  })} component="h1" mb={0} mt={0} fontSize="30px" fontWeight="700" lineHeight="1.5" {...props}>
+  })} component="h1" mb={0} mt={0} fontFamily="Canela" fontSize="30px" fontWeight="700" lineHeight="1.5" {...props}>
       {children}
     </StyledBox>;
 };

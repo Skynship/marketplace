@@ -1,3 +1,39 @@
 html, body, #__next {
 	min-height: 100vh;
 }
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/Canela-Bold.ttf'); /* IE9 Compat Modes */
+  src: url('/Canela-Bold.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/Canela-Bold.ttf') format('woff2'), /* Super Modern Browsers */
+       url('/Canela-Bold.ttf') format('woff'), /* Pretty Modern Browsers */
+       url('/Canela-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/proximanovaexcn-medium.otf'); /* IE9 Compat Modes */
+  src: url('/proximanovaexcn-medium.otf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/proximanovaexcn-medium.otf') format('woff2'), /* Super Modern Browsers */
+       url('/proximanovaexcn-medium.otf') format('woff'), /* Pretty Modern Browsers */
+       url('/proximanovaexcn-medium.otf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/proximanovaexcn-bold.otf'); /* IE9 Compat Modes */
+  src: url('/proximanovaexcn-bold.otf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/proximanovaexcn-bold.otf') format('woff2'), /* Super Modern Browsers */
+       url('/proximanovaexcn-bold.otf') format('woff'), /* Pretty Modern Browsers */
+       url('/proximanovaexcn-bold.otf') format('truetype'), /* Safari, Android, iOS */
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/proximanovaexcn-regular.otf'); /* IE9 Compat Modes */
+  src: url('/proximanovaexcn-regular.otf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/proximanovaexcn-regular.otf') format('woff2'), /* Super Modern Browsers */
+       url('/proximanovaexcn-regular.otf') format('woff'), /* Pretty Modern Browsers */
+       url('/proximanovaexcn-regular.otf') format('truetype'), /* Safari, Android, iOS */
+}

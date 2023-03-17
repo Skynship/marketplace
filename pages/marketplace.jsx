@@ -1,13 +1,50 @@
 // Dependencies
 import React from 'react';
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { H1 } from "components/Typography";
+import SEO from "components/SEO";
 
+// Primitives
 import Countdown from 'components/primitives/Countdown';
+
+// Layouts
 import ShopLayout1 from "components/layouts/ShopLayout1";
+import DropLayout from "components/layouts/dropLayout";
+
+// Sections
+import ProductList from "pages-sections/skyndrop/ProductList";
+
+// API
+import api from "utils/__api__/fashion-shop";
+
+// Configs
+import { COUNTDOWN_DATE } from '../src/configs/countdown';
 
 export default class Marketplace extends React.PureComponent {
     render() {
+        const { trendingItems } = this.props;
+
+        const marketplace = (
+            <DropLayout showTopbar={false} showNavbar={false}>
+              <SEO title="Skynship drop, marketplace curated by estheticians" />
+              <Box sx={{
+                backgroundColor: 'theme.palette.primary.cream',
+                padding: '25px 0px',
+                overFlow: 'hidden',
+                display: 'flex',
+                justifyContent: 'center'
+              }}>
+                <Container sx={{ 'margin': '0rem 0rem 10rem 0rem' }}>
+                  <ProductList products={trendingItems} />
+                </Container>
+              </Box>
+            </DropLayout>
+        );
+
+        if (!COUNTDOWN_DATE) {
+            return marketplace;
+        }
+
         return (
             <Box sx={{
                 'display': 'flex',
@@ -15,13 +52,7 @@ export default class Marketplace extends React.PureComponent {
                 'height': '100%',
                 'minHeight': '100vh'
             }}>
-                <ShopLayout1 isCartShown={false} sxSectionAfterSticky={{
-                    'display': 'flex',
-                    'alignItems': 'center',
-                    'justifyContent': 'center',
-                    'flexGrow': '1',
-                    'minHeight': '100vh'
-                }}>
+                <DropLayout isCartShown={false}>
                     <Box sx={{
                         'height': '100%',
                         'display': 'flex',
@@ -58,8 +89,18 @@ export default class Marketplace extends React.PureComponent {
                             </Box>
                         </Box>
                     </Box>
-                </ShopLayout1>
+                </DropLayout>
             </Box>
         );
     }
 }
+
+// TODO: uncomment if marketplace countdown is NOT defined
+export const getStaticProps = async () => {
+  const trendingItems = await api.getTrendingItems();
+  return {
+    props: {
+      trendingItems
+    }
+  };
+};

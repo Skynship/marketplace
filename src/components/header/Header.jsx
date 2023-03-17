@@ -25,7 +25,7 @@ export const HeaderWrapper = styled(Box)(({
   theme
 }) => ({
   zIndex: 3,
-  position: "absolute",
+  position: "relative",
   width: "100%",
   height: layoutConstant.headerHeight,
   transition: "height 250ms ease-in-out",

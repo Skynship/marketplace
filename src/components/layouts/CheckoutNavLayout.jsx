@@ -16,7 +16,8 @@ import ShopLayout1 from "./ShopLayout1";
 // ======================================================
 
 const CheckoutNavLayout = ({
-  children
+  children,
+  omitShopLayout = false
 }) => {
   const [selectedStep, setSelectedStep] = useState(0);
   const router = useRouter();
@@ -51,23 +52,32 @@ const CheckoutNavLayout = ({
         break;
     }
   }, [pathname]);
-  return <ShopLayout1>
-      <Container sx={{
+
+  const layoutChildren = (
+    <Container sx={{
       my: 4
     }}>
-        <Box mb={3} display={{
+      <Box mb={3} display={{
         sm: "block",
         xs: "none"
       }}>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <Stepper stepperList={stepperList} selectedStep={selectedStep} onChange={handleStepChange} />
-            </Grid>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Stepper stepperList={stepperList} selectedStep={selectedStep} onChange={handleStepChange} />
           </Grid>
-        </Box>
+        </Grid>
+      </Box>
 
-        {children}
-      </Container>
+      {children}
+    </Container>
+  );
+
+  if (omitShopLayout) {
+    return layoutChildren;
+  }
+
+  return <ShopLayout1>
+    {layoutChildren}
     </ShopLayout1>;
 };
 const stepperList = [{

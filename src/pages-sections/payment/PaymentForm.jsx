@@ -24,26 +24,27 @@ const PaymentForm = () => {
   };
   return <Fragment>
       <Card1 sx={{
-      mb: 4
-    }}>
-        <FormControlLabel sx={{
-        mb: 3
-      }} name="credit-card" onChange={handlePaymentMethodChange} label={<Paragraph fontWeight={600}>Pay with credit card</Paragraph>} control={<Radio checked={paymentMethod === "credit-card"} color="primary" size="small" />} />
+        mb: 4
+      }}>
+        <Paragraph sx={{'color': '#1B263E', 'fontSize': '18px', 'fontWeight': '600'}}>Credit card details</Paragraph>
+{/*        <FormControlLabel sx={{
+          mb: 3
+        }} name="credit-card" onChange={handlePaymentMethodChange} label={<Paragraph fontWeight={600}>Pay with credit card</Paragraph>} control={<Radio checked={paymentMethod === "credit-card"} color="primary" size="small" />} />*/}
 
         <Divider sx={{
-        mb: 3,
-        mx: -4
-      }} />
+          mb: 3,
+          mx: -4
+        }} />
 
         {paymentMethod === "credit-card" && <Formik onSubmit={handleFormSubmit} initialValues={initialValues} validationSchema={checkoutSchema}>
             {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit
-        }) => <form onSubmit={handleSubmit}>
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit
+            }) => <form onSubmit={handleSubmit}>
                 <Box mb={3}>
                   <Grid container spacing={3}>
                     <Grid item sm={6} xs={12}>
@@ -62,44 +63,44 @@ const PaymentForm = () => {
                 </Box>
 
                 <Button variant="outlined" color="primary" sx={{
-            mb: 4
-          }}>
+                  mb: 4
+                }}>
                   Submit
                 </Button>
 
                 <Divider sx={{
-            mb: 3,
-            mx: -4
-          }} />
+                  mb: 3,
+                  mx: -4
+                }} />
               </form>}
           </Formik>}
 
-        <FormControlLabel name="paypal" sx={{
-        mb: 3
-      }} onChange={handlePaymentMethodChange} label={<Paragraph fontWeight={600}>Pay with Paypal</Paragraph>} control={<Radio checked={paymentMethod === "paypal"} color="primary" size="small" />} />
+{/*        <FormControlLabel name="paypal" sx={{
+          mb: 3
+        }} onChange={handlePaymentMethodChange} label={<Paragraph fontWeight={600}>Pay with Paypal</Paragraph>} control={<Radio checked={paymentMethod === "paypal"} color="primary" size="small" />} />
 
         <Divider sx={{
-        mb: 3,
-        mx: -4
-      }} />
+          mb: 3,
+          mx: -4
+        }} />
 
         {paymentMethod === "paypal" && <Fragment>
             <FlexBox alignItems="flex-end" mb={4}>
               <TextField fullWidth name="email" type="email" label="Paypal Email" sx={{
-            mr: isMobile ? "1rem" : "30px"
-          }} />
+                mr: isMobile ? "1rem" : "30px"
+              }} />
               <Button variant="outlined" color="primary" type="button">
                 Submit
               </Button>
             </FlexBox>
 
             <Divider sx={{
-          mb: 3,
-          mx: -4
-        }} />
+              mb: 3,
+              mx: -4
+            }} />
           </Fragment>}
 
-        <FormControlLabel name="cod" onChange={handlePaymentMethodChange} label={<Paragraph fontWeight={600}>Cash On Delivery</Paragraph>} control={<Radio checked={paymentMethod === "cod"} color="primary" size="small" />} />
+        <FormControlLabel name="cod" onChange={handlePaymentMethodChange} label={<Paragraph fontWeight={600}>Cash On Delivery</Paragraph>} control={<Radio checked={paymentMethod === "cod"} color="primary" size="small" />} />*/}
       </Card1>
 
       <Grid container spacing={7}>
@@ -114,7 +115,7 @@ const PaymentForm = () => {
         <Grid item sm={6} xs={12}>
           <Link href="/orders" passHref>
             <Button variant="contained" color="primary" type="submit" fullWidth>
-              Review
+              Review Order
             </Button>
           </Link>
         </Grid>

@@ -33,7 +33,7 @@ const CheckoutForm = () => {
           <Card1 sx={{
             mb: 4
           }}>
-            <Typography fontWeight="600" mb={2}>
+            <Typography fontWeight="600" mb={3}>
               Shipping Address
             </Typography>
 
@@ -61,7 +61,7 @@ const CheckoutForm = () => {
 
                 <Autocomplete fullWidth sx={{
                   mb: 2
-                }} options={countryList} value={values.shipping_country} getOptionLabel={option => option.label} onChange={(_, value) => setFieldValue("shipping_country", value)} renderInput={params => <TextField label="Country" variant="outlined" placeholder="Select Country" error={!!touched.shipping_country && !!errors.shipping_country} helperText={touched.shipping_country && errors.shipping_country} {...params} />} />
+                }} options={countryList} value={values.shipping_country} getOptionLabel={option => option.label} onChange={(_, value) => setFieldValue("shipping_country", value)} renderInput={params => <TextField variant="outlined" placeholder="Select Country" error={!!touched.shipping_country && !!errors.shipping_country} helperText={touched.shipping_country && errors.shipping_country} {...params} />} />
 
                 <TextField fullWidth label="Address 2" onBlur={handleBlur} onChange={handleChange} name="shipping_address2" value={values.shipping_address2} error={!!touched.shipping_address2 && !!errors.shipping_address2} helperText={touched.shipping_address2 && errors.shipping_address2} />
               </Grid>
@@ -104,7 +104,7 @@ const CheckoutForm = () => {
                   }} label="Company" onBlur={handleBlur} name="billing_company" onChange={handleChange} value={values.billing_company} error={!!touched.billing_company && !!errors.billing_company} helperText={touched.billing_company && errors.billing_company} />
                   <Autocomplete fullWidth sx={{
                     mb: 2
-                  }} options={countryList} value={values.billing_country} getOptionLabel={option => option.label} onChange={(_, value) => setFieldValue("billing_country", value)} renderInput={params => <TextField label="Country" placeholder="Select Country" error={!!touched.billing_country && !!errors.billing_country} helperText={touched.billing_country && errors.billing_country} {...params} />} />
+                  }} options={countryList} value={values.billing_country} getOptionLabel={option => option.label} onChange={(_, value) => setFieldValue("billing_country", value)} renderInput={params => <TextField placeholder="Select Country" error={!!touched.billing_country && !!errors.billing_country} helperText={touched.billing_country && errors.billing_country} {...params} />} />
                   <TextField fullWidth label="Address 2" onBlur={handleBlur} name="billing_address2" onChange={handleChange} value={values.billing_address2} error={!!touched.billing_address2 && !!errors.billing_address2} helperText={touched.billing_address2 && errors.billing_address2} />
                 </Grid>
               </Grid>}

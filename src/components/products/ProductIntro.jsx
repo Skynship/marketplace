@@ -47,7 +47,7 @@ const ProductIntro = ({
   };
 
   // CHECK PRODUCT EXIST OR NOT IN THE CART
-  const cartItem = state.cart.find(item => item.id === id);
+  const cartItem = state.cart.items.find(item => item.id === id);
 
   // HANDLE SELECT IMAGE
   const handleImageClick = ind => () => setSelectedImage(ind);
@@ -69,8 +69,8 @@ const ProductIntro = ({
 
   const fullName = `${vendor.firstName} ${vendor.lastName}`;
 
-  return <Box width="100%" sx={{ 'display': 'flex' }}>
-      <Grid sx={{'backgroundColor': 'primary.900'}}>
+  return <Box width="100%" sx={{ 'display': 'flex', 'flexDirection': ['column', 'row'] }}>
+      <Grid sx={{'backgroundColor': 'primary.900', 'marginBottom': ['20px', '0px']}}>
         <FlexBox justifyContent="center" sx={{'padding': '20px 0px'}}>
           <LazyImage alt={title} width={700} height={700} loading="eager" objectFit="contain" src={product.images[selectedImage]} />
         </FlexBox>
@@ -88,10 +88,10 @@ const ProductIntro = ({
 
       <Grid item md={4} xs={12} sx={{'display': 'flex', 'flexGrow': '1', 'justifyContent': 'center', 'cursor': 'default' }}>
         <div>
-          <H1 mb={1}>{title}</H1>
+          <H1 sx={{'marginBottom': ['0px', '8px']}}>{title}</H1>
 
-          <FlexBox alignItems="center" mb={1}>
-            <Box>
+          <FlexBox alignItems="center" sx={{'marinBottom': ['0px', '4px']}}>
+            <Box sx={{'fontSize': '16px'}}>
               Aesthetician: <Box component="span" sx={{'fontWeight': '600', 'cursor': 'pointer'}}>{fullName}</Box>
             </Box>
           </FlexBox>
@@ -117,8 +117,8 @@ const ProductIntro = ({
           }} color={selectVariants[variant.title.toLowerCase()] === value ? "primary" : "default"} />)}
             </Box>)}*/}
 
-          <Box pt={1} mb={3}>
-            <H2 color="primary.main" mb={0.5} lineHeight="1">
+          <Box pt={1} sx={{'marginBottom': ['8px', '10px']}}>
+            <H2 color="primary.main" sx={{'marginBottom': ['0px', '6px']}} lineHeight="1">
               {currency(price)}
             </H2>
             <Box color="inherit">Available</Box>
@@ -126,14 +126,14 @@ const ProductIntro = ({
 
           <Box sx={{'marginBottom': '20px'}}>
             <H3 mb={1}>Description:</H3>
-            { description }
+            <Box sx={{'fontSize': '16px'}}>{ description }</Box>
           </Box>
 
           {!cartItem?.qty ? <Button color="primary" variant="contained" onClick={handleCartAmountChange(1)} sx={{
-          mb: 4.5,
-          px: "1.75rem",
-          height: 40
-        }}>
+            mb: 4.5,
+            px: "1.75rem",
+            height: 40
+          }}>
               Add to Cart
             </Button> : <FlexBox alignItems="center" mb={4.5}>
               <Button size="small" sx={{
@@ -142,7 +142,7 @@ const ProductIntro = ({
                 <Remove fontSize="small" />
               </Button>
 
-              <H3 fontWeight="600" mx={2.5}>
+              <H3 fontWeight="600" mx={2.5} sx={{'width': '40px', 'textAlign': 'center'}}>
                 {cartItem?.qty.toString().padStart(2, "0")}
               </H3>
 

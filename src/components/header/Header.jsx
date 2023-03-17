@@ -89,7 +89,6 @@ const Header = ({
   // FOR SMALLER DEVICE
   if (downMd) {
     const ICON_STYLE = {
-      color: "#fff",
       fontSize: 20
     };
 
@@ -122,11 +121,18 @@ const Header = ({
 
               {
                 isCartShown ? (
-                  <Box component={IconButton} onClick={toggleSidenav}>
-                    <Badge badgeContent={state.cart.length} color="primary">
-                      <Icon.CartBag sx={ICON_STYLE} />
-                    </Badge>
-                  </Box>
+                  <>
+                  <Drawer open={sidenavOpen} anchor="right" onClose={toggleSidenav} sx={{
+                    zIndex: 9999
+                  }}>
+                    <MiniCart toggleSidenav={toggleSidenav} />
+                  </Drawer>
+                    <Box onClick={toggleSidenav} component={IconButton} sx={{'backgroundColor': '#f5f6f1'}}>
+                      <Badge badgeContent={state.cart.items.length} color="primary">
+                        <Icon.CartBag sx={ICON_STYLE} />
+                      </Badge>
+                    </Box>
+                  </>
                 ) : null
               }
             </FlexBox>
@@ -162,7 +168,7 @@ const Header = ({
 
           {
             isCartShown ? (
-              <Badge badgeContent={state.cart.length} color="primary">
+              <Badge badgeContent={state.cart.items.length} color="primary">
                 <Box p={1.25} bgcolor="grey.200" component={IconButton} onClick={toggleSidenav}>
                   <ShoppingBagOutlined />
                 </Box>

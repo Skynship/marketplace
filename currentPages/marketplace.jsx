@@ -43,7 +43,7 @@ export default class Marketplace extends React.PureComponent {
                                     A curated skincare marketplace, from the best estheticians out there.
                                     <Box sx={{
                                         'position': 'absolute',
-                                        backgroundColor: '#FF2F17',
+                                        'backgroundColor': '#FF2F17',
                                         'width': ['60%', '45%'],
                                         'height': '150px',
                                         'zIndex': '-1',

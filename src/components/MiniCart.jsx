@@ -22,7 +22,7 @@ const MiniCart = ({
     state,
     dispatch
   } = useAppContext();
-  const cartList = state.cart;
+  const cartList = state.cart.items;
   const handleCartAmountChange = (amount, product) => () => {
     dispatch({
       type: "CHANGE_CART_AMOUNT",

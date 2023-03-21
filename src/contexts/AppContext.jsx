@@ -20,9 +20,11 @@ const CART_INITIAL_STATE = {
 };
 
 const PAYMENT_INITIAL_STATE = {
+  contact: {
+    email_address: '',
+  },
   shipping_address: {
     full_name: '',
-    email_address: '',
     phone_number: '',
     company: '',
     zip: '',
@@ -31,7 +33,6 @@ const PAYMENT_INITIAL_STATE = {
   },
   billing_address: {
     full_name: '',
-    email_address: '',
     phone_number: '',
     company: '',
     zip: '',
@@ -91,10 +92,13 @@ const cartReducer = (state, action) => {
 const paymentFlowReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE_ADDRESSES":
-      const { shipping = {}, billing = {}, isBillingSameAsShipping = false } = action.payload;
+      const { contact = {}, shipping = {}, billing = {}, isBillingSameAsShipping = false } = action.payload;
 
       return {
         ...state,
+        contact: {
+          ...contact
+        },
         shipping_address: {
           ...shipping
         },

@@ -8,11 +8,13 @@ import Header from "components/header/Header";
 const Checkout = () => {
   return <>
     <Header />
-    <CheckoutNavLayout omitShopLayout>
-      <Container sx={{
-        my: 4
+    <CheckoutNavLayout SX={{'padding': '0px !important', 'margin': '0px !important', 'display': 'flex', 'flexDirection': 'column', 'margin': '0 auto !important' }} omitShopLayout>
+      <Box sx={{
+        my: [0, 4, 4],
+        px: '24px',
+        flexGrow: '1'
       }}>
-        <Grid container flexWrap="wrap-reverse" spacing={3}>
+        <Grid container flexWrap="wrap-reverse" spacing={3} sx={{'paddingLeft': ['0px', '0px', '24px'], 'paddingRight': ['0px', '0px', '24px']}}>
           <Grid item lg={8} md={8} xs={12}>
             <PaymentForm />
           </Grid>
@@ -21,8 +23,8 @@ const Checkout = () => {
             <PaymentSummary />
           </Grid>
         </Grid>
-      </Container>
-      <Box sx={{'position': 'absolute', 'left': '0px', 'bottom': '0px', 'width': '100%'}}>
+      </Box>
+      <Box sx={{'position': ['flex', 'flex', 'absolute'], 'left': '0px', 'bottom': '0px', 'width': '100%'}}>
         <DropFooter />
       </Box>
     </CheckoutNavLayout>

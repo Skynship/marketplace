@@ -4,20 +4,10 @@ import { Box, Container, Grid } from "@mui/material";
 import Stepper from "components/Stepper";
 import ShopLayout1 from "./ShopLayout1";
 
-/**
- *  Used:
- *  1. cart page
- *  2. checkout page
- *  3. payment page
- */
-
-// ======================================================
-
-// ======================================================
-
 const CheckoutNavLayout = ({
   children,
-  omitShopLayout = false
+  omitShopLayout = false,
+  SX = {}
 }) => {
   const [selectedStep, setSelectedStep] = useState(0);
   const router = useRouter();
@@ -33,8 +23,7 @@ const CheckoutNavLayout = ({
         router.push("/payment");
         break;
       case 2:
-        router.push("/orders");
-        break;
+        router.push("/summary");
         break;
       default:
         break;
@@ -48,6 +37,9 @@ const CheckoutNavLayout = ({
       case "/payment":
         setSelectedStep(2);
         break;
+      case "/summary":
+        setSelectedStep(3);
+        break;
       default:
         break;
     }
@@ -55,6 +47,7 @@ const CheckoutNavLayout = ({
 
   const layoutChildren = (
     <Container sx={{
+      ...SX,
       my: 4
     }}>
       <Box mb={3} display={{
@@ -80,6 +73,7 @@ const CheckoutNavLayout = ({
     {layoutChildren}
     </ShopLayout1>;
 };
+
 const stepperList = [{
   title: "Details",
   disabled: false
@@ -87,7 +81,8 @@ const stepperList = [{
   title: "Payment",
   disabled: false
 }, {
-  title: "Review",
+  title: "Summary",
   disabled: true
 }];
+
 export default CheckoutNavLayout;

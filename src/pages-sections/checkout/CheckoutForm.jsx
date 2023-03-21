@@ -20,14 +20,13 @@ const CheckoutForm = () => {
   const handleFormSubmit = async values => {
     const {
       shipping_name,
-      shipping_email,
+      email,
       shipping_contact,
       shipping_company,
       shipping_zip,
       shipping_country,
       shipping_address1,
       billing_name,
-      billing_email,
       billing_contact,
       billing_company,
       billing_zip,
@@ -39,9 +38,11 @@ const CheckoutForm = () => {
     dispatch({
       type: 'CHANGE_ADDRESSES',
       payload: {
+        contact: {
+          email_address: email
+        },
         shipping: {
           full_name: shipping_name,
-          email_address: shipping_email,
           phone_number: shipping_contact,
           company: shipping_company,
           zip: shipping_zip,
@@ -50,7 +51,6 @@ const CheckoutForm = () => {
         },
         billing: {
           full_name: billing_name,
-          email_address: billing_email,
           phone_number: billing_contact,
           company: billing_company,
           zip: billing_zip,
@@ -73,14 +73,27 @@ const CheckoutForm = () => {
 
   return <Formik initialValues={initialValues} validationSchema={checkoutSchema} onSubmit={handleFormSubmit}>
       {({
-      values,
-      errors,
-      touched,
-      handleChange,
-      handleBlur,
-      handleSubmit,
-      setFieldValue
-    }) => <form onSubmit={handleSubmit}>
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        setFieldValue
+      }) => <form onSubmit={handleSubmit}>
+          <Card1 sx={{ mb: 4 }}>
+            <Grid container spacing={6}>
+                <Grid item sm={6} xs={12}>
+                  <Typography fontWeight="600" mb={2}>
+                    Contact Information
+                  </Typography>
+                  <TextField fullWidth type="email" sx={{
+                    mb: 2
+                  }} onBlur={handleBlur} name="email" label="Email Address" onChange={handleChange} value={values.email} error={!!touched.email && !!errors.email} helperText={touched.email && errors.email} />
+              </Grid>
+            </Grid>
+          </Card1>
+
           <Card1 sx={{
             mb: 4
           }}>
@@ -97,15 +110,12 @@ const CheckoutForm = () => {
                   mb: 2
                 }} onBlur={handleBlur} label="Phone Number" onChange={handleChange} name="shipping_contact" value={values.shipping_contact} error={!!touched.shipping_contact && !!errors.shipping_contact} helperText={touched.shipping_contact && errors.shipping_contact} />
                 <TextField fullWidth type="number" sx={{
-              mb: 2
-            }} label="Zip Code" name="shipping_zip" onBlur={handleBlur} onChange={handleChange} value={values.shipping_zip} error={!!touched.shipping_zip && !!errors.shipping_zip} helperText={touched.shipping_zip && errors.shipping_zip} />
+                  mb: 2
+                }} label="Zip Code" name="shipping_zip" onBlur={handleBlur} onChange={handleChange} value={values.shipping_zip} error={!!touched.shipping_zip && !!errors.shipping_zip} helperText={touched.shipping_zip && errors.shipping_zip} />
                 <TextField fullWidth label="Address 1" onBlur={handleBlur} onChange={handleChange} name="shipping_address1" value={values.shipping_address1} error={!!touched.shipping_address1 && !!errors.shipping_address1} helperText={touched.shipping_address1 && errors.shipping_address1} />
               </Grid>
 
               <Grid item sm={6} xs={12}>
-                <TextField fullWidth type="email" sx={{
-                  mb: 2
-                }} onBlur={handleBlur} name="shipping_email" label="Email Address" onChange={handleChange} value={values.shipping_email} error={!!touched.shipping_email && !!errors.shipping_email} helperText={touched.shipping_email && errors.shipping_email} />
                 <TextField fullWidth sx={{
                   mb: 2
                 }} label="Company" onBlur={handleBlur} onChange={handleChange} name="shipping_company" value={values.shipping_company} error={!!touched.shipping_company && !!errors.shipping_company} helperText={touched.shipping_company && errors.shipping_company} />
@@ -147,9 +157,6 @@ const CheckoutForm = () => {
                 </Grid>
 
                 <Grid item sm={6} xs={12}>
-                  <TextField fullWidth type="email" sx={{
-                    mb: 2
-                  }} onBlur={handleBlur} name="billing_email" label="Email Address" onChange={handleChange} value={values.billing_email} error={!!touched.billing_email && !!errors.billing_email} helperText={touched.billing_email && errors.billing_email} />
                   <TextField fullWidth sx={{
                     mb: 2
                   }} label="Company" onBlur={handleBlur} name="billing_company" onChange={handleChange} value={values.billing_company} error={!!touched.billing_company && !!errors.billing_company} helperText={touched.billing_company && errors.billing_company} />
@@ -170,7 +177,7 @@ const CheckoutForm = () => {
 const initialValues = {
   shipping_zip: "",
   shipping_name: "",
-  shipping_email: "",
+  email: "",
   shipping_contact: "",
   shipping_company: "",
   shipping_address1: "",
@@ -178,7 +185,6 @@ const initialValues = {
   shipping_country: countryList[229],
   billing_zip: "",
   billing_name: "",
-  billing_email: "",
   billing_contact: "",
   billing_company: "",
   billing_address1: "",
@@ -189,7 +195,7 @@ const initialValues = {
 // uncomment these fields below for from validation
 const checkoutSchema = yup.object().shape({
   shipping_name: yup.string().required("required"),
-  shipping_email: yup.string().email("invalid email").required("required"),
+  email: yup.string().email("invalid email").required("required"),
   shipping_contact: yup.string().required("required"),
   shipping_zip: yup.string().required("required"),
   shipping_country: yup.object().required("required"),

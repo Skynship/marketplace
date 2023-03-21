@@ -2,14 +2,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import { useAppContext } from "contexts/AppContext";
-import { Box, Button, Divider, Grid, Radio, TextField } from "@mui/material";
+import { Box, Button, Divider, Grid, Radio, TextField, Typography } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import * as yup from "yup";
 import { Formik } from "formik";
 import Card1 from "components/Card1";
 import { FlexBox } from "components/flex-box";
-import { Paragraph } from "components/Typography";
 import useWindowSize from "hooks/useWindowSize";
+
+const MIN_CREDIT_CARD_LENGTH = 12;
+const MAX_CREDIT_CARD_LENGTH = 19;
 const PaymentForm = () => {
   const width = useWindowSize();
   const router = useRouter();
@@ -19,6 +21,51 @@ const PaymentForm = () => {
     state,
     dispatch
   } = useAppContext();
+
+// Much of logic inspired by: https://github.com/riosdanny/react-cc-validation/blob/master/src/App.js#L49-L72
+  const validate = (values = {}) => {
+    const { card_no: cardNumber, exp_date: expiryDate, cvc: security_code } = values;
+    const errors = {};
+
+    // Security code needs to be either 3 or 4
+    if (security_code && (security_code.length < 3 || security_code.length > 4)) {
+      errors.cvc = 'Security code is invalid';
+    }
+
+    if (expiryDate && expiryDate.length !== 4) {
+      errors.exp_date = 'Expiry date is invalid';
+    }
+
+    if (cardNumber) {
+      let sum = 0;
+      let temp = 0;
+      let cardNumberCopy = cardNumber;
+      let checkDigit = parseInt(cardNumber.slice(-1));
+      let parity = cardNumberCopy.length % 2;
+
+      for (let i = 0; i <= cardNumberCopy.length - 2; i++) {
+        if (i % 2 === parity) {
+          temp = (+cardNumberCopy[i]) * 2;
+        }
+        else {
+          temp = (+cardNumberCopy[i]);
+        }
+
+        if (temp > 9) {
+          temp -= 9;
+        }
+
+        sum += temp;
+      }
+
+      const isCardNumberBetweenMinAndMaxLength = cardNumber.length > MIN_CREDIT_CARD_LENGTH && cardNumber.length < MAX_CREDIT_CARD_LENGTH;
+      if (isCardNumberBetweenMinAndMaxLength && (sum + checkDigit) % 10 !== 0) {
+        errors.card_no = 'Card entry is invalid';
+      }
+    }
+
+    return errors;
+  };
 
   const handleFormSubmit = async values => {
     const { card_no, name, exp_date, cvc } = values;
@@ -35,10 +82,10 @@ const PaymentForm = () => {
       }
     });
 
-    // router.push("/payment");
+    router.push("/summary");
   }
 
-  return <Formik onSubmit={handleFormSubmit} initialValues={initialValues} validationSchema={checkoutSchema}>
+  return <Formik onSubmit={handleFormSubmit} initialValues={initialValues} validate={validate} validationSchema={checkoutSchema}>
           {({
             values,
             errors,
@@ -47,11 +94,12 @@ const PaymentForm = () => {
             handleBlur,
             handleSubmit
           }) => <form onSubmit={handleSubmit}>
-
               <Card1 sx={{
                 mb: 4
               }}>
-                <Paragraph sx={{'color': '#1B263E', 'fontSize': '18px', 'fontWeight': '600'}}>Credit card details</Paragraph>
+                <Typography fontWeight="600" mb={2}>
+                  Credit card details
+                </Typography>
                 <Divider sx={{
                   mb: 3,
                   mx: -4
@@ -73,15 +121,15 @@ const PaymentForm = () => {
                 </Grid>
               </Box>
           </Card1> 
-          <Grid container spacing={7}>
-            <Grid item sm={6} xs={12}>
+          <Grid container spacing={7} sx={{'marginTop': ['0px', '40px']}}>
+            <Grid item sm={6} xs={12} sx={{'paddingTop': ['0px !important', '24px', '30px'], 'marginTop': ['50px', '0px' , '0px']}}>
               <Link href="/checkout" passHref>
                 <Button variant="outlined" color="primary" type="button" fullWidth>
                   Back to checkout details
                 </Button>
               </Link>
             </Grid>
-            <Grid item sm={6} xs={12}>
+            <Grid item sm={6} xs={12} sx={{'paddingTop': ['0px !important', '24px', '30px'], 'margin': ['20px 0px', '0px' , '0px']}}>
               <Button type="submit" variant="contained" color="primary" fullWidth>
                 Review Order
               </Button>

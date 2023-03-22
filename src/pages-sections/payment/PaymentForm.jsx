@@ -122,7 +122,7 @@ const PaymentForm = () => {
               </Box>
           </Card1> 
           <Grid container spacing={7} sx={{'marginTop': ['0px', '40px']}}>
-            <Grid item sm={6} xs={12} sx={{'paddingTop': ['0px !important', '24px', '30px'], 'marginTop': ['50px', '0px' , '0px']}}>
+            <Grid item sm={6} xs={12} sx={{'paddingTop': ['0px !important', '24px', '30px'], 'marginTop': ['10px', '0px' , '0px']}}>
               <Link href="/checkout" passHref>
                 <Button variant="outlined" color="primary" type="button" fullWidth>
                   Back to checkout details

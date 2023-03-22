@@ -46,21 +46,14 @@ const CheckoutNavLayout = ({
   }, [pathname]);
 
   const layoutChildren = (
-    <Container sx={{
-      ...SX,
-      my: 4
-    }}>
-      <Box mb={3} display={{
-        sm: "block",
-        xs: "none"
-      }}>
+    <Container sx={{ ...SX, my: 4 }}>
+      <Box mb={3} display={{ sm: "block" }}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Stepper stepperList={stepperList} selectedStep={selectedStep} onChange={handleStepChange} />
           </Grid>
         </Grid>
       </Box>
-
       {children}
     </Container>
   );

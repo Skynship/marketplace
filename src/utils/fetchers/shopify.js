@@ -2,6 +2,7 @@ export default async function shopifyFetch({ query, variables }) {
   const shopifyStore = process.env.SHOPIFY_STORE_DOMAIN;
   const key = process.env.SHOPIFY_STOREFRONT_API_TOKEN;
   const apiVersion = process.env.SHOPIFY_API_VERSION;
+  console.log('apiVersion', apiVersion);
 
   const absoluteUrl = `https://${shopifyStore}.myshopify.com/api/${apiVersion}/graphql.json`;
 

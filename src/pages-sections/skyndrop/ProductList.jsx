@@ -1,25 +1,43 @@
 import React from 'react';
+import Link from "next/link";
 import { Grid, Box } from "@mui/material";
 import MainCard from "components/product-cards/MainCard";
 // =============================================================
 
 const STAGGER_PX = 50;
 
+const getPriceAmount = (price = {}) => {
+  return price?.priceRange?.minVariantPrice?.amount;
+};
+
+const getFirstImage = (images = {}) => {
+  return images?.edges[0]?.node?.src;
+};
+
 const ProductList = ({ products }) => {
-  const productsComponents = products.map(({ title, slug, price, thumbnail }, idx) => {
+  const productsComponents = products.map(({ node = {} }, idx) => {
+    const { title, price = {}, images = {}, handle: slug } = node;
     const isEven = idx % 2 === 0;
 
     return (
-      <Grid key={idx} item md={3} xs={12} sx={{
-        'marginTop': isEven ? `${STAGGER_PX}px` : '0px',
-        'padding': ['20px 0px', '0px 16px 20px 16px'],
-        '&:hover': {
-          'color': 'white !important',
-          'backgroundColor': '#FF2F17',
-        }
-      }}>
-        <MainCard hideReview hideFavoriteIcon hidePrice id={title} slug={slug} title={title} price={price} imgUrl={thumbnail} />
-      </Grid>
+      <Link href={`/product/${slug}`}>
+        <Grid key={idx} item md={3} xs={12} sx={{
+          'cursor': 'pointer',
+          'marginTop': isEven ? ['0px', `${STAGGER_PX}px`] : '0px',
+          'minHeight': isEven ? ['auto', '80vh'] : 'auto',
+          'maxHeight': isEven ? 'auto' : ['auto', '80vh'],
+          'padding': ['20px 0px', '0px 30px 20px 30px'],
+          'display': 'flex',
+          'alignItems': ['center', 'flex-end'],
+          'justifyContent': 'center',
+          '&:hover': {
+            'color': 'white !important',
+            'backgroundColor': '#FF2F17',
+          }
+        }}>
+          <MainCard hideReview hideFavoriteIcon hidePrice id={title} slug={slug} title={title} price={getPriceAmount(price)} imgUrl={getFirstImage(images)} />
+        </Grid>
+      </Link>
     );
   });
 

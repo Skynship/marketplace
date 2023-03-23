@@ -17,17 +17,17 @@ import { FAQ_ITEMS } from '../src/configs/faq';
 
 // styled component
 export const HeaderWrapper = styled(Box)(({
-  theme
+    theme
 }) => ({
-  zIndex: 3,
-  position: "absolute",
-  width: "100%",
-  height: layoutConstant.headerHeight,
-  transition: "height 250ms ease-in-out",
-  background: 'transparent',
-  [theme.breakpoints.down("sm")]: {
-    height: layoutConstant.mobileHeaderHeight
-  }
+    zIndex: 3,
+    position: "absolute",
+    width: "100%",
+    height: layoutConstant.headerHeight,
+    transition: "height 250ms ease-in-out",
+    background: 'transparent',
+    [theme.breakpoints.down("sm")]: {
+        height: layoutConstant.mobileHeaderHeight
+    }
 }));
 
 export default class Marketplace extends React.PureComponent {

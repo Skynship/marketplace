@@ -8,6 +8,7 @@ import { DropFooter } from "components/footer";
 import Header from "components/header/Header";
 import { layoutConstant } from "utils/constants";
 
+// Components
 import Faq from 'components/primitives/Faq';
 import SubscribeForm from "components/primitives/SubscribeForm";
 import ShopLayout1 from "components/layouts/ShopLayout1";

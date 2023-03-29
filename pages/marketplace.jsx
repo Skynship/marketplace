@@ -29,12 +29,11 @@ export default class Marketplace extends React.PureComponent {
               <SEO title="Skynship drop, marketplace curated by estheticians" />
               <Box sx={{
                 backgroundColor: 'theme.palette.primary.cream',
-                padding: '25px 0px',
                 overFlow: 'hidden',
                 display: 'flex',
                 justifyContent: 'center'
               }}>
-                <Container sx={{ 'margin': '2rem 0rem 5rem 0rem' }}>
+                <Container sx={{ 'margin': '0px !important', 'padding': '0px !important' }}>
                   <ProductList products={products} />
                 </Container>
               </Box>

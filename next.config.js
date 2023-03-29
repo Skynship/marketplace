@@ -9,6 +9,15 @@ module.exports = {
     theme: "DEFAULT",
     currency: "USD",
   },
+  images: {
+      domains: ['cdn.shopify.com'],
+      remotePatterns: [
+          {
+              protocol: 'https',
+              hostname: 'cdn.shopify.com'
+          },
+      ]
+  },
   // async redirects() {
   //   return [
   //     {

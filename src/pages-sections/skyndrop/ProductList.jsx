@@ -4,7 +4,7 @@ import { Grid, Box } from "@mui/material";
 import MainCard from "components/product-cards/MainCard";
 // =============================================================
 
-const STAGGER_PX = 50;
+const STAGGER_PX = 80;
 
 const getPriceAmount = (price = {}) => {
   return price?.priceRange?.minVariantPrice?.amount;
@@ -24,8 +24,8 @@ const ProductList = ({ products }) => {
         <Grid key={idx} item md={3} xs={12} sx={{
           'cursor': 'pointer',
           'marginTop': isEven ? ['0px', `${STAGGER_PX}px`] : '0px',
-          'minHeight': isEven ? ['auto', '80vh'] : 'auto',
-          'maxHeight': isEven ? 'auto' : ['auto', '80vh'],
+          'minHeight': isEven ? ['400px', '92vh'] : 'auto',
+          'maxHeight': isEven ? 'auto' : ['auto', '92vh'],
           'padding': ['20px 0px', '0px 30px 20px 30px'],
           'display': 'flex',
           'alignItems': ['center', 'flex-end'],

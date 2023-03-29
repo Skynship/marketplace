@@ -31,14 +31,8 @@ const DropLayout = ({
   const [isFixed, setIsFixed] = useState(false);
   const toggleIsFixed = useCallback(fixed => setIsFixed(fixed), []);
   return <Fragment>
-      {/* TOPBAR */}
       {showTopbar && <Topbar bgColor={topbarBgColor} />}
-
-      {/* HEADER */}
-      <Sticky fixedOn={0} onSticky={toggleIsFixed} scrollDistance={300}>
-        <Header isFixed={false} />
-      </Sticky>
-
+      <Header isAbsolute />
       <div className="section-after-sticky">
         {/* NAVIGATION BAR */}
         {showNavbar && <Navbar elevation={0} border={1} />}

@@ -30,3 +30,36 @@ export const productsList = `{
         }
     }
 }`;
+
+
+// aesthetician: metafield(namespace: "custom", key: "aesthetician") {
+//     full_name
+// }
+
+export const getProductByHandle = (handle) => `{
+    product(handle: "${handle}") {
+        id
+        title
+        description
+        vendor
+        seo {
+          description
+          title
+        }
+        tags
+        priceRange {
+            minVariantPrice {
+                amount
+                currencyCode
+            }
+        }
+        images(first: 1) {
+            edges {
+                node {
+                    src
+                    altText
+                }
+            }
+        }
+    }
+}`

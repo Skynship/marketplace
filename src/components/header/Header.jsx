@@ -25,14 +25,10 @@ export const HeaderWrapper = styled(Box)(({
   theme
 }) => ({
   zIndex: 3,
-  position: "relative",
   width: "100%",
-  height: layoutConstant.headerHeight,
+  height: ['64px', '80px', '80px'],
   transition: "height 250ms ease-in-out",
-  background: 'transparent',
-  [theme.breakpoints.down("sm")]: {
-    height: layoutConstant.mobileHeaderHeight
-  }
+  background: 'transparent'
 }));
 const StyledContainer = styled(Container)({
   gap: 2,
@@ -47,7 +43,7 @@ const StyledContainer = styled(Container)({
 // ==============================================================
 
 const Header = ({
-  isFixed,
+  isAbsolute = false,
   isLogoShown = true,
   isCartShown = true,
   className,
@@ -92,7 +88,14 @@ const Header = ({
       fontSize: 20
     };
 
-    return <HeaderWrapper className={clsx(className)}>
+    return <Box className={clsx(className)} sx={{
+      zIndex: 3,
+      width: "100%",
+      height: ['64px', '80px', '80px'],
+      transition: "height 250ms ease-in-out",
+      background: 'transparent',
+      position: isAbsolute ? 'absolute' : 'relative'
+    }}>
         <StyledContainer>
           <FlexBetween width="100%">
             {/* LEFT CONTENT - NAVIGATION ICON BUTTON */}
@@ -139,10 +142,17 @@ const Header = ({
           </FlexBetween>
           { rightChildren }
         </StyledContainer>
-      </HeaderWrapper>;
+      </Box>;
   }
 
-  return <HeaderWrapper className={clsx(className)}>
+  return <Box className={clsx(className)} sx={{
+      zIndex: 3,
+      width: "100%",
+      height: ['64px', '80px', '80px'],
+      transition: "height 250ms ease-in-out",
+      background: 'transparent',
+      position: isAbsolute ? 'absolute' : 'relative'
+    }}>
       <StyledContainer>
         {/* LEFT CONTENT - LOGO AND CATEGORY */}
         {
@@ -181,6 +191,6 @@ const Header = ({
         {/* LOGIN FORM DIALOG AND CART SIDE BAR  */}
         {DIALOG_DRAWER}
       </StyledContainer>
-    </HeaderWrapper>;
+    </Box>;
 };
 export default Header;

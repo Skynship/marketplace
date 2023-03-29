@@ -27,7 +27,7 @@ const ProductIntro = ({
     priceRange = {},
     title,
     images: imageEdges,
-    slug,
+    handle: slug,
     thumbnail,
     description,
     vendor,
@@ -71,7 +71,7 @@ const ProductIntro = ({
         price,
         qty: amount,
         name: title,
-        imgUrl: thumbnail,
+        imgUrl: getImageSrc(imageEdges, selectedImage),
         id,
         slug
       }

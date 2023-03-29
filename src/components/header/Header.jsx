@@ -17,7 +17,6 @@ import Category from "components/icons/Category";
 import { Paragraph } from "components/Typography";
 import MobileMenu from "components/navbar/MobileMenu";
 import { FlexBetween, FlexBox } from "components/flex-box";
-import CategoryMenu from "components/categories/CategoryMenu";
 import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";
 
 // styled component
@@ -65,11 +64,11 @@ const Header = ({
 
   // LOGIN AND MINICART DRAWER
   const DIALOG_DRAWER = <Fragment>
-      <Dialog scroll="body" open={dialogOpen} fullWidth={isMobile} onClose={toggleDialog} sx={{
+      {/*<Dialog scroll="body" open={dialogOpen} fullWidth={isMobile} onClose={toggleDialog} sx={{
         zIndex: 9999
       }}>
         <Login />
-      </Dialog>
+      </Dialog>*/}
 
       {
         isCartShown ? (

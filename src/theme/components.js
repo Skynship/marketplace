@@ -38,6 +38,13 @@ export const components = {
       }
     })
   },
+  MuiAvatar: {
+    styleOverrides: {
+      img: {
+        objectFit: 'contain'
+      }
+    }
+  },
   MuiInputLabel: {
     styleOverrides: {
       root: {

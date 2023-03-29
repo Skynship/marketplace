@@ -112,7 +112,6 @@ const CheckoutForm = () => {
                 <TextField fullWidth type="number" sx={{
                   mb: 2
                 }} label="Zip Code" name="shipping_zip" onBlur={handleBlur} onChange={handleChange} value={values.shipping_zip} error={!!touched.shipping_zip && !!errors.shipping_zip} helperText={touched.shipping_zip && errors.shipping_zip} />
-                <TextField fullWidth label="Address 1" onBlur={handleBlur} onChange={handleChange} name="shipping_address1" value={values.shipping_address1} error={!!touched.shipping_address1 && !!errors.shipping_address1} helperText={touched.shipping_address1 && errors.shipping_address1} />
               </Grid>
 
               <Grid item sm={6} xs={12}>
@@ -123,8 +122,7 @@ const CheckoutForm = () => {
                 <Autocomplete fullWidth sx={{
                   mb: 2
                 }} options={countryList} value={values.shipping_country} getOptionLabel={option => option.label} onChange={(_, value) => setFieldValue("shipping_country", value)} renderInput={params => <TextField label="Country" variant="outlined" placeholder="Select Country" error={!!touched.shipping_country && !!errors.shipping_country} helperText={touched.shipping_country && errors.shipping_country} {...params} />} />
-
-                <TextField fullWidth label="Address 2" onBlur={handleBlur} onChange={handleChange} name="shipping_address2" value={values.shipping_address2} error={!!touched.shipping_address2 && !!errors.shipping_address2} helperText={touched.shipping_address2 && errors.shipping_address2} />
+                <TextField fullWidth label="Address" onBlur={handleBlur} onChange={handleChange} name="shipping_address1" value={values.shipping_address1} error={!!touched.shipping_address1 && !!errors.shipping_address1} helperText={touched.shipping_address1 && errors.shipping_address1} />
               </Grid>
             </Grid>
           </Card1>
@@ -153,7 +151,6 @@ const CheckoutForm = () => {
                   <TextField fullWidth type="number" sx={{
                     mb: 2
                   }} label="Zip Code" name="billing_zip" onBlur={handleBlur} onChange={handleChange} value={values.billing_zip} error={!!touched.billing_zip && !!errors.billing_zip} helperText={touched.billing_zip && errors.billing_zip} />
-                  <TextField fullWidth label="Address 1" onBlur={handleBlur} onChange={handleChange} name="billing_address1" value={values.billing_address1} error={!!touched.billing_address1 && !!errors.billing_address1} helperText={touched.billing_address1 && errors.billing_address1} />
                 </Grid>
 
                 <Grid item sm={6} xs={12}>
@@ -163,7 +160,7 @@ const CheckoutForm = () => {
                   <Autocomplete fullWidth sx={{
                     mb: 2
                   }} options={countryList} value={values.billing_country} getOptionLabel={option => option.label} onChange={(_, value) => setFieldValue("billing_country", value)} renderInput={params => <TextField label="Country" placeholder="Select Country" error={!!touched.billing_country && !!errors.billing_country} helperText={touched.billing_country && errors.billing_country} {...params} />} />
-                  <TextField fullWidth label="Address 2" onBlur={handleBlur} name="billing_address2" onChange={handleChange} value={values.billing_address2} error={!!touched.billing_address2 && !!errors.billing_address2} helperText={touched.billing_address2 && errors.billing_address2} />
+                  <TextField fullWidth label="Address" onBlur={handleBlur} onChange={handleChange} name="billing_address1" value={values.billing_address1} error={!!touched.billing_address1 && !!errors.billing_address1} helperText={touched.billing_address1 && errors.billing_address1} />
                 </Grid>
               </Grid>}
           </Card1>
@@ -181,14 +178,12 @@ const initialValues = {
   shipping_contact: "",
   shipping_company: "",
   shipping_address1: "",
-  shipping_address2: "",
   shipping_country: countryList[229],
   billing_zip: "",
   billing_name: "",
   billing_contact: "",
   billing_company: "",
   billing_address1: "",
-  billing_address2: "",
   billing_country: countryList[229]
 };
 

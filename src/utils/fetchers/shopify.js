@@ -16,7 +16,7 @@ export default async function shopifyFetch({ query, variables }) {
     });
 
     const data = await result.json();
-console.log('data', data);
+
     return {
       status: result.status,
       ...data

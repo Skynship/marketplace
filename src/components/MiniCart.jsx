@@ -84,7 +84,7 @@ const MiniCart = ({
               </Button>
             </FlexBox>
 
-            <Link href={`/product/${item.id}`}>
+            <Link href={`/product/${item.slug}`}>
               <Avatar alt={item.name} src={item.imgUrl} sx={{
                 mx: 2,
                 width: 76,

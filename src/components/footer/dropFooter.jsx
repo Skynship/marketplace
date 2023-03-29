@@ -36,7 +36,7 @@ const DropFooter = () => {
           color: "black"
         }}>
           <Box overflow="hidden" sx={{ 'justifyContent': 'space-between' }}>
-            <Grid  spacing={3}>
+            <Grid>
               <Grid sx={{'padding': '30px 0px'}} item lg={4} md={8} sm={8} xs={12}>
                 <Link href="/">
                   <Logo isDark />

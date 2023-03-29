@@ -20,8 +20,8 @@ const ProductList = ({ products }) => {
     const isEven = idx % 2 === 0;
 
     return (
-      <Link href={`/product/${slug}`}>
-        <Grid key={idx} item md={3} xs={12} sx={{
+      <Link href={`/product/${slug}`} key={idx}>
+        <Grid item md={3} xs={12} sx={{
           'cursor': 'pointer',
           'marginTop': isEven ? ['0px', `${STAGGER_PX}px`] : '0px',
           'minHeight': isEven ? ['400px', '92vh'] : 'auto',

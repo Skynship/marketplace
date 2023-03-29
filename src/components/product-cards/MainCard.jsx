@@ -29,7 +29,7 @@ const MainCard = ({
       </Box>
       <FlexBetween sx={{ 'width': '100%' }}>
         <Box mt="1rem" sx={{ 'width': '100%' }}>
-          <H4 whiteSpace="normal !important" overflow="auto !important" textOverflow="initial !important" wordWrap="break-word" textAlign="center" fontWeight="600" fontSize="14px" mb={0.5} title={title} ellipsis>
+          <H4 whiteSpace="normal !important" overflow="auto !important" textOverflow="initial !important" wordwrap="break-word" textAlign="center" fontWeight="600" fontSize="14px" mb={0.5} title={title} ellipsis>
             {title}
           </H4>
           {!hideReview && <BazaarRating value={rating} color="warn" readOnly />}
@@ -53,9 +53,9 @@ const MainCard = ({
         </Box>
 
         {!hideFavoriteIcon && <FavoriteBorder fontSize="small" color="secondary" sx={{
-        opacity: 0.5,
-        m: "1rem"
-      }} />}
+          opacity: 0.5,
+          m: "1rem"
+        }} />}
       </FlexBetween>
     </Box>;
 };

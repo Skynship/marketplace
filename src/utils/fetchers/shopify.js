@@ -4,7 +4,7 @@ export default async function shopifyFetch({ query, variables }) {
   const apiVersion = process.env.SHOPIFY_API_VERSION;
 
   const absoluteUrl = `https://${shopifyStore}.myshopify.com/api/${apiVersion}/graphql.json`;
-
+res.json({message: "Hello, World!", absoluteUrl});
   try {
     const result = await fetch(absoluteUrl, {
       method: 'POST',

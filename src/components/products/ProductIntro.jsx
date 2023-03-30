@@ -79,9 +79,9 @@ const ProductIntro = ({
   };
 
   return <Box width="100%" sx={{ 'display': 'flex', 'flexDirection': ['column', 'row'] }}>
-      <Grid sx={{'backgroundColor': 'primary.900', 'marginBottom': ['20px', '0px'], 'display': 'flex', 'alignItems': 'center'}}>
+      <Grid sx={{'backgroundColor': 'primary.900', 'marginBottom': ['20px', '0px'], 'display': 'flex', 'alignItems': 'center', 'padding': ['20px 0px', '0px 40px']}}>
         <FlexBox justifyContent="center" sx={{'padding': '20px 0px'}}>
-          <LazyImage alt={title} width={700} height={700} loading="eager" objectFit="contain" src={getImageSrc(imageEdges, selectedImage)} />
+          <LazyImage alt={title} width={500} height={500} loading="eager" objectFit="contain" src={getImageSrc(imageEdges, selectedImage)} />
         </FlexBox>
 
         {/*<FlexBox overflow="auto">
@@ -100,9 +100,9 @@ const ProductIntro = ({
           <Box sx={{'width': ['100%', '50%']}}>
             <H1 sx={{'marginBottom': ['0px', '8px']}}>{title.toUpperCase()}</H1>
 
-            <FlexBox sx={{'marinBottom': ['0px', '4px'], 'display': 'flex', 'flexWrap': 'wrap'}}>
+            <FlexBox sx={{'marginBottom': ['0px', '4px'], 'display': 'flex', 'flexWrap': 'wrap'}}>
               <Box sx={{'fontSize': '16px'}}>
-                Aesthetician: <Box component="span" sx={{'fontWeight': '600', 'cursor': 'pointer'}}>{vendor}</Box>
+                Aesthetician: <Link href={`/esthetician/${vendor.split(' ').join('-').toLowerCase()}`}><Box component="span" sx={{'fontWeight': '600', 'cursor': 'pointer'}}>{vendor}</Box></Link>
               </Box>
             </FlexBox>
 

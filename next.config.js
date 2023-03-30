@@ -10,12 +10,16 @@ module.exports = {
     currency: "USD",
   },
   images: {
-      domains: ['cdn.shopify.com'],
+      domains: ['cdn.shopify.com', 'res.cloudinary.com'],
       remotePatterns: [
           {
               protocol: 'https',
               hostname: 'cdn.shopify.com'
           },
+          {
+              protocol: 'https',
+              hostname: 'res.cloudinary.com'
+          }
       ]
   },
   // async redirects() {

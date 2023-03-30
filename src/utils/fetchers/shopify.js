@@ -16,12 +16,13 @@ export default async function shopifyFetch({ query, variables }) {
     });
 
     const data = await result.json();
-
+  res.json({message: "Hello, World! Success", result});
     return {
       status: result.status,
       ...data
     };
   } catch (error) {
+  res.json({message: "Error happened", error});
     console.error('Error:', error);
     return {
       status: 500,

@@ -20,7 +20,7 @@ import ProductList from "pages-sections/skyndrop/ProductList";
 // Configs
 import { COUNTDOWN_DATE } from '../src/configs/countdown';
 
-export default class Marketplace extends React.PureComponent {
+class Marketplace extends React.PureComponent {
     render() {
         const { products = [] } = this.props;
 
@@ -94,14 +94,16 @@ export default class Marketplace extends React.PureComponent {
     }
 }
 
-// export async function getServerSideProps(context) {
-//     const { data, errors } = await shopifyFetch({
-//         query: productsList
-//     });
+export const getServerSideProps = async (context) => {
+    // const { data, errors } = await shopifyFetch({
+    //     query: productsList
+    // });
 
-//     return {
-//         props: {
-//             products: data?.products?.edges || []
-//         },
-//     }
-// }
+    return {
+        props: {
+            products:  []
+        },
+    }
+}
+
+export default Marketplace;

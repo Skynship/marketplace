@@ -96,13 +96,13 @@ export default class Marketplace extends React.PureComponent {
 
 export async function getServerSideProps(context) {
 console.log('here i come', productsList, process.env.SHOPIFY_STORE_DOMAIN);
-    const { data, errors } = await shopifyFetch({
-        query: productsList
-    });
+    // const { data, errors } = await shopifyFetch({
+    //     query: productsList
+    // });
 
     return {
         props: {
-            products: data?.products?.edges || []
+            products: []
         },
     }
 }

@@ -4,7 +4,7 @@ export default async function shopifyFetch({ query, variables }) {
   const apiVersion = process.env.SHOPIFY_API_VERSION;
 
   const absoluteUrl = `https://${shopifyStore}.myshopify.com/api/${apiVersion}/graphql.json`;
-res.json({message: "Hello, World!", absoluteUrl});
+
   try {
     const result = await fetch(absoluteUrl, {
       method: 'POST',
@@ -16,13 +16,12 @@ res.json({message: "Hello, World!", absoluteUrl});
     });
 
     const data = await result.json();
-  res.json({message: "Hello, World! Success", result});
+
     return {
       status: result.status,
       ...data
     };
   } catch (error) {
-  res.json({message: "Error happened", error});
     console.error('Error:', error);
     return {
       status: 500,

@@ -94,14 +94,14 @@ class Marketplace extends React.PureComponent {
     }
 }
 
-export const getServerSideProps = async (context) => {
-    const { data, errors } = await shopifyFetch({
-        query: productsList
-    });
+export const getServerSideProps = (context) => {
+    // const { data, errors } = await shopifyFetch({
+    //     query: productsList
+    // });
 
     return {
         props: {
-            products: data?.products?.edges || []
+           message: "Welcome to the About Page"
         },
     }
 }

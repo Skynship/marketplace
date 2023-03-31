@@ -5,6 +5,9 @@ import strings from '../src/configs/strings';
 
 import Head from "next/head";
 import Router from "next/router";
+import nProgress from "nprogress";
+import "nprogress/nprogress.css";
+
 import { appWithTranslation } from "next-i18next";
 import RTL from "components/RTL";
 import MuiTheme from "theme/MuiTheme";
@@ -16,6 +19,16 @@ import { IntlProvider } from 'react-intl';
 import nextI18NextConfig from "../next-i18next.config";
 import "simplebar/dist/simplebar.min.css";
 import '../src/styles/globals.css';
+import "../src/__server__";
+
+//Binding events.
+Router.events.on("routeChangeStart", () => nProgress.start());
+Router.events.on("routeChangeComplete", () => nProgress.done());
+Router.events.on("routeChangeError", () => nProgress.done());
+// small change
+nProgress.configure({
+  showSpinner: false
+});
 
 const App = ({
   Component,

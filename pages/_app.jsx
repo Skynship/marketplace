@@ -16,7 +16,6 @@ import { IntlProvider } from 'react-intl';
 import nextI18NextConfig from "../next-i18next.config";
 import "simplebar/dist/simplebar.min.css";
 import '../src/styles/globals.css';
-import "../src/__server__";
 
 const App = ({
   Component,

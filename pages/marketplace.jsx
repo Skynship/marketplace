@@ -20,82 +20,90 @@ import ProductList from "pages-sections/skyndrop/ProductList";
 // Configs
 import { COUNTDOWN_DATE } from '../src/configs/countdown';
 
-export default function Marketplace(props) {
-    const { products = [], message } = props;
-console.log(message);
-    const marketplace = (
-        <DropLayout showTopbar={false} showNavbar={false}>
-          <SEO title="Skynship drop, marketplace curated by estheticians" />
-          <Box sx={{
-            backgroundColor: 'theme.palette.primary.cream',
-            overFlow: 'hidden',
-            display: 'flex',
-            justifyContent: 'center'
-          }}>
-            <Container sx={{ 'margin': '0px !important', 'padding': '0px !important' }}>
-              <ProductList products={products} />
-            </Container>
-          </Box>
-        </DropLayout>
-    );
+class Marketplace extends React.PureComponent {
+    render() {
+        const { products = [] } = this.props;
 
-    if (!COUNTDOWN_DATE) {
-        return marketplace;
-    }
+        const marketplace = (
+            <DropLayout showTopbar={false} showNavbar={false}>
+              <SEO title="Skynship drop, marketplace curated by estheticians" />
+              <Box sx={{
+                backgroundColor: 'theme.palette.primary.cream',
+                overFlow: 'hidden',
+                display: 'flex',
+                justifyContent: 'center'
+              }}>
+                <Container sx={{ 'margin': '0px !important', 'padding': '0px !important' }}>
+                  <ProductList products={products} />
+                </Container>
+              </Box>
+            </DropLayout>
+        );
 
-    return (
-        <Box sx={{
-            'display': 'flex',
-            'flexDirection': 'column',
-            'height': '100%',
-            'minHeight': '100vh'
-        }}>
-            <DropLayout isCartShown={false}>
-                <Box sx={{
-                    'height': '100%',
-                    'display': 'flex',
-                    'backgroundColor': '#f5f6f1',
-                    'padding': '24px 0px 40px 0px'
-                }}>
-                    <Box sx={{'display': 'flex', 'flexDirection': 'column', 'flexGrow': 1}}>
-                        <Box sx={{
-                            'color': '#1B263E',
-                            'fontSize': '18px',
-                            'fontWeight': '600',
-                            'display': 'flex',
-                            'flexDirection': 'column',
-                            'justifyContent': 'center',
-                            'alignItems': 'center',
-                            'flexGrow': 1,
-                            'marginTop': '18px'
-                        }}>
-                            <H1 sx={{'position': 'relative', 'textAlign': 'center', 'zIndex': '1'}}>
-                                A curated skincare marketplace, from the best estheticians out there.
-                                <Box sx={{
-                                    'position': 'absolute',
-                                    'backgroundColor': '#FF2F17',
-                                    'width': ['60%', '45%'],
-                                    'height': '150px',
-                                    'zIndex': '-1',
-                                    'top': '-20px',
-                                    'left': ['30%', '15%']
-                                }} />
-                            </H1>
-                            <Box sx={{'zIndex': '10'}}>
-                                <Countdown releaseDateStr="March 17, 2023" />
+        if (!COUNTDOWN_DATE) {
+            return marketplace;
+        }
+
+        return (
+            <Box sx={{
+                'display': 'flex',
+                'flexDirection': 'column',
+                'height': '100%',
+                'minHeight': '100vh'
+            }}>
+                <DropLayout isCartShown={false}>
+                    <Box sx={{
+                        'height': '100%',
+                        'display': 'flex',
+                        'backgroundColor': '#f5f6f1',
+                        'padding': '24px 0px 40px 0px'
+                    }}>
+                        <Box sx={{'display': 'flex', 'flexDirection': 'column', 'flexGrow': 1}}>
+                            <Box sx={{
+                                'color': '#1B263E',
+                                'fontSize': '18px',
+                                'fontWeight': '600',
+                                'display': 'flex',
+                                'flexDirection': 'column',
+                                'justifyContent': 'center',
+                                'alignItems': 'center',
+                                'flexGrow': 1,
+                                'marginTop': '18px'
+                            }}>
+                                <H1 sx={{'position': 'relative', 'textAlign': 'center', 'zIndex': '1'}}>
+                                    A curated skincare marketplace, from the best estheticians out there.
+                                    <Box sx={{
+                                        'position': 'absolute',
+                                        'backgroundColor': '#FF2F17',
+                                        'width': ['60%', '45%'],
+                                        'height': '150px',
+                                        'zIndex': '-1',
+                                        'top': '-20px',
+                                        'left': ['30%', '15%']
+                                    }} />
+                                </H1>
+                                <Box sx={{'zIndex': '10'}}>
+                                    <Countdown releaseDateStr="March 17, 2023" />
+                                </Box>
                             </Box>
                         </Box>
                     </Box>
-                </Box>
-            </DropLayout>
-        </Box>
-    );
+                </DropLayout>
+            </Box>
+        );
+    }
 }
 
 export const getServerSideProps = (context) => {
+    // const { data, errors } = await shopifyFetch({
+    //     query: productsList
+    // });
+
     return {
         props: {
-          message: "Welcome to the About Page"
+           message: "Welcome to the About Page"
         },
     }
 }
+
+export default Marketplace;

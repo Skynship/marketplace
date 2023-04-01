@@ -25,7 +25,7 @@ export default async function shopifyFetch({ query, variables }) {
     console.error('Error:', error);
     return {
       status: 500,
-      error: 'Error receiving data'
+      error: error.message
     };
   }
 }

@@ -95,43 +95,15 @@ class Marketplace extends React.PureComponent {
 }
 
 export const getServerSideProps = async (context) => {
-  const shopifyStore = process.env.SHOPIFY_STORE_DOMAIN;
-  const key = process.env.SHOPIFY_STOREFRONT_API_TOKEN;
-  const apiVersion = process.env.SHOPIFY_API_VERSION;
-
-  const absoluteUrl = `https://${shopifyStore}.myshopify.com/api/${apiVersion}/graphql.json`;
-  const query = productsList;
-  try {
-    const result = await fetch(absoluteUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': key
-      },
-      body: { query } && JSON.stringify({ query })
+    const { data, errors } = await shopifyFetch({
+        query: productsList
     });
-
-    const {...data} = await result.json();
 
     return {
         props: {
-            products: data?.data.products?.edges || []
+            products: data?.products?.edges || []
         },
     }
-
-  } catch (error) {
-        console.error('Error:', error);
-        return {
-            props: {
-                products: data?.products?.edges || []
-            },
-        }
-  }
-
-    // const { data, errors } = await shopifyFetch({
-    //     query: productsList
-    // });
-
 }
 
 export default Marketplace;

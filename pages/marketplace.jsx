@@ -98,6 +98,7 @@ export const getServerSideProps = async (context) => {
     // const { data, errors } = await shopifyFetch({
     //     query: productsList
     // });
+    console.log('i am in here');
 
     return {
         props: {

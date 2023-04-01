@@ -1,11 +1,6 @@
 import { Fragment, useCallback, useState } from "react";
-import Sticky from "components/Sticky";
-import Topbar from "components/Topbar";
 import { DropFooter } from "components/footer";
 import Header from "components/header/Header";
-import Navbar from "components/navbar/Navbar";
-import { MobileNavigationBar } from "components/mobile-navigation";
-import SearchInputWithCategory from "components/search-box/SearchInputWithCategory";
 
 /**
  *  Used in:
@@ -31,11 +26,8 @@ const DropLayout = ({
   const [isFixed, setIsFixed] = useState(false);
   const toggleIsFixed = useCallback(fixed => setIsFixed(fixed), []);
   return <Fragment>
-      {showTopbar && <Topbar bgColor={topbarBgColor} />}
       <Header isAbsolute />
       <div className="section-after-sticky">
-        {/* NAVIGATION BAR */}
-        {showNavbar && <Navbar elevation={0} border={1} />}
 
         {/* BODY CONTENT */}
         {children}

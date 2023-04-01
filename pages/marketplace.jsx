@@ -8,11 +8,11 @@ import SEO from "components/SEO";
 import shopifyFetch from "utils/fetchers/shopify";
 import { productsList } from "utils/queries/products";
 
-// // Primitives
-// import Countdown from 'components/primitives/Countdown';
+// Primitives
+import Countdown from 'components/primitives/Countdown';
 
-// // Layouts
-// import DropLayout from "components/layouts/dropLayout";
+// Layouts
+import DropLayout from "components/layouts/dropLayout";
 
 // // Sections
 // import ProductList from "pages-sections/skyndrop/ProductList";
@@ -22,7 +22,7 @@ import { productsList } from "utils/queries/products";
 
 class Marketplace extends React.PureComponent {
     render() {
-        return null;
+        return <div>im here</div>;
     }
 }
 

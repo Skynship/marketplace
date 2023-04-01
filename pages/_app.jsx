@@ -19,7 +19,6 @@ import { IntlProvider } from 'react-intl';
 import nextI18NextConfig from "../next-i18next.config";
 import "simplebar/dist/simplebar.min.css";
 import '../src/styles/globals.css';
-import "../src/__server__";
 
 //Binding events.
 Router.events.on("routeChangeStart", () => nProgress.start());
@@ -34,8 +33,6 @@ const App = ({
   Component,
   pageProps
 }) => {
-  const AnyComponent = Component;
-  const getLayout = AnyComponent.getLayout ?? (page => page);
   return <Fragment>
       <Head>
         <meta charSet="utf-8" />
@@ -51,7 +48,7 @@ const App = ({
           <MuiTheme>
             <IntlProvider messages={strings} locale="en">
               <SnackbarProvider>
-                <RTL>{getLayout(<AnyComponent {...pageProps} />)}</RTL>
+                <Component {...pageProps} />
               </SnackbarProvider>
             </IntlProvider>
           </MuiTheme>

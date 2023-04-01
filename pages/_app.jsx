@@ -9,7 +9,6 @@ import nProgress from "nprogress";
 import "nprogress/nprogress.css";
 
 import { appWithTranslation } from "next-i18next";
-import RTL from "components/RTL";
 import MuiTheme from "theme/MuiTheme";
 import OpenGraphTags from "utils/OpenGraphTags";
 import { AppProvider } from "contexts/AppContext";
@@ -19,7 +18,6 @@ import { IntlProvider } from 'react-intl';
 import nextI18NextConfig from "../next-i18next.config";
 import "simplebar/dist/simplebar.min.css";
 import '../src/styles/globals.css';
-import "../src/__server__";
 
 //Binding events.
 Router.events.on("routeChangeStart", () => nProgress.start());

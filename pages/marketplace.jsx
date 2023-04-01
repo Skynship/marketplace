@@ -22,6 +22,7 @@ import { COUNTDOWN_DATE } from '../src/configs/countdown';
 
 class Marketplace extends React.PureComponent {
     render() {
+        throw new Error('i wont render');
         const { products = [] } = this.props;
 
         const marketplace = (
@@ -51,7 +52,7 @@ class Marketplace extends React.PureComponent {
                 'height': '100%',
                 'minHeight': '100vh'
             }}>
-                <DropLayout isCartShown={false}>
+                <DropLayout showNavbar={false} showTopbar={false} isCartShown={false}>
                     <Box sx={{
                         'height': '100%',
                         'display': 'flex',
@@ -83,7 +84,7 @@ class Marketplace extends React.PureComponent {
                                     }} />
                                 </H1>
                                 <Box sx={{'zIndex': '10'}}>
-                                    <Countdown releaseDateStr="March 17, 2023" />
+                                    <Countdown releaseDateStr={COUNTDOWN_DATE} />
                                 </Box>
                             </Box>
                         </Box>

@@ -9,7 +9,6 @@ const OrderSummary = (props) => {
   const { address: bill_address, country: billing_country } = billing_address;
   const { number = '' } = credit_card;
   const { email_address } = contact;
-  console.log(props);
 
   return <Card1>
       <FlexBetween mb={1}>

@@ -8,7 +8,6 @@ export default async function shopifyFetch({ query, variables }) {
   try {
     const result = await fetch(absoluteUrl, {
       method: 'POST',
-      signal: AbortSignal.timeout(9000),
       headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Storefront-Access-Token': key
@@ -24,16 +23,9 @@ export default async function shopifyFetch({ query, variables }) {
     };
   } catch (error) {
     console.error('Error:', error);
-    if (error.name === 'TimeoutError') {
-      return {
-        status: 504,
-        error: 'Upstream API took too long'
-      }
-    }
-
     return {
       status: 500,
-      error: error.message
+      error: 'Error receiving data'
     };
   }
 }

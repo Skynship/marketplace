@@ -1,14 +1,9 @@
 import { Box } from "@mui/material";
-import { FavoriteBorder } from "@mui/icons-material";
-import HoverBox from "components/HoverBox";
 import { H4 } from "components/Typography";
-import BazaarRating from "components/BazaarRating";
+// import { FavoriteBorder } from "@mui/icons-material";
+// import BazaarRating from "components/BazaarRating";
 import { FlexBetween, FlexBox } from "components/flex-box";
 import { calculateDiscount, currency } from "lib";
-
-// ===========================================================
-
-// ===========================================================
 
 const MainCard = ({
   id,
@@ -32,7 +27,7 @@ const MainCard = ({
           <H4 whiteSpace="normal !important" overflow="auto !important" textOverflow="initial !important" wordwrap="break-word" textAlign="center" fontWeight="600" fontSize="14px" mb={0.5} title={title} ellipsis>
             {title}
           </H4>
-          {!hideReview && <BazaarRating value={rating} color="warn" readOnly />}
+          {/*{!hideReview && <BazaarRating value={rating} color="warn" readOnly />}*/}
 
           {
             hidePrice ? null : (
@@ -52,10 +47,10 @@ const MainCard = ({
           }
         </Box>
 
-        {!hideFavoriteIcon && <FavoriteBorder fontSize="small" color="secondary" sx={{
+        {/*{!hideFavoriteIcon && <FavoriteBorder fontSize="small" color="secondary" sx={{
           opacity: 0.5,
           m: "1rem"
-        }} />}
+        }} />}*/}
       </FlexBetween>
     </Box>;
 };

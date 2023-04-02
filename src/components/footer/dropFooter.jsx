@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Box, Container, Grid, IconButton, styled } from "@mui/material";
 // import AppStore from "components/AppStore";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import Logo from 'components/primitives/Logo';
-import Image from "components/BazaarImage";
+// import Image from "components/BazaarImage";
 import { FlexBox } from "components/flex-box";
 import { Paragraph } from "components/Typography";
 import Twitter from "components/icons/Twitter";

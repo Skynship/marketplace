@@ -8,16 +8,16 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { Clear, KeyboardArrowDown, PersonOutline } from "@mui/icons-material";
 import clsx from "clsx";
 import Icon from "components/icons";
-import { layoutConstant } from "utils/constants";
-import Login from "pages-sections/sessions/Login";
+// import { layoutConstant } from "utils/constants";
 import { useAppContext } from "contexts/AppContext";
 import Logo from "components/primitives/Logo";
 import MiniCart from "components/MiniCart";
-import Category from "components/icons/Category";
 import { Paragraph } from "components/Typography";
-import MobileMenu from "components/navbar/MobileMenu";
 import { FlexBetween, FlexBox } from "components/flex-box";
 import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";
+// import Login from "pages-sections/sessions/Login";
+// import MobileMenu from "components/navbar/MobileMenu";
+// import Category from "components/icons/Category";
 
 // styled component
 export const HeaderWrapper = styled(Box)(({
@@ -56,7 +56,7 @@ const Header = ({
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sidenavOpen, setSidenavOpen] = useState(false);
   // const [searchBarOpen, setSearchBarOpen] = useState(false);
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  // const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const downMd = useMediaQuery(theme.breakpoints.down(1150));
   const toggleDialog = () => setDialogOpen(!dialogOpen);
   const toggleSidenav = () => setSidenavOpen(!sidenavOpen);

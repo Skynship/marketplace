@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useState } from "react";
+import { Fragment, /* useCallback, useState */ } from "react";
 import { DropFooter } from "components/footer";
 import Header from "components/header/Header";
 
@@ -23,8 +23,8 @@ const DropLayout = ({
   showTopbar = true,
   showNavbar = true
 }) => {
-  const [isFixed, setIsFixed] = useState(false);
-  const toggleIsFixed = useCallback(fixed => setIsFixed(fixed), []);
+  // const [isFixed, setIsFixed] = useState(false);
+  // const toggleIsFixed = useCallback(fixed => setIsFixed(fixed), []);
   return <Fragment>
       <Header isAbsolute />
       <div className="section-after-sticky">

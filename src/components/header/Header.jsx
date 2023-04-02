@@ -7,13 +7,12 @@ import IconButton from "@mui/material/IconButton";
 // import useMediaQuery from "@mui/material/useMediaQuery";
 import clsx from "clsx";
 // import Icon from "components/icons";
-import MiniCart from "components/MiniCart";
+// import { useAppContext } from "contexts/AppContext";
+// import MiniCart from "components/MiniCart";
 import Logo from "components/primitives/Logo";
 import { /* FlexBetween, */ FlexBox } from "components/flex-box";
 import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";
-// import { useAppContext } from "contexts/AppContext";
 
-// styled component
 // const StyledContainer = styled(Container)({
 //   gap: 2,
 //   height: "100%",
@@ -21,6 +20,10 @@ import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";
 //   alignItems: "center",
 //   justifyContent: "space-between"
 // });
+
+// ==============================================================
+
+// ==============================================================
 
 const Header = ({
   isAbsolute = false,
@@ -32,10 +35,9 @@ const Header = ({
 }) => {
   // const theme = useTheme();
   // const {
-  //   state,
-  //   dispatch
+  //   state
   // } = useAppContext();
-  // const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [sidenavOpen, setSidenavOpen] = useState(false);
   // const downMd = useMediaQuery(theme.breakpoints.down(1150));
   // const toggleDialog = () => setDialogOpen(!dialogOpen);
@@ -115,7 +117,7 @@ const Header = ({
             </FlexBox>
           ) : null
         }
-        {/* CART BUTTON */}
+        {/* LOGIN AND CART BUTTON */}
         <FlexBox gap={1.5} alignItems="center">
           {
             isCartShown ? (
@@ -129,14 +131,14 @@ const Header = ({
           { rightChildren }
         </FlexBox>
 
-        {/* CART SIDE BAR  */}
+        {/* LOGIN FORM DIALOG AND CART SIDE BAR  */}
         <Fragment>
           {
             isCartShown ? (
               <Drawer open={sidenavOpen} anchor="right" onClose={toggleSidenav} sx={{
                 zIndex: 9999
               }}>
-                <MiniCart toggleSidenav={toggleSidenav} cartItems={[]} dispatch={() => {}} />
+                {/*<MiniCart toggleSidenav={toggleSidenav} />*/}
               </Drawer>
             ) : null
           }

@@ -5,16 +5,22 @@ import LazyImage from "components/LazyImage";
 import { FlexBetween, FlexBox } from "components/flex-box";
 import { H5, Paragraph, Tiny } from "components/Typography";
 import CartBag from "components/icons/CartBag";
+import { useAppContext } from "contexts/AppContext";
 import { currency } from "lib";
 
 const MiniCart = ({
-  toggleSidenav,
-  cartItems: cartList,
-  dispatch,
+  toggleSidenav
 }) => {
   const {
     palette
   } = useTheme();
+
+  const {
+    state,
+    dispatch
+  } = useAppContext();
+
+  const cartList = state.cart.items;
 
   const handleCartAmountChange = (amount, product) => () => {
     dispatch({

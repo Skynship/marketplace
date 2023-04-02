@@ -5,19 +5,13 @@ import Container from "@mui/material/Container";
 import { useTheme } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Clear, KeyboardArrowDown, PersonOutline } from "@mui/icons-material";
 import clsx from "clsx";
 import Icon from "components/icons";
-// import { layoutConstant } from "utils/constants";
 import { useAppContext } from "contexts/AppContext";
 import Logo from "components/primitives/Logo";
 import MiniCart from "components/MiniCart";
-import { Paragraph } from "components/Typography";
 import { FlexBetween, FlexBox } from "components/flex-box";
 import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";
-// import Login from "pages-sections/sessions/Login";
-// import MobileMenu from "components/navbar/MobileMenu";
-// import Category from "components/icons/Category";
 
 // styled component
 export const HeaderWrapper = styled(Box)(({
@@ -55,31 +49,9 @@ const Header = ({
   } = useAppContext();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sidenavOpen, setSidenavOpen] = useState(false);
-  // const [searchBarOpen, setSearchBarOpen] = useState(false);
-  // const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const downMd = useMediaQuery(theme.breakpoints.down(1150));
   const toggleDialog = () => setDialogOpen(!dialogOpen);
   const toggleSidenav = () => setSidenavOpen(!sidenavOpen);
-  // const toggleSearchBar = () => setSearchBarOpen(!searchBarOpen);
-
-  // LOGIN AND MINICART DRAWER
-  const DIALOG_DRAWER = <Fragment>
-      {/*<Dialog scroll="body" open={dialogOpen} fullWidth={isMobile} onClose={toggleDialog} sx={{
-        zIndex: 9999
-      }}>
-        <Login />
-      </Dialog>*/}
-
-      {
-        isCartShown ? (
-          <Drawer open={sidenavOpen} anchor="right" onClose={toggleSidenav} sx={{
-            zIndex: 9999
-          }}>
-            <MiniCart toggleSidenav={toggleSidenav} />
-          </Drawer>
-        ) : null
-      }
-    </Fragment>;
 
   // FOR SMALLER DEVICE
   if (downMd) {
@@ -97,12 +69,6 @@ const Header = ({
     }}>
         <StyledContainer>
           <FlexBetween width="100%">
-            {/* LEFT CONTENT - NAVIGATION ICON BUTTON */}
-            {/*<Box flex={1}>
-              <MobileMenu />
-            </Box>*/}
-
-            {/* MIDDLE CONTENT - LOGO */}
             {
               isLogoShown ? (
                 <Link href="/">
@@ -113,14 +79,6 @@ const Header = ({
 
             {/* RIGHT CONTENT - LOGIN, CART, SEARCH BUTTON */}
             <FlexBox justifyContent="end" flex={1}>
-              {/*<Box component={IconButton} onClick={toggleSearchBar}>
-                <Icon.Search sx={ICON_STYLE} />
-              </Box>
-
-              <Box component={IconButton} onClick={toggleDialog}>
-                <Icon.User sx={ICON_STYLE} />
-              </Box>*/}
-
               {
                 isCartShown ? (
                   <>
@@ -163,18 +121,8 @@ const Header = ({
             </FlexBox>
           ) : null
         }
-
-        {/* SEARCH FORM */}
-        <FlexBox justifyContent="center" flex="1 1 0">
-          {searchInput}
-        </FlexBox>
-
         {/* LOGIN AND CART BUTTON */}
         <FlexBox gap={1.5} alignItems="center">
-          {/*<Box component={IconButton} p={1.25} bgcolor="grey.200" onClick={toggleDialog}>
-            <PersonOutline />
-          </Box>*/}
-
           {
             isCartShown ? (
               <Badge badgeContent={state.cart.items.length} color="primary">
@@ -188,8 +136,19 @@ const Header = ({
         </FlexBox>
 
         {/* LOGIN FORM DIALOG AND CART SIDE BAR  */}
-        {DIALOG_DRAWER}
+        <Fragment>
+          {
+            isCartShown ? (
+              <Drawer open={sidenavOpen} anchor="right" onClose={toggleSidenav} sx={{
+                zIndex: 9999
+              }}>
+                <MiniCart toggleSidenav={toggleSidenav} />
+              </Drawer>
+            ) : null
+          }
+        </Fragment>
       </StyledContainer>
     </Box>;
 };
+
 export default Header;

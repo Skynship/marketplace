@@ -34,7 +34,7 @@ class Marketplace extends React.PureComponent {
                 justifyContent: 'center'
               }}>
                 <Container sx={{ 'margin': '0px !important', 'padding': '0px !important' }}>
-                  <ProductList products={products} />
+                  {/*<ProductList products={products} />*/}
                 </Container>
               </Box>
             </DropLayout>

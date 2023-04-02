@@ -12,7 +12,7 @@ import { productsList } from "utils/queries/products";
 import Countdown from 'components/primitives/Countdown';
 
 // Layouts
-// import DropLayout from "components/layouts/dropLayout";
+import DropLayout from "components/layouts/dropLayout";
 
 // Sections
 // import ProductList from "pages-sections/skyndrop/ProductList";

@@ -14,15 +14,6 @@ import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";
 import { useAppContext } from "contexts/AppContext";
 
 // styled component
-// export const HeaderWrapper = styled(Box)(({
-//   theme
-// }) => ({
-//   zIndex: 3,
-//   width: "100%",
-//   height: ['64px', '80px', '80px'],
-//   transition: "height 250ms ease-in-out",
-//   background: 'transparent'
-// }));
 // const StyledContainer = styled(Container)({
 //   gap: 2,
 //   height: "100%",

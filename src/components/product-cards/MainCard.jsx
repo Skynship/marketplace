@@ -29,7 +29,7 @@ const MainCard = ({
           </H4>
           {/*{!hideReview && <BazaarRating value={rating} color="warn" readOnly />}*/}
 
-          {
+          {/*{
             hidePrice ? null : (
               <FlexBox alignItems="center">
                 {
@@ -44,7 +44,7 @@ const MainCard = ({
                 </Box>
               </FlexBox>
             )
-          }
+          }*/}
         </Box>
 
         {/*{!hideFavoriteIcon && <FavoriteBorder fontSize="small" color="secondary" sx={{

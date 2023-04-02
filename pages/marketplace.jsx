@@ -24,24 +24,22 @@ class Marketplace extends React.PureComponent {
     render() {
         const { products = [] } = this.props;
 
-        const marketplace = (
-            <DropLayout>
-              <SEO title="Skynship drop, marketplace curated by estheticians" />
-              <Box sx={{
-                backgroundColor: 'theme.palette.primary.cream',
-                overFlow: 'hidden',
-                display: 'flex',
-                justifyContent: 'center'
-              }}>
-                <Container sx={{ 'margin': '0px !important', 'padding': '0px !important' }}>
-                  <ProductList products={products} />
-                </Container>
-              </Box>
-            </DropLayout>
-        );
-
         if (!COUNTDOWN_DATE) {
-            return marketplace;
+            return (
+                <DropLayout>
+                  <SEO title="Skynship drop, marketplace curated by estheticians" />
+                  <Box sx={{
+                    backgroundColor: 'theme.palette.primary.cream',
+                    overFlow: 'hidden',
+                    display: 'flex',
+                    justifyContent: 'center'
+                  }}>
+                    <Container sx={{ 'margin': '0px !important', 'padding': '0px !important' }}>
+                      <ProductList products={products} />
+                    </Container>
+                  </Box>
+                </DropLayout>
+            );
         }
 
         return (
@@ -52,6 +50,7 @@ class Marketplace extends React.PureComponent {
                 'minHeight': '100vh'
             }}>
                 <DropLayout>
+                    <SEO title="Skynship drop, marketplace curated by estheticians" />
                     <Box sx={{
                         'height': '100%',
                         'display': 'flex',

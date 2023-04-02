@@ -11,7 +11,7 @@ import MiniCart from "components/MiniCart";
 import Logo from "components/primitives/Logo";
 import { /* FlexBetween, */ FlexBox } from "components/flex-box";
 import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";
-import { useAppContext } from "contexts/AppContext";
+// import { useAppContext } from "contexts/AppContext";
 
 // styled component
 // const StyledContainer = styled(Container)({
@@ -22,10 +22,6 @@ import { useAppContext } from "contexts/AppContext";
 //   justifyContent: "space-between"
 // });
 
-// ==============================================================
-
-// ==============================================================
-
 const Header = ({
   isAbsolute = false,
   isLogoShown = true,
@@ -35,11 +31,11 @@ const Header = ({
   rightChildren = []
 }) => {
   // const theme = useTheme();
-  const {
-    state,
-    dispatch
-  } = useAppContext();
-  const [dialogOpen, setDialogOpen] = useState(false);
+  // const {
+  //   state,
+  //   dispatch
+  // } = useAppContext();
+  // const [dialogOpen, setDialogOpen] = useState(false);
   const [sidenavOpen, setSidenavOpen] = useState(false);
   // const downMd = useMediaQuery(theme.breakpoints.down(1150));
   // const toggleDialog = () => setDialogOpen(!dialogOpen);
@@ -123,7 +119,7 @@ const Header = ({
         <FlexBox gap={1.5} alignItems="center">
           {
             isCartShown ? (
-              <Badge badgeContent={state.cart.items.length} color="primary">
+              <Badge badgeContent={0} color="primary">
                 <Box p={1.25} bgcolor="grey.200" component={IconButton} onClick={toggleSidenav}>
                   <ShoppingBagOutlined />
                 </Box>
@@ -140,7 +136,7 @@ const Header = ({
               <Drawer open={sidenavOpen} anchor="right" onClose={toggleSidenav} sx={{
                 zIndex: 9999
               }}>
-                <MiniCart toggleSidenav={toggleSidenav} cartItems={state.cart.items} dispatch={dispatch} />
+                <MiniCart toggleSidenav={toggleSidenav} cartItems={[]} dispatch={() => {}} />
               </Drawer>
             ) : null
           }

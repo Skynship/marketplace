@@ -9,7 +9,7 @@ const DropLayout = ({
   showNavbar = true
 }) => {
   return <Fragment>
-      {/*<Header isAbsolute />*/}
+      <Header isAbsolute />
       <div className="section-after-sticky">
 
         {/* BODY CONTENT */}

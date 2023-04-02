@@ -12,10 +12,10 @@ import { productsList } from "utils/queries/products";
 import Countdown from 'components/primitives/Countdown';
 
 // Layouts
-import DropLayout from "components/layouts/dropLayout";
+// import DropLayout from "components/layouts/dropLayout";
 
 // Sections
-// import ProductList from "pages-sections/skyndrop/ProductList";
+import ProductList from "pages-sections/skyndrop/ProductList";
 
 // Configs
 import { COUNTDOWN_DATE } from '../src/configs/countdown';
@@ -25,7 +25,7 @@ class Marketplace extends React.PureComponent {
         const { products = [] } = this.props;
 
         const marketplace = (
-            <DropLayout showTopbar={false} showNavbar={false}>
+            <React.Fragment>
               <SEO title="Skynship drop, marketplace curated by estheticians" />
               <Box sx={{
                 backgroundColor: 'theme.palette.primary.cream',
@@ -34,10 +34,10 @@ class Marketplace extends React.PureComponent {
                 justifyContent: 'center'
               }}>
                 <Container sx={{ 'margin': '0px !important', 'padding': '0px !important' }}>
-                  {/*<ProductList products={products} />*/}
+                  <ProductList products={products} />
                 </Container>
               </Box>
-            </DropLayout>
+            </React.Fragment>
         );
 
         if (!COUNTDOWN_DATE) {
@@ -51,7 +51,7 @@ class Marketplace extends React.PureComponent {
                 'height': '100%',
                 'minHeight': '100vh'
             }}>
-                <DropLayout showNavbar={false} showTopbar={false} isCartShown={false}>
+                <React.Fragment>
                     <Box sx={{
                         'height': '100%',
                         'display': 'flex',
@@ -88,7 +88,7 @@ class Marketplace extends React.PureComponent {
                             </Box>
                         </Box>
                     </Box>
-                </DropLayout>
+                </React.Fragment>
             </Box>
         );
     }

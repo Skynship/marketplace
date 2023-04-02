@@ -110,7 +110,13 @@ const Header = ({
       background: 'transparent',
       position: isAbsolute ? 'absolute' : 'relative'
     }}>
-      <StyledContainer>
+      <Container sx={{
+        gap: 2,
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: isLogoShown ? 'space-between' : 'flex-end'
+      }}>
         {/* LEFT CONTENT - LOGO AND CATEGORY */}
         {
           isLogoShown ? (
@@ -147,7 +153,7 @@ const Header = ({
             ) : null
           }
         </Fragment>
-      </StyledContainer>
+      </Container>
     </Box>;
 };
 

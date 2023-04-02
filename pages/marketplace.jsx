@@ -15,7 +15,7 @@ import Countdown from 'components/primitives/Countdown';
 import DropLayout from "components/layouts/dropLayout";
 
 // Sections
-// import ProductList from "pages-sections/skyndrop/ProductList";
+import ProductList from "pages-sections/skyndrop/ProductList";
 
 // Configs
 import { COUNTDOWN_DATE } from '../src/configs/countdown';
@@ -34,7 +34,7 @@ class Marketplace extends React.PureComponent {
                 justifyContent: 'center'
               }}>
                 <Container sx={{ 'margin': '0px !important', 'padding': '0px !important' }}>
-                  {/*<ProductList products={products} />*/}
+                  <ProductList products={products} />
                 </Container>
               </Box>
             </DropLayout>
@@ -98,7 +98,6 @@ export const getServerSideProps = async (context) => {
     // const { data, errors } = await shopifyFetch({
     //     query: productsList
     // });
-    console.log('i am in here');
 
     return {
         props: {

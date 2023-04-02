@@ -8,15 +8,15 @@ import Router from "next/router";
 import nProgress from "nprogress";
 import "nprogress/nprogress.css";
 
-import { appWithTranslation } from "next-i18next";
+// import { appWithTranslation } from "next-i18next";
+// import nextI18NextConfig from "../next-i18next.config";
 import MuiTheme from "theme/MuiTheme";
 import OpenGraphTags from "utils/OpenGraphTags";
 import { AppProvider } from "contexts/AppContext";
-import SettingsProvider from "contexts/SettingContext";
-import SnackbarProvider from "components/SnackbarProvider";
+// import SettingsProvider from "contexts/SettingContext";
+// import SnackbarProvider from "components/SnackbarProvider";
 import { IntlProvider } from 'react-intl';
-import nextI18NextConfig from "../next-i18next.config";
-import "simplebar/dist/simplebar.min.css";
+// import "simplebar/dist/simplebar.min.css";
 import '../src/styles/globals.css';
 
 //Binding events.
@@ -42,18 +42,18 @@ const App = ({
         <title>Skyndrop marketplace curated by estheticians</title>
       </Head>
 
-      <SettingsProvider>
+      {/*<SettingsProvider>*/}
         <AppProvider>
           <MuiTheme>
             <IntlProvider messages={strings} locale="en">
-              <SnackbarProvider>
+              {/*<SnackbarProvider>*/}
                 <Component {...pageProps} />
-              </SnackbarProvider>
+              {/*</SnackbarProvider>*/}
             </IntlProvider>
           </MuiTheme>
         </AppProvider>
-      </SettingsProvider>
+      {/*</SettingsProvider>*/}
     </Fragment>;
 };
 
-export default appWithTranslation(App, nextI18NextConfig);
+export default App;

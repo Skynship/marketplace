@@ -25,7 +25,7 @@ class Marketplace extends React.PureComponent {
         const { products = [] } = this.props;
 
         const marketplace = (
-            <React.Fragment>
+            <DropLayout>
               <SEO title="Skynship drop, marketplace curated by estheticians" />
               <Box sx={{
                 backgroundColor: 'theme.palette.primary.cream',
@@ -37,7 +37,7 @@ class Marketplace extends React.PureComponent {
                   {/*<ProductList products={products} />*/}
                 </Container>
               </Box>
-            </React.Fragment>
+            </DropLayout>
         );
 
         if (!COUNTDOWN_DATE) {
@@ -51,7 +51,7 @@ class Marketplace extends React.PureComponent {
                 'height': '100%',
                 'minHeight': '100vh'
             }}>
-                <React.Fragment>
+                <DropLayout>
                     <Box sx={{
                         'height': '100%',
                         'display': 'flex',
@@ -88,7 +88,7 @@ class Marketplace extends React.PureComponent {
                             </Box>
                         </Box>
                     </Box>
-                </React.Fragment>
+                </DropLayout>
             </Box>
         );
     }

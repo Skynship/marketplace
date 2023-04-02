@@ -5,6 +5,7 @@ import { Box, styled, Grid } from "@mui/material";
 import { H1, H2, H3 } from "components/Typography";
 import ShopLayout1 from "components/layouts/ShopLayout1";
 import { FlexBox } from "components/flex-box";
+import { SubNav } from "components/primitives/SubNav";
 
 const ESTHETICIANS_BY_VENDOR = {
   neubiome: {
@@ -41,9 +42,39 @@ const Esthetician = props => {
         <Box width="100%" sx={{ 'display': 'flex', 'flexDirection': ['column', 'row'] }}>
           <Grid sx={{'backgroundColor': 'primary.900', 'marginBottom': ['20px', '0px'], 'display': 'flex', 'alignItems': 'center', 'justifyContent': 'center', 'padding': ['20px 0px', '0px 40px']}}>
             <FlexBox justifyContent="center" sx={{'padding': '20px 0px', 'display': ['none', 'block']}}>
+              <Box sx={{ 'padding': '10px 0px', 'display': 'flex', 'justifyContent': 'center' }}>
+                <SubNav items={[
+                  {
+                    text: 'Shop All',
+                    href: '/marketplace'
+                  },
+                  {
+                    text: 'Estheticians'
+                  },
+                  {
+                    text: name,
+                    href: `/esthetician/${id}`
+                  }
+                ]} />
+              </Box>
               <LazyImage alt={vendor} width={500} height={500} loading="eager" borderRadius="50%" objectFit="cover" src={imgSrc} />
             </FlexBox>
-            <FlexBox justifyContent="center" sx={{'padding': '20px 0px', 'display': ['block', 'none']}}>
+            <FlexBox sx={{'padding': '20px 0px', 'display': ['block', 'none'], 'flexDirection': 'column', 'justifyContent': 'center', 'alignItems': 'center'}}>
+              <Box sx={{ 'padding': '10px 0px', 'display': 'flex', 'justifyContent': 'center' }}>
+                <SubNav items={[
+                  {
+                    text: 'Shop All',
+                    href: '/marketplace'
+                  },
+                  {
+                    text: 'Estheticians'
+                  },
+                  {
+                    text: name,
+                    href: `/esthetician/${id}`
+                  }
+                ]} />
+              </Box>
               <LazyImage alt={vendor} width={300} height={300} loading="eager" borderRadius="50%" objectFit="cover" src={imgSrc} />
             </FlexBox>
           </Grid>

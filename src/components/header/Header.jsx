@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 // import useMediaQuery from "@mui/material/useMediaQuery";
 import clsx from "clsx";
 // import Icon from "components/icons";
-// import { useAppContext } from "contexts/AppContext";
+import { useAppContext } from "contexts/AppContext";
 import MiniCart from "components/MiniCart";
 import Logo from "components/primitives/Logo";
 import { /* FlexBetween, */ FlexBox } from "components/flex-box";
@@ -22,9 +22,7 @@ const Header = ({
   rightChildren = []
 }) => {
   // const theme = useTheme();
-  // const {
-  //   state
-  // } = useAppContext();
+  const { state } = useAppContext();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sidenavOpen, setSidenavOpen] = useState(false);
   const toggleSidenav = () => setSidenavOpen(!sidenavOpen);
@@ -58,7 +56,7 @@ const Header = ({
         <FlexBox gap={1.5} alignItems="center">
           {
             isCartShown ? (
-              <Badge badgeContent={0} color="primary">
+              <Badge badgeContent={state.cart.items.length} color="primary">
                 <Box p={1.25} bgcolor="grey.200" component={IconButton} onClick={toggleSidenav}>
                   <ShoppingBagOutlined />
                 </Box>

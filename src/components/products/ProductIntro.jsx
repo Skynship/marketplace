@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { Add, Remove } from "@mui/icons-material";
 import { Avatar, Box, Button, Chip, Grid } from "@mui/material";
 import LazyImage from "components/LazyImage";
 import BazaarRating from "components/BazaarRating";
 import { H1, H2, H3, H4, H6 } from "components/Typography";
+import { SubNav } from "components/primitives/SubNav";
 import { useAppContext } from "contexts/AppContext";
 import { FlexBox, FlexRowCenter } from "../flex-box";
 import { currency } from "lib";
@@ -80,19 +81,24 @@ const ProductIntro = ({
 
   return <Box width="100%" sx={{ 'display': 'flex', 'flexDirection': ['column', 'row'] }}>
       <Grid sx={{'backgroundColor': 'primary.900', 'marginBottom': ['20px', '0px'], 'display': 'flex', 'alignItems': 'center', 'padding': ['20px 0px', '0px 40px']}}>
-        <FlexBox justifyContent="center" sx={{'padding': '20px 0px'}}>
+        <FlexBox sx={{'padding': '20px 0px', 'flexDirection': 'column', 'justifyContent': 'center', 'alignItems': 'center'}}>
+          <Box sx={{ 'padding': '10px 0px' }}>
+            <SubNav items={[
+              {
+                text: 'Shop All',
+                href: '/marketplace'
+              },
+              {
+                text: 'Products'
+              },
+              {
+                text: title,
+                href: `/product/${slug}`
+              }
+            ]} />
+          </Box>
           <LazyImage alt={title} width={500} height={500} loading="eager" objectFit="contain" src={getImageSrc(imageEdges, selectedImage)} />
         </FlexBox>
-
-        {/*<FlexBox overflow="auto">
-          {images.map((url, ind) => <FlexRowCenter key={ind} width={64} height={64} minWidth={64} bgcolor="white" border="1px solid" borderRadius="10px" ml={ind === 0 ? "auto" : 0} style={{
-          cursor: "pointer"
-        }} onClick={handleImageClick(ind)} mr={ind === images.length - 1 ? "auto" : "10px"} borderColor={selectedImage === ind ? "primary.main" : "grey.400"}>
-              <Avatar src={url} variant="square" sx={{
-            height: 40
-          }} />
-            </FlexRowCenter>)}
-        </FlexBox>*/}
       </Grid>
 
       <Grid item md={4} xs={12} sx={{'display': 'flex', 'flexGrow': '1', 'justifyContent': 'center', 'cursor': 'default', 'padding': ['0px 20px', '0px'] }}>
@@ -105,28 +111,6 @@ const ProductIntro = ({
                 Aesthetician: <Link href={`/esthetician/${vendor.split(' ').join('-').toLowerCase()}`}><Box component="span" sx={{'fontWeight': '600', 'cursor': 'pointer'}}>{vendor}</Box></Link>
               </Box>
             </FlexBox>
-
-            {/*<FlexBox alignItems="center" mb={2}>
-              <Box lineHeight="1">Rated:</Box>
-              <Box mx={1} lineHeight="1">
-                <BazaarRating color="warn" fontSize="1.25rem" value={4} readOnly />
-              </Box>
-              <H6 lineHeight="1">(50)</H6>
-            </FlexBox>*/}
-
-            {/*{productVariants.map(variant => <Box key={variant.id} mb={2}>
-                <H6 mb={1}>{variant.title}</H6>
-
-                {variant.values.map(({
-              id,
-              value
-            }) => <Chip key={id} label={value} onClick={handleChangeVariant(variant.title, value)} sx={{
-              borderRadius: "4px",
-              mr: 1,
-              cursor: "pointer"
-            }} color={selectVariants[variant.title.toLowerCase()] === value ? "primary" : "default"} />)}
-              </Box>)}*/}
-
             <Box pt={1} sx={{'marginBottom': ['8px', '10px']}}>
               <H2 color="primary.main" sx={{'marginBottom': ['0px', '6px']}} lineHeight="1">
                 {currency(price)}
@@ -170,17 +154,10 @@ const ProductIntro = ({
                   </Button>
                 </FlexBox>}
             </Box>
-            {/*<FlexBox alignItems="center" mb={2}>
-              <Box>Sold By:</Box>
-              <Link href="/shops/scarlett-beauty" passHref>
-                <a>
-                  <H6 ml={1}>Mobile Store</H6>
-                </a>
-              </Link>
-            </FlexBox>*/}
           </Box>
         </Box>
       </Grid>
     </Box>;
 };
+
 export default ProductIntro;

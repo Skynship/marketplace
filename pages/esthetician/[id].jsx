@@ -8,7 +8,7 @@ import { FlexBox } from "components/flex-box";
 import { SubNav } from "components/primitives/SubNav";
 
 const ESTHETICIANS_BY_VENDOR = {
-  neubiome: {
+  nuebiome: {
     name: 'Lela J. Han',
     imgSrc: 'https://res.cloudinary.com/bytesizedpieces/image/upload/v1678836188/Skynship/DTS_Skin_Deep_Daniel_Faro%CC%80_4253_enefus.jpg',
     description: 'Probiotic skincare powered by science, curated from the highest quality bioferment and plant-based clean ingredients to heal dryness and restore radiance.'
@@ -70,8 +70,8 @@ const Esthetician = props => {
                     text: 'Estheticians'
                   },
                   {
-                    text: name,
-                    href: `/esthetician/${id}`
+                    text: name // ,
+                    // href: `/esthetician/${id}`
                   }
                 ]} />
               </Box>

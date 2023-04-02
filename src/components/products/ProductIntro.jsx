@@ -92,8 +92,8 @@ const ProductIntro = ({
                 text: 'Products'
               },
               {
-                text: title,
-                href: `/product/${slug}`
+                text: title // ,
+                // href: `/product/${slug}`
               }
             ]} />
           </Box>

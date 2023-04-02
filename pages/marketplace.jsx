@@ -15,7 +15,7 @@ import Countdown from 'components/primitives/Countdown';
 import DropLayout from "components/layouts/dropLayout";
 
 // Sections
-import ProductList from "pages-sections/skyndrop/ProductList";
+// import ProductList from "pages-sections/skyndrop/ProductList";
 
 // Configs
 import { COUNTDOWN_DATE } from '../src/configs/countdown';

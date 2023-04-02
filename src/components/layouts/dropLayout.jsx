@@ -1,5 +1,5 @@
 import { Fragment} from "react";
-// import DropFooter from "components/footer/dropFooter";
+import DropFooter from "components/footer/dropFooter";
 import Header from "components/header/Header";
 
 const DropLayout = ({
@@ -17,7 +17,7 @@ const DropLayout = ({
       </div>
 
       {/* FOOTER */}
-      {/*<DropFooter />*/}
+      <DropFooter />
     </Fragment>;
 };
 export default DropLayout;

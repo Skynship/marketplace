@@ -1,10 +1,6 @@
 import combineReducers from 'react-combine-reducers';
 import { createContext, useContext, useMemo, useReducer } from "react";
 
-// =================================================================================
-
-// =================================================================================
-
 // TODO: showcases what the fields are expected for components to work
 // const INITIAL_CART = [{
 //   qty: 1,

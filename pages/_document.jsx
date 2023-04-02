@@ -1,9 +1,10 @@
 import React from "react";
-import { CacheProvider } from "@emotion/react";
-import createEmotionServer from "@emotion/server/create-instance";
+// import { CacheProvider } from "@emotion/react";
+// import createEmotionServer from "@emotion/server/create-instance";
 import { Head, Html, Main, NextScript } from "next/document";
-import createEmotionCache from "../src/createEmotionCache";
-import i18nextConfig from "../next-i18next.config";
+// import createEmotionCache from "../src/createEmotionCache";
+// import i18nextConfig from "../next-i18next.config";
+
 export default function Document() {
   return <Html lang="en">
       <Head>

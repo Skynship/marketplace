@@ -7,7 +7,7 @@ import { FlexBetween, FlexBox } from "components/flex-box";
 import { H5, Paragraph, Tiny } from "components/Typography";
 import CartBag from "components/icons/CartBag";
 import { useAppContext } from "contexts/AppContext";
-// import { currency } from "lib";
+import { currency } from "lib";
 
 const MiniCart = ({
   toggleSidenav

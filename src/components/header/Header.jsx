@@ -73,7 +73,7 @@ const Header = ({
               <Drawer open={sidenavOpen} anchor="right" onClose={toggleSidenav} sx={{
                 zIndex: 9999
               }}>
-                <MiniCart toggleSidenav={toggleSidenav} />
+                {/*<MiniCart toggleSidenav={toggleSidenav} />*/}
               </Drawer>
             ) : null
           }

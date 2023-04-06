@@ -8,9 +8,8 @@ import { DropFooter } from "components/footer";
 import Header from "components/header/Header";
 
 const Checkout = () => {
-  // const { state } = useAppContext();
-  // const { payment = {} } = state;
-  const payment = {};
+  const { state } = useAppContext();
+  const { payment = {} } = state;
 
   return <>
     <Header />

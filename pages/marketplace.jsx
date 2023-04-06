@@ -1,4 +1,3 @@
-console.log('i am in marketplace');
 // Dependencies
 import React from 'react';
 import { Box, Container } from "@mui/material";

@@ -1,16 +1,14 @@
 import Link from "next/link";
 import { Fragment, useState } from "react";
-import { Badge, Box, Drawer /*, Button, styled, Dialog */ } from "@mui/material";
+import { Badge, Box, Drawer } from "@mui/material";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
-// import { useTheme } from "@mui/material/styles";
-// import useMediaQuery from "@mui/material/useMediaQuery";
 import clsx from "clsx";
 import Icon from "components/icons";
 import { useAppContext } from "contexts/AppContext";
 import MiniCart from "components/MiniCart";
 import Logo from "components/primitives/Logo";
-import { /* FlexBetween, */ FlexBox } from "components/flex-box";
+import { FlexBox } from "components/flex-box";
 import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";
 
 const Header = ({
@@ -21,7 +19,6 @@ const Header = ({
   searchInput,
   rightChildren = []
 }) => {
-  // const theme = useTheme();
   const { state = {} } = useAppContext();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sidenavOpen, setSidenavOpen] = useState(false);

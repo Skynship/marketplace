@@ -11,9 +11,9 @@ import { currency } from "lib";
 const MiniCart = ({
   toggleSidenav
 }) => {
-  // const {
-  //   palette
-  // } = useTheme();
+  const {
+    palette
+  } = useTheme();
 
   const {
     state,
@@ -61,7 +61,7 @@ const MiniCart = ({
             </Box>
           </FlexBox>}
 
-        {cartList.map(item => <FlexBox py={2} px={2.5} key={item.id} alignItems="center" borderBottom={`1px solid #ebebeb`}>
+        {cartList.map(item => <FlexBox py={2} px={2.5} key={item.id} alignItems="center" borderBottom={`1px solid ${palette.divider}`}>
             <FlexBox alignItems="center" flexDirection="column">
               <Button color="primary" variant="outlined" onClick={handleCartAmountChange(item.qty + 1, item)} sx={{
                 height: "32px",

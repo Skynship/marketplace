@@ -12,11 +12,11 @@ import countryList from "data/countryList";
 const CheckoutForm = () => {
   const router = useRouter();
   const [sameAsShipping, setSameAsShipping] = useState(false);
-  const {
-    state,
-    dispatch
-  } = useAppContext();
+  // const {
+  //   dispatch
+  // } = useAppContext();
 
+  const dispatch = () => {};
   const handleFormSubmit = async values => {
     const {
       shipping_name,

@@ -6,8 +6,8 @@ import { useAppContext } from "contexts/AppContext";
 import { currency } from "lib";
 
 const PaymentSummary = () => {
-  const { state } = useAppContext();
-  const cartList = state.cart.items;
+  // const { state } = useAppContext();
+  const cartList = []; // state.cart.items;
 
   const subtotalAmount = cartList.reduce((acc, { price, qty }) => acc + (price * qty), 0);
   const shippingAmount = 0;

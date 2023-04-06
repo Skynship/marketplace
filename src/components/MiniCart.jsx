@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Avatar, Box, Button, Divider, IconButton /*, useTheme */ } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
 import { Add, Clear, Close, Remove } from "@mui/icons-material";
 import LazyImage from "components/LazyImage";
 import { FlexBetween, FlexBox } from "components/flex-box";
@@ -11,9 +12,9 @@ import { currency } from "lib";
 const MiniCart = ({
   toggleSidenav
 }) => {
-  // const {
-  //   palette
-  // } = useTheme();
+  const {
+    palette
+  } = useTheme();
 
   const {
     state,

@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import clsx from "clsx";
 import Icon from "components/icons";
 import { useAppContext } from "contexts/AppContext";
-// import MiniCart from "components/MiniCart";
+import MiniCart from "components/MiniCart";
 import Logo from "components/primitives/Logo";
 import { /* FlexBetween, */ FlexBox } from "components/flex-box";
 import ShoppingBagOutlined from "components/icons/ShoppingBagOutlined";

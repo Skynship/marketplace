@@ -12,9 +12,9 @@ import { currency } from "lib";
 const MiniCart = ({
   toggleSidenav
 }) => {
-  const {
-    palette
-  } = useTheme();
+  // const {
+  //   palette
+  // } = useTheme();
 
   const {
     state,

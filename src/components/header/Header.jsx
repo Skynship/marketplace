@@ -22,7 +22,7 @@ const Header = ({
   rightChildren = []
 }) => {
   // const theme = useTheme();
-  const { state } = useAppContext();
+  const { state = {} } = useAppContext();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sidenavOpen, setSidenavOpen] = useState(false);
   const toggleSidenav = () => setSidenavOpen(!sidenavOpen);
@@ -56,7 +56,7 @@ const Header = ({
         <FlexBox gap={1.5} alignItems="center">
           {
             isCartShown ? (
-              <Badge badgeContent={state.cart.items.length} color="primary">
+              <Badge badgeContent={0} color="primary">
                 <Box p={1.25} bgcolor="grey.200" component={IconButton} onClick={toggleSidenav}>
                   <ShoppingBagOutlined />
                 </Box>

@@ -22,14 +22,14 @@ export const SubNav = ({ items = [] }) => {
 
           const isLast = idx === items.length - 1;
           return href ? (
-            <Fragment>
-              <Link key={idx} href={href}>
+            <Fragment key={idx}>
+              <Link href={href}>
                 {textComp}
               </Link>
               { !isLast ? `/` : null }
             </Fragment>
           ) : (
-            <Fragment>
+            <Fragment key={idx}>
               {textComp}
               { !isLast ? `/` : null }
             </Fragment>

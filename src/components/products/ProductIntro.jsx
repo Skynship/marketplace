@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState, Fragment } from "react";
-// import { Add, Remove } from "@mui/icons-material";
 import { Avatar, Box, Button, Chip, Grid } from "@mui/material";
 import LazyImage from "components/LazyImage";
 import BazaarRating from "components/BazaarRating";
@@ -10,6 +9,8 @@ import { useAppContext } from "contexts/AppContext";
 import { FlexBox, FlexRowCenter } from "../flex-box";
 import { currency } from "lib";
 import productVariants from "data/product-variants";
+import Add from "components/icons/Add";
+import Remove from "components/icons/Remove";
 // import ProductDescription from "components/products/ProductDescription";
 
 const getMinVariantPrice = (priceRange = {}) => {
@@ -140,7 +141,7 @@ const ProductIntro = ({
                   <Button size="small" sx={{
                 p: 1
               }} color="primary" variant="outlined" onClick={handleCartAmountChange(cartItem?.qty - 1)}>
-                    {/*<Remove fontSize="small" />*/}
+                    <Remove fontSize="small" />
                   </Button>
 
                   <H3 fontWeight="600" mx={2.5} sx={{'width': '40px', 'textAlign': 'center'}}>
@@ -150,7 +151,7 @@ const ProductIntro = ({
                   <Button size="small" sx={{
                 p: 1
               }} color="primary" variant="outlined" onClick={handleCartAmountChange(cartItem?.qty + 1)}>
-                    {/*<Add fontSize="small" />*/}
+                    <Add fontSize="small" />
                   </Button>
                 </FlexBox>}
             </Box>

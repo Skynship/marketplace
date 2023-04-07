@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { Avatar, Box, Button, Divider, IconButton, useTheme } from "@mui/material";
-// import { Add, Clear, Close, Remove } from "@mui/icons-material";
 import LazyImage from "components/LazyImage";
 import { FlexBetween, FlexBox } from "components/flex-box";
 import { H5, Paragraph, Tiny } from "components/Typography";
+import Add from "components/icons/Add";
 import CartBag from "components/icons/CartBag";
+import Remove from "components/icons/Remove";
+import Close from "components/icons/Close";
 import { useAppContext } from "contexts/AppContext";
 import { currency } from "lib";
 
@@ -48,7 +50,7 @@ const MiniCart = ({
           </FlexBox>
 
           <IconButton onClick={toggleSidenav}>
-            {/*<Clear />*/}
+            <Close />
           </IconButton>
         </FlexBetween>
 
@@ -68,7 +70,7 @@ const MiniCart = ({
                 width: "32px",
                 borderRadius: "300px"
               }}>
-                {/*<Add fontSize="small" />*/}
+                <Add fontSize="small" />
               </Button>
 
               <Box fontWeight={600} fontSize="15px" my="3px">
@@ -80,7 +82,7 @@ const MiniCart = ({
                 width: "32px",
                 borderRadius: "300px"
               }}>
-                {/*<Remove fontSize="small" />*/}
+                <Remove fontSize="small" />
               </Button>
             </FlexBox>
 
@@ -115,7 +117,7 @@ const MiniCart = ({
             <IconButton size="small" onClick={handleCartAmountChange(0, item)} sx={{
               marginLeft: 2.5
             }}>
-              {/*<Close fontSize="small" />*/}
+              <Close fontSize="small" />
             </IconButton>
           </FlexBox>)}
       </Box>

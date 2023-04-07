@@ -1,9 +1,6 @@
 import Link from "next/link";
 import { Box, Container, Grid, IconButton, styled } from "@mui/material";
-// import AppStore from "components/AppStore";
-import { useRouter } from "next/router";
 import Logo from 'components/primitives/Logo';
-import Image from "components/BazaarImage";
 import { FlexBox } from "components/flex-box";
 import { Paragraph } from "components/Typography";
 import Twitter from "components/icons/Twitter";
@@ -36,12 +33,11 @@ const DropFooter = () => {
           color: "black"
         }}>
           <Box overflow="hidden" sx={{ 'justifyContent': 'space-between' }}>
-            <Grid  spacing={3}>
+            <Grid>
               <Grid sx={{'padding': '30px 0px'}} item lg={4} md={8} sm={8} xs={12}>
                 <Link href="/">
                   <Logo isDark />
                 </Link>
-                {/*<AppStore />*/}
               </Grid>
 
               <Box sx={{ 'display': 'flex', 'justifyContent': 'space-evenly', 'flexGrow': 1 }}>

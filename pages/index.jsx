@@ -1,16 +1,35 @@
 // Dependencies
 import React from 'react';
 import Link from "next/link";
-import { Box, Button } from "@mui/material";
+import { Box, Button, styled } from "@mui/material";
 import { H1, H2, H3 } from "components/Typography";
 import * as yup from "yup";
+import { DropFooter } from "components/footer";
+import Header from "components/header/Header";
+import { layoutConstant } from "utils/constants";
 
+// Components
 import Faq from 'components/primitives/Faq';
 import SubscribeForm from "components/primitives/SubscribeForm";
 import ShopLayout1 from "components/layouts/ShopLayout1";
 
 // Configs
 import { FAQ_ITEMS } from '../src/configs/faq';
+
+// styled component
+export const HeaderWrapper = styled(Box)(({
+    theme
+}) => ({
+    zIndex: 3,
+    position: "absolute",
+    width: "100%",
+    height: layoutConstant.headerHeight,
+    transition: "height 250ms ease-in-out",
+    background: 'transparent',
+    [theme.breakpoints.down("sm")]: {
+        height: layoutConstant.mobileHeaderHeight
+    }
+}));
 
 export default class Marketplace extends React.PureComponent {
     render() {
@@ -28,73 +47,73 @@ export default class Marketplace extends React.PureComponent {
                 'flexDirection': 'column',
                 'height': '100%'
             }}>
-                <ShopLayout1 isHeaderFixed={false} isLogoShown={false} isCartShown={false} sxSectionAfterSticky={{
-                    'flexGrow': '1'
-                }} rightChildren={rightNavItem}>
-                    <Box sx={{
-                        'minHeight': '100vh',
-                        'display': 'flex',
-                        'backgroundColor': '#f5f6f1',
-                        'backgroundRepeat': 'no-repeat',
-                        'filter': 'contrast(100%)',
-                        'backgroundSize': 'cover',
-                        'backgroundImage': 'url(https://res.cloudinary.com/bytesizedpieces/image/upload/v1678836417/Skynship/DTS_Skin_Deep_Daniel_Faro%CC%80_4260_rv34om.jpg)'
-                    }}>
-                        <Box sx={{'display': 'flex', 'flexDirection': 'column', 'flexGrow': 1, 'padding': '24px 20px'}}>
-                            <Box sx={{
-                                'color': '#1B263E',
-                                'fontWeight': '700',
-                                'display': 'flex',
-                                'flexDirection': 'column',
-                                'justifyContent': 'center',
-                                'alignItems': 'center',
-                                'flexGrow': 1
-                            }}>
-                                <H1 sx={{
-                                    'color': '#FF2F17',
-                                    'cursor': 'default',
-                                    'fontSize': ['4.5rem', '8rem', '12rem'],
-                                    'fontWeight': '900'
+                <HeaderWrapper>
+                    <Header isLogoShown={false} isFixed={false} isCartShown={false} rightChildren={rightNavItem} />
+                </HeaderWrapper>
+                <Box sx={{
+                    'minHeight': '100vh',
+                    'display': 'flex',
+                    'backgroundColor': '#f5f6f1',
+                    'backgroundRepeat': 'no-repeat',
+                    'filter': 'contrast(100%)',
+                    'backgroundSize': 'cover',
+                    'backgroundImage': 'url(https://res.cloudinary.com/bytesizedpieces/image/upload/v1678836417/Skynship/DTS_Skin_Deep_Daniel_Faro%CC%80_4260_rv34om.jpg)'
+                }}>
+                    <Box sx={{'display': 'flex', 'flexDirection': 'column', 'flexGrow': 1, 'padding': '24px 20px'}}>
+                        <Box sx={{
+                            'color': '#1B263E',
+                            'fontWeight': '700',
+                            'display': 'flex',
+                            'flexDirection': 'column',
+                            'justifyContent': 'center',
+                            'alignItems': 'center',
+                            'flexGrow': 1
+                        }}>
+                            <H1 sx={{
+                                'color': '#FF2F17',
+                                'cursor': 'default',
+                                'fontSize': ['4.5rem', '8rem', '12rem'],
+                                'fontWeight': '900'
 
-                                }}>
-                                    Skynship
-                                </H1>
-                                <H2 sx={{
-                                	'position': 'relative',
-                                	'textAlign': 'center',
-                                	'zIndex': '1',
-                                    'fontSize': ['22px', '35px', '40px'],
-                                    'color': '#1B263E',
-                                    'width': ['100%', '80%'],
-                                    'cursor': 'default',
-                                    'fontWeight': '600',
-                                    'marginBottom': ['60px', '0px']
-                                }}>
-                                    Skin health begins with knowledge
-                                </H2>
-                                <H3 sx={{
-                                    'color': '#1B263E',
-                                    'display': ['none', 'block', 'block'],
-                                    'fontWeight': ['700', '600', '600'],
-                                    'fontSize': ['18px', '25px'],
-                                    'marginTop': '20px',
-                                    'marginBottom': ['60px', '80px'],
-                                    'textAlign': 'center',
-                                    'width': ['100%', '50%', '40%', '30%'],
-                                    'cursor': 'default'
-                                }}>
-                                    We are a mindful skin platform on a mission to help you understand your outer shell, and optimize your care regimen.
-                                </H3>
-								<Box sx={{'width': ['100%', '100%', '43%']}}>
-									<SubscribeForm />
-								</Box>
+                            }}>
+                                Skynship
+                            </H1>
+                            <H2 sx={{
+                            	'position': 'relative',
+                            	'textAlign': 'center',
+                            	'zIndex': '1',
+                                'fontSize': ['22px', '35px', '40px'],
+                                'color': '#1B263E',
+                                'width': ['100%', '80%'],
+                                'cursor': 'default',
+                                'fontWeight': '600',
+                                'marginBottom': ['60px', '0px']
+                            }}>
+                                Skin health begins with knowledge
+                            </H2>
+                            <H3 sx={{
+                                'color': '#1B263E',
+                                'display': ['none', 'block', 'block'],
+                                'fontWeight': ['700', '600', '600'],
+                                'fontSize': ['18px', '25px'],
+                                'marginTop': '20px',
+                                'marginBottom': ['60px', '80px'],
+                                'textAlign': 'center',
+                                'width': ['100%', '50%', '40%', '30%'],
+                                'cursor': 'default'
+                            }}>
+                                We are a mindful skin platform on a mission to help you understand your outer shell, and optimize your care regimen.
+                            </H3>
+                            <Box sx={{'width': ['100%', '100%', '43%']}}>
+                                <SubscribeForm />
                             </Box>
                         </Box>
                     </Box>
-                    <Box sx={{'paddingBottom': '50px', 'padding': '24px 20px' }}>
-                    	<Faq labelId="FAQ" items={FAQ_ITEMS} />
-                    </Box>
-                </ShopLayout1>
+                </Box>
+                <Box sx={{'paddingBottom': '50px', 'padding': '24px 20px' }}>
+                	<Faq labelId="FAQ" items={FAQ_ITEMS} />
+                </Box>
+                <DropFooter />
             </Box>
         );
     }

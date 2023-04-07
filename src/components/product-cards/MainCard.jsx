@@ -1,16 +1,9 @@
-import Link from "next/link";
 import { Box } from "@mui/material";
-import { FavoriteBorder } from "@mui/icons-material";
-import HoverBox from "components/HoverBox";
 import { H4 } from "components/Typography";
-import BazaarImage from "components/BazaarImage";
-import BazaarRating from "components/BazaarRating";
+// import { FavoriteBorder } from "@mui/icons-material";
+// import BazaarRating from "components/BazaarRating";
 import { FlexBetween, FlexBox } from "components/flex-box";
 import { calculateDiscount, currency } from "lib";
-
-// ===========================================================
-
-// ===========================================================
 
 const MainCard = ({
   id,
@@ -25,21 +18,18 @@ const MainCard = ({
   hideFavoriteIcon,
   hidePrice
 }) => {
-  return <Box>
-      <Link href={`/product/${slug}`}>
-        <a>
-          <BazaarImage src={imgUrl} width="100%" height="auto" alt={title} mx="auto" />
-        </a>
-      </Link>
-
+  return <Box sx={{ 'display': 'flex', 'alignItems': 'center', 'flexDirection': 'column' }}>
+      <Box sx={{'display': 'flex', 'justifyContent': 'flex-end'}}>
+        <Box component="img" src={imgUrl} sx={{'width': ['200px', '100%'], 'mx': 'auto'}} height="auto" alt={title} mx="auto" />
+      </Box>
       <FlexBetween sx={{ 'width': '100%' }}>
         <Box mt="1rem" sx={{ 'width': '100%' }}>
-          <H4 textAlign="center" fontWeight="600" fontSize="14px" mb={0.5} title={title} ellipsis>
+          <H4 whiteSpace="normal !important" overflow="auto !important" textOverflow="initial !important" wordwrap="break-word" textAlign="center" fontWeight="600" fontSize="14px" mb={0.5} title={title} ellipsis>
             {title}
           </H4>
-          {!hideReview && <BazaarRating value={rating} color="warn" readOnly />}
+          {/*{!hideReview && <BazaarRating value={rating} color="warn" readOnly />}*/}
 
-          {
+          {/*{
             hidePrice ? null : (
               <FlexBox alignItems="center">
                 {
@@ -54,13 +44,13 @@ const MainCard = ({
                 </Box>
               </FlexBox>
             )
-          }
+          }*/}
         </Box>
 
-        {!hideFavoriteIcon && <FavoriteBorder fontSize="small" color="secondary" sx={{
-        opacity: 0.5,
-        m: "1rem"
-      }} />}
+        {/*{!hideFavoriteIcon && <FavoriteBorder fontSize="small" color="secondary" sx={{
+          opacity: 0.5,
+          m: "1rem"
+        }} />}*/}
       </FlexBetween>
     </Box>;
 };

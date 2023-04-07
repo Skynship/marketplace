@@ -93,9 +93,9 @@ const Sticky = ({
   }, [fixed, onSticky]);
   return <StyledBox fixedOn={fixedOn} componentHeight={parentHeight} fixed={fixed}>
       <div className={clsx({
-      hold: !fixed,
-      fixed: fixed
-    })} ref={elementRef}>
+        hold: !fixed,
+        fixed: fixed
+      })} ref={elementRef}>
         {children}
       </div>
     </StyledBox>;

@@ -6,10 +6,6 @@ import { createTheme, responsiveFontSizes, ThemeProvider } from "@mui/material/s
 import useSettings from "hooks/useSettings";
 import customThemeOptions from "./themeOptions";
 
-// =======================================================
-
-// =======================================================
-
 const MuiTheme = ({
   children
 }) => {

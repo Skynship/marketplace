@@ -1,13 +1,47 @@
 // Dependencies
 import React from 'react';
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { H1 } from "components/Typography";
+import SEO from "components/SEO";
 
+// Utils
+import shopifyFetch from "utils/fetchers/shopify";
+import { productsList } from "utils/queries/products";
+
+// Primitives
 import Countdown from 'components/primitives/Countdown';
-import ShopLayout1 from "components/layouts/ShopLayout1";
 
-export default class Marketplace extends React.PureComponent {
+// Layouts
+import DropLayout from "components/layouts/dropLayout";
+
+// Sections
+import ProductList from "pages-sections/skyndrop/ProductList";
+
+// Configs
+import { COUNTDOWN_DATE } from '../src/configs/countdown';
+
+class Marketplace extends React.PureComponent {
     render() {
+        const { products = [] } = this.props;
+
+        if (!COUNTDOWN_DATE) {
+            return (
+                <DropLayout>
+                  <SEO title="Skynship drop, marketplace curated by estheticians" />
+                  <Box sx={{
+                    backgroundColor: 'theme.palette.primary.cream',
+                    overFlow: 'hidden',
+                    display: 'flex',
+                    justifyContent: 'center'
+                  }}>
+                    <Container sx={{ 'margin': ['64px 0px 20px 0px', '0px !important', '0px !important'], 'padding': '0px !important' }}>
+                      <ProductList products={products} />
+                    </Container>
+                  </Box>
+                </DropLayout>
+            );
+        }
+
         return (
             <Box sx={{
                 'display': 'flex',
@@ -15,13 +49,8 @@ export default class Marketplace extends React.PureComponent {
                 'height': '100%',
                 'minHeight': '100vh'
             }}>
-                <ShopLayout1 isCartShown={false} sxSectionAfterSticky={{
-                    'display': 'flex',
-                    'alignItems': 'center',
-                    'justifyContent': 'center',
-                    'flexGrow': '1',
-                    'minHeight': '100vh'
-                }}>
+                <DropLayout>
+                    <SEO title="Skynship drop, marketplace curated by estheticians" />
                     <Box sx={{
                         'height': '100%',
                         'display': 'flex',
@@ -44,7 +73,7 @@ export default class Marketplace extends React.PureComponent {
                                     A curated skincare marketplace, from the best estheticians out there.
                                     <Box sx={{
                                         'position': 'absolute',
-                                        backgroundColor: '#FF2F17',
+                                        'backgroundColor': '#FF2F17',
                                         'width': ['60%', '45%'],
                                         'height': '150px',
                                         'zIndex': '-1',
@@ -53,13 +82,27 @@ export default class Marketplace extends React.PureComponent {
                                     }} />
                                 </H1>
                                 <Box sx={{'zIndex': '10'}}>
-                                    <Countdown releaseDateStr="March 17, 2023" />
+                                    <Countdown releaseDateStr={COUNTDOWN_DATE} />
                                 </Box>
                             </Box>
                         </Box>
                     </Box>
-                </ShopLayout1>
+                </DropLayout>
             </Box>
         );
     }
 }
+
+export const getServerSideProps = async (context) => {
+    const { data, errors } = await shopifyFetch({
+        query: productsList
+    });
+
+    return {
+        props: {
+            products: data?.products?.edges || []
+        },
+    }
+}
+
+export default Marketplace;

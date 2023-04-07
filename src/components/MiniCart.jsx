@@ -1,16 +1,14 @@
 import Link from "next/link";
 import { Avatar, Box, Button, Divider, IconButton, useTheme } from "@mui/material";
-import { Add, Clear, Close, Remove } from "@mui/icons-material";
 import LazyImage from "components/LazyImage";
 import { FlexBetween, FlexBox } from "components/flex-box";
 import { H5, Paragraph, Tiny } from "components/Typography";
+import Add from "components/icons/Add";
 import CartBag from "components/icons/CartBag";
+import Remove from "components/icons/Remove";
+import Close from "components/icons/Close";
 import { useAppContext } from "contexts/AppContext";
 import { currency } from "lib";
-
-// =========================================================
-
-// =========================================================
 
 const MiniCart = ({
   toggleSidenav
@@ -18,11 +16,14 @@ const MiniCart = ({
   const {
     palette
   } = useTheme();
+
   const {
     state,
     dispatch
   } = useAppContext();
-  const cartList = state.cart;
+
+  const cartList = state.cart.items;
+
   const handleCartAmountChange = (amount, product) => () => {
     dispatch({
       type: "CHANGE_CART_AMOUNT",
@@ -32,9 +33,11 @@ const MiniCart = ({
       }
     });
   };
+
   const getTotalPrice = () => {
     return cartList.reduce((accum, item) => accum + item.price * item.qty, 0);
   };
+
   return <Box width="100%" minWidth={380}>
       <Box overflow="auto" height={`calc(100vh - ${!!cartList.length ? "80px - 0.75rem" : "0px"})`}>
         <FlexBetween mx={3} height={74}>
@@ -42,12 +45,12 @@ const MiniCart = ({
             <CartBag color="inherit" />
 
             <Paragraph lineHeight={0} fontWeight={600}>
-              {cartList.length} item
+              {cartList.length}
             </Paragraph>
           </FlexBox>
 
           <IconButton onClick={toggleSidenav}>
-            <Clear />
+            <Close />
           </IconButton>
         </FlexBetween>
 
@@ -83,14 +86,12 @@ const MiniCart = ({
               </Button>
             </FlexBox>
 
-            <Link href={`/product/${item.id}`}>
-              <a>
-                <Avatar alt={item.name} src={item.imgUrl} sx={{
-                  mx: 2,
-                  width: 76,
-                  height: 76
-                }} />
-              </a>
+            <Link href={`/product/${item.slug}`}>
+              <Avatar alt={item.name} src={item.imgUrl} sx={{
+                mx: 2,
+                width: 76,
+                height: 76
+              }} />
             </Link>
 
             <Box flex="1" sx={{
@@ -99,11 +100,9 @@ const MiniCart = ({
               textOverflow: "ellipsis"
             }}>
               <Link href={`/product/${item.slug}`}>
-                <a>
-                  <H5 ellipsis fontSize="14px" className="title">
-                    {item.name}
-                  </H5>
-                </a>
+                <H5 ellipsis fontSize="14px" className="title">
+                  {item.name}
+                </H5>
               </Link>
 
               <Tiny color="grey.600">

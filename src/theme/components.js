@@ -38,6 +38,13 @@ export const components = {
       }
     })
   },
+  MuiAvatar: {
+    styleOverrides: {
+      img: {
+        objectFit: 'contain'
+      }
+    }
+  },
   MuiInputLabel: {
     styleOverrides: {
       root: {
@@ -47,9 +54,9 @@ export const components = {
         fontSize: '15px'
       },
       shrink: {
-        fontSize: '22px',
+        fontSize: '16px',
         fontWeight: '700',
-        top: '-15px',
+        top: '-2px',
         zIndex: 1
       }
     }

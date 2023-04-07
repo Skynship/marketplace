@@ -80,8 +80,15 @@ const ProductIntro = ({
     });
   };
 
-  return <Box width="100%" sx={{ 'display': 'flex', 'flexDirection': ['column', 'row'] }}>
-      <Grid sx={{'backgroundColor': 'primary.900', 'marginBottom': ['20px', '0px'], 'display': 'flex', 'alignItems': 'center', 'padding': ['20px 0px', '0px 40px']}}>
+  return <Box width="100%" sx={{ 'display': 'flex', 'flexDirection': ['column', 'column', 'row'] }}>
+      <Grid sx={{
+        'backgroundColor': 'primary.900',
+        'marginBottom': ['20px', '20px', '0px'],
+        'padding': ['20px 0px', '20px 0px', '0px 40px'],
+        'display': 'flex',
+        'alignItems': 'center',
+        'justifyContent': ['center', 'center', 'default']
+      }}>
         <FlexBox sx={{'padding': '20px 0px', 'flexDirection': 'column', 'justifyContent': 'center', 'alignItems': 'center'}}>
           <Box sx={{ 'padding': '10px 0px' }}>
             <SubNav items={[
@@ -102,24 +109,28 @@ const ProductIntro = ({
         </FlexBox>
       </Grid>
 
-      <Grid item md={4} xs={12} sx={{'display': 'flex', 'flexGrow': '1', 'justifyContent': 'center', 'cursor': 'default', 'padding': ['0px 20px', '0px'] }}>
+      <Grid item md={4} xs={12} sx={{'display': 'flex', 'flexGrow': '1', 'justifyContent': 'center', 'cursor': 'default', 'padding': ['0px 20px', '0px 20px', '0px'] }}>
         <Box sx={{'display': 'flex', 'flexDirection': 'column', 'justifyContent': 'center', 'alignItems': 'center'}}>
-          <Box sx={{'width': ['100%', '50%']}}>
-            <H1 sx={{'marginBottom': ['0px', '8px']}}>{title.toUpperCase()}</H1>
+          <Box sx={{'width': ['100%', '100%', '50%']}}>
+            <H1 sx={{'marginBottom': ['0px', '0px', '8px']}}>{title.toUpperCase()}</H1>
 
-            <FlexBox sx={{'marginBottom': ['0px', '4px'], 'display': 'flex', 'flexWrap': 'wrap'}}>
+            <FlexBox sx={{'marginBottom': ['0px', '0px', '4px'], 'display': 'flex', 'flexWrap': 'wrap'}}>
               <Box sx={{'fontSize': '16px'}}>
-                Aesthetician: <Link href={`/esthetician/${vendor.split(' ').join('-').toLowerCase()}`}><Box component="span" sx={{'fontWeight': '600', 'cursor': 'pointer'}}>{vendor}</Box></Link>
+                Aesthetician: <Link href={`/esthetician/${vendor.split(' ').join('-').toLowerCase()}`}>
+                  <Box component="span" sx={{'fontWeight': '600', 'cursor': 'pointer'}}>
+                    {vendor}
+                  </Box>
+                </Link>
               </Box>
             </FlexBox>
-            <Box pt={1} sx={{'marginBottom': ['8px', '10px']}}>
-              <H2 color="primary.main" sx={{'marginBottom': ['0px', '6px']}} lineHeight="1">
+            <Box pt={1} sx={{'marginBottom': ['8px', '8px', '10px']}}>
+              <H2 color="primary.main" sx={{'marginBottom': ['0px', '0px', '6px']}} lineHeight="1">
                 {currency(price)}
               </H2>
               <Box color="inherit">Available</Box>
             </Box>
 
-            <FlexBox sx={{'marginBottom': ['8px', '10px']}}>
+            <FlexBox sx={{'marginBottom': ['8px', '8px', '10px']}}>
               {tags.map((tag, idx) => {
                 return <Box key={idx} sx={{'fontSize': '16px', 'fontWeight': '600'}}>{tag} &nbsp;</Box>
               })}
@@ -149,8 +160,8 @@ const ProductIntro = ({
                   </H3>
 
                   <Button size="small" sx={{
-                p: 1
-              }} color="primary" variant="outlined" onClick={handleCartAmountChange(cartItem?.qty + 1)}>
+                    p: 1
+                  }} color="primary" variant="outlined" onClick={handleCartAmountChange(cartItem?.qty + 1)}>
                     <Add fontSize="small" />
                   </Button>
                 </FlexBox>}

@@ -53,7 +53,7 @@ const Header = ({
         <FlexBox gap={1.5} alignItems="center">
           {
             isCartShown ? (
-              <Badge badgeContent={0} color="primary">
+              <Badge badgeContent={state.cart.items.length} color="primary">
                 <Box p={1.25} bgcolor="grey.200" component={IconButton} onClick={toggleSidenav}>
                   <ShoppingBagOutlined />
                 </Box>

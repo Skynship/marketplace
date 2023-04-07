@@ -24,15 +24,16 @@ const ProductList = ({ products }) => {
         <Grid item md={3} xs={12} sx={{
           'cursor': 'pointer',
           'marginTop': isEven ? ['0px', `${STAGGER_PX}px`] : '0px',
-          'minHeight': isEven ? ['400px', '92vh'] : 'auto',
-          'maxHeight': isEven ? 'auto' : ['auto', '92vh'],
-          'padding': ['20px 0px', '0px 30px 20px 30px'],
+          'width': '300px',
+          'minHeight': isEven ? ['200px', '400px', '92vh'] : 'auto',
+          'maxHeight': isEven ? 'auto' : ['auto', 'auto', '92vh'],
+          'padding': ['20px 0px', '20px 0px', '0px 30px 20px 30px'],
           'display': 'flex',
           'alignItems': ['center', 'flex-end'],
           'justifyContent': 'center',
           '&:hover': {
-            'color': 'white !important',
-            'backgroundColor': '#FF2F17',
+            'color': ['inherit !important', 'inherit !important', 'white !important'],
+            'backgroundColor': ['inherit', 'inherit', '#FF2F17'],
           }
         }}>
           <MainCard hideReview hideFavoriteIcon hidePrice id={title} slug={slug} title={title} price={getPriceAmount(price)} imgUrl={getFirstImage(images)} />

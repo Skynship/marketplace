@@ -49,7 +49,9 @@ const ProductList = ({ products }) => {
           { productsComponents}
         </Grid>
       </Grid>
-      <Box sx={{'display': ['block', 'none']}}>{productsComponents}</Box>
+      <Box sx={{'display': ['flex', 'none'], 'flexDirection': 'column', 'alignItems': 'center'}}>
+        {productsComponents}
+      </Box>
     </React.Fragment>
   );
 };

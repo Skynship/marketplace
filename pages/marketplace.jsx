@@ -34,7 +34,7 @@ class Marketplace extends React.PureComponent {
                     display: 'flex',
                     justifyContent: 'center'
                   }}>
-                    <Container sx={{ 'margin': '0px !important', 'padding': '0px !important' }}>
+                    <Container sx={{ 'margin': ['64px 0px 20px 0px', '0px !important', '0px !important'], 'padding': '0px !important' }}>
                       <ProductList products={products} />
                     </Container>
                   </Box>
